@@ -1,0 +1,3 @@
+[submodule "ext/ref"]
+	path = ext/ref
+	url = https://github.com/YushiOMOTE/mattermost-api-reference.git
