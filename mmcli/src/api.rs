@@ -1,17 +1,23 @@
-use crate::hook;
-use anyhow::{bail, Context, Result};
+use anyhow::{anyhow, bail, Context, Result};
 use derive_new::new;
 use futures::{
     future::{abortable, AbortHandle},
     prelude::*,
 };
 use log::*;
-use reqwest::Client;
+use mmcli_raw::{
+    apis::{configuration::Configuration, *},
+    models,
+};
 use serde::{de::DeserializeOwned, Deserialize, Serialize};
 use tokio::sync::mpsc;
 use tokio_tungstenite::{connect_async, tungstenite::protocol::Message as WsMessage};
 
-pub type WebhookPost = hook::Post;
+macro_rules! t {
+    ($e:expr) => {
+        $e.map_err(|e| anyhow!("Request error: {:?}", e))
+    };
+}
 
 #[derive(Serialize, Deserialize, Debug, new, Clone)]
 pub struct AuthToken {
@@ -110,25 +116,6 @@ pub struct PostedContent {
 }
 
 #[derive(Serialize, Deserialize, Debug, new, Clone)]
-pub struct Post {
-    pub channel_id: String,
-    pub message: String,
-}
-
-#[derive(Serialize, Deserialize, Debug, new, Clone)]
-pub struct PostRep {
-    pub id: String,
-}
-
-#[derive(Serialize, Deserialize, Debug, new, Clone)]
-pub struct Reaction {
-    pub user_id: String,
-    pub post_id: String,
-    pub emoji_name: String,
-    pub create_at: i64,
-}
-
-#[derive(Serialize, Deserialize, Debug, new, Clone)]
 pub struct Broadcast {
     pub channel_id: String,
     pub user_id: String,
@@ -145,21 +132,14 @@ pub struct Config {
     pub webhook_token: Option<String>,
 }
 
-#[derive(Serialize, Deserialize, Debug, new, Clone)]
-pub struct User {
-    pub id: String,
-    pub username: String,
-}
-
 type Sender = mpsc::UnboundedSender<WsMessage>;
 type Receiver = mpsc::UnboundedReceiver<WsMessage>;
 
 pub struct Api {
     down_rx: Receiver,
     up_tx: Sender,
-    cli: Client,
-    hook: Option<hook::Hook>,
     cfg: Config,
+    raw: Configuration,
     handle: AbortHandle,
 }
 
@@ -172,11 +152,6 @@ impl Drop for Api {
 impl Api {
     /// Create a new client instance.
     pub async fn new(cfg: Config) -> Result<Self> {
-        let hook = cfg
-            .webhook_token
-            .as_ref()
-            .map(|token| hook::Hook::new(hook::Config::new(cfg.url.clone(), token.to_string())));
-
         let urlstr = format!(
             "wss://{}{}/websocket",
             cfg.url,
@@ -184,7 +159,6 @@ impl Api {
         );
         let url =
             url::Url::parse(&urlstr).with_context(|| format!("Couldn't parse url: {}", urlstr))?;
-        let cli = Client::new();
 
         let (mut sock, _) = connect_async(url)
             .await
@@ -264,12 +238,20 @@ impl Api {
 
         tokio::spawn(task);
 
+        let mut raw = Configuration::new();
+
+        raw.base_path = format!(
+            "https://{}{}",
+            cfg.url,
+            cfg.base_path.as_deref().unwrap_or(""),
+        );
+        raw.bearer_access_token = Some(cfg.token.clone());
+
         Ok(Self {
             down_rx,
             up_tx,
-            cli,
-            hook,
             cfg,
+            raw,
             handle,
         })
     }
@@ -314,38 +296,58 @@ impl Api {
     }
 
     /// Post a message to the channel.
-    pub async fn post(&mut self, post: Post) -> Result<PostRep> {
-        self.post_http("/posts", post.clone())
-            .await
-            .with_context(|| format!("Couldn't post message: {:?}", post))
+    pub async fn post(&mut self, channel_id: &str, message: &str) -> Result<models::Post> {
+        let p = posts_api::posts_post(
+            &self.raw,
+            models::InlineObject52::new(channel_id.into(), message.into()),
+            None,
+        )
+        .await;
+
+        Ok(t!(p).with_context(|| format!("Couldn't post: {}: {}", channel_id, message))?)
     }
 
     /// Post to incoming webhook.
-    pub async fn post_webhook(&mut self, post: hook::Post) -> Result<()> {
-        if let Some(hook) = self.hook.as_mut() {
-            hook.post(post)
-                .await
-                .context("Cannot post to incoming webhook")
-        } else {
-            bail!("Incoming webhook is not configured")
-        }
+    pub async fn post_webhook(
+        &mut self,
+        channel_id: &str,
+        display_name: &str,
+        username: &str,
+        icon_url: &str,
+        message: &str,
+    ) -> Result<models::IncomingWebhook> {
+        let p = webhooks_api::hooks_incoming_post(
+            &self.raw,
+            models::InlineObject64 {
+                channel_id: channel_id.into(),
+                display_name: Some(display_name.into()),
+                username: Some(username.into()),
+                icon_url: Some(icon_url.into()),
+                description: Some(message.into()),
+            },
+        )
+        .await;
+
+        Ok(t!(p).with_context(|| {
+            format!(
+                "Couldn't post via webhook: {}: {}: {}",
+                channel_id, username, message
+            )
+        })?)
     }
 
     /// Get user info by usernames
-    pub async fn usernames(&mut self, names: Vec<String>) -> Result<Vec<User>> {
-        self.post_http("/users/usernames", names.clone())
-            .await
-            .with_context(|| format!("Couldn't post message: {:?}", names))
+    pub async fn usernames(&mut self, names: Vec<String>) -> Result<Vec<models::User>> {
+        let p = users_api::users_usernames_post(&self.raw, names.clone()).await;
+
+        Ok(t!(p).with_context(|| format!("Couldn't get usernames: {:?}", names))?)
     }
 
     /// Create a reaction
-    pub async fn reaction(&mut self, react: Reaction) -> Result<()> {
-        let rep: Reaction = self
-            .post_http("/reactions", react.clone())
-            .await
-            .with_context(|| format!("Couldn't create a reaction: {:?}", react))?;
-        debug!("Reaction succeeds with response: {:?}", rep);
-        Ok(())
+    pub async fn reaction(&mut self, react: models::Reaction) -> Result<models::Reaction> {
+        let p = reactions_api::reactions_post(&self.raw, react.clone()).await;
+
+        Ok(t!(p).with_context(|| format!("Couldn't set reaction: {:?}", react))?)
     }
 
     /// Send a message to the channel via websocket.
@@ -356,40 +358,6 @@ impl Api {
             .send(WsMessage::Text(msg.clone()))
             .with_context(|| format!("Couldn't send message to websocket: {}", msg))?;
         Ok(())
-    }
-
-    fn https_url(&self, path: &str) -> String {
-        format!(
-            "https://{}{}{}",
-            self.cfg.url,
-            self.cfg.base_path.as_deref().unwrap_or(""),
-            path
-        )
-    }
-
-    /// Post a message to the channel via http.
-    pub async fn post_http<T: Serialize, U: DeserializeOwned>(
-        &mut self,
-        path: &str,
-        msg: T,
-    ) -> Result<U> {
-        let url = self.https_url(path);
-        let res = self
-            .cli
-            .post(&url)
-            .header("Authorization", format!("Bearer {}", self.cfg.token))
-            .json(&msg)
-            .send()
-            .await
-            .with_context(|| format!("Couldn't post a HTTP request: {}", path))?;
-        if res.status().is_success() {
-            Ok(res
-                .json()
-                .await
-                .with_context(|| format!("Couldn't parse response as json: {}", path))?)
-        } else {
-            bail!("Http error: {:?}", res)
-        }
     }
 
     /// Receive an event from a websocket.
