@@ -1,6 +1,6 @@
 [package]
-name = "mmcli_raw"
-version = "1.0.0"
+name = "mmcli-raw"
+version = "0.1.0"
 authors = ["OpenAPI Generator team and contributors"]
 edition = "2018"
 
