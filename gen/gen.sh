@@ -4,9 +4,10 @@ set -uex
 
 pushd "$(dirname "${BASH_SOURCE[0]}")"
 
+root=$(pwd)/..
 spec=mattermost-openapi-v4.yaml
 spec_path=$(pwd)/$spec
-ext=$(pwd)/../ext/ref
+ext=$root/ext/ref
 name=mmcli_raw
 
 # Generate spec
@@ -49,3 +50,8 @@ docker run --rm -v $(pwd):/local -u $(id -u) openapitools/openapi-generator-cli 
 # Update output crate
 rm -rf ../$name
 mv out ../$name
+
+# Apply patch
+pushd $root
+patch -p1 < gen/allow-warns.patch
+popd
