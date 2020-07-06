@@ -5,4 +5,20 @@ authors = ["Yushi OMOTE <yushiomote@gmail.com>"]
 edition = "2018"
 
 [dependencies]
+futures = "0.3"
+tokio = { version = "0.2", features = ["full"] }
+tokio-tls = "0.3"
+tokio-tungstenite = { version = "0.10", features = ["tls"] }
+url = "2.1"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+derive-new = "0.5"
+anyhow = "1.0"
+reqwest = { version = "0.10", features = ["json"] }
+log = "0.4"
 mmcli-raw = { version = "0.1.0", path = "../mmcli_raw" }
+
+[dev-dependencies]
+structopt = "0.3"
+env_logger = "0.7"
+serde_yaml = "0.8"
