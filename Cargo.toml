@@ -1,0 +1,2 @@
+[workspace]
+members = ["mmcli", "mmcli_raw"]
