@@ -11,19 +11,19 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct InlineObject13 {
-    /// The session GUID to revoke.
-    #[serde(rename = "session_id")]
-    pub session_id: String,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct InlineObject13 {
+                        /// The session GUID to revoke.
+                    #[serde(rename = "session_id")]
+                    pub session_id: String,
+                }
 
-impl InlineObject13 {
-    pub fn new(session_id: String) -> InlineObject13 {
-        InlineObject13 {
-            session_id,
-        }
-    }
-}
+                impl InlineObject13 {
+                pub fn new(session_id: String) -> InlineObject13 {
+                InlineObject13 {
+                    session_id,
+                }
+                }
+                }
 
 

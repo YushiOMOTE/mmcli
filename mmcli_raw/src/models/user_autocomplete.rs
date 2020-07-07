@@ -11,23 +11,23 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct UserAutocomplete {
-    /// A list of users that are the main result of the query
-    #[serde(rename = "users", skip_serializing_if = "Option::is_none")]
-    pub users: Option<Vec<crate::models::User>>,
-    /// A special case list of users returned when autocompleting in a specific channel. Omitted when empty or not relevant
-    #[serde(rename = "out_of_channel", skip_serializing_if = "Option::is_none")]
-    pub out_of_channel: Option<Vec<crate::models::User>>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct UserAutocomplete {
+                        /// A list of users that are the main result of the query
+                    #[serde(rename = "users", skip_serializing_if = "Option::is_none")]
+                    pub users: Option<Vec<crate::models::User>>,
+                        /// A special case list of users returned when autocompleting in a specific channel. Omitted when empty or not relevant
+                    #[serde(rename = "out_of_channel", skip_serializing_if = "Option::is_none")]
+                    pub out_of_channel: Option<Vec<crate::models::User>>,
+                }
 
-impl UserAutocomplete {
-    pub fn new() -> UserAutocomplete {
-        UserAutocomplete {
-            users: None,
-            out_of_channel: None,
-        }
-    }
-}
+                impl UserAutocomplete {
+                pub fn new() -> UserAutocomplete {
+                UserAutocomplete {
+                    users: None,
+                    out_of_channel: None,
+                }
+                }
+                }
 
 

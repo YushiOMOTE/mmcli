@@ -307,8 +307,8 @@ Get a page of a list of bots. ##### Permissions Must have `read_bots` permission
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**page** | Option<**i32**> | The page to select. |  |[default to 0]
-**per_page** | Option<**i32**> | The number of users per page. There is a maximum limit of 200 users per page. |  |[default to 60]
+**page** | Option<**i64**> | The page to select. |  |[default to 0]
+**per_page** | Option<**i64**> | The number of users per page. There is a maximum limit of 200 users per page. |  |[default to 60]
 **include_deleted** | Option<**bool**> | If deleted bots should be returned. |  |
 **only_orphaned** | Option<**bool**> | When true, only orphaned bots will be returned. A bot is consitered orphaned if it's owner has been deactivated. |  |
 

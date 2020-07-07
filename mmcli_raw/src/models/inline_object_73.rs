@@ -11,19 +11,19 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct InlineObject73 {
-    /// Destination teamId
-    #[serde(rename = "team_id", skip_serializing_if = "Option::is_none")]
-    pub team_id: Option<String>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct InlineObject73 {
+                        /// Destination teamId
+                    #[serde(rename = "team_id", skip_serializing_if = "Option::is_none")]
+                    pub team_id: Option<String>,
+                }
 
-impl InlineObject73 {
-    pub fn new() -> InlineObject73 {
-        InlineObject73 {
-            team_id: None,
-        }
-    }
-}
+                impl InlineObject73 {
+                pub fn new() -> InlineObject73 {
+                InlineObject73 {
+                    team_id: None,
+                }
+                }
+                }
 
 

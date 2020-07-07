@@ -11,31 +11,31 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct UserAccessToken {
-    /// Unique identifier for the token
-    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
-    pub id: Option<String>,
-    /// The token used for authentication
-    #[serde(rename = "token", skip_serializing_if = "Option::is_none")]
-    pub token: Option<String>,
-    /// The user the token authenticates for
-    #[serde(rename = "user_id", skip_serializing_if = "Option::is_none")]
-    pub user_id: Option<String>,
-    /// A description of the token usage
-    #[serde(rename = "description", skip_serializing_if = "Option::is_none")]
-    pub description: Option<String>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct UserAccessToken {
+                        /// Unique identifier for the token
+                    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
+                    pub id: Option<String>,
+                        /// The token used for authentication
+                    #[serde(rename = "token", skip_serializing_if = "Option::is_none")]
+                    pub token: Option<String>,
+                        /// The user the token authenticates for
+                    #[serde(rename = "user_id", skip_serializing_if = "Option::is_none")]
+                    pub user_id: Option<String>,
+                        /// A description of the token usage
+                    #[serde(rename = "description", skip_serializing_if = "Option::is_none")]
+                    pub description: Option<String>,
+                }
 
-impl UserAccessToken {
-    pub fn new() -> UserAccessToken {
-        UserAccessToken {
-            id: None,
-            token: None,
-            user_id: None,
-            description: None,
-        }
-    }
-}
+                impl UserAccessToken {
+                pub fn new() -> UserAccessToken {
+                UserAccessToken {
+                    id: None,
+                    token: None,
+                    user_id: None,
+                    description: None,
+                }
+                }
+                }
 
 

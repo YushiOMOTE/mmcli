@@ -11,78 +11,78 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct ConfigEmailSettings {
-    #[serde(rename = "EnableSignUpWithEmail", skip_serializing_if = "Option::is_none")]
-    pub enable_sign_up_with_email: Option<bool>,
-    #[serde(rename = "EnableSignInWithEmail", skip_serializing_if = "Option::is_none")]
-    pub enable_sign_in_with_email: Option<bool>,
-    #[serde(rename = "EnableSignInWithUsername", skip_serializing_if = "Option::is_none")]
-    pub enable_sign_in_with_username: Option<bool>,
-    #[serde(rename = "SendEmailNotifications", skip_serializing_if = "Option::is_none")]
-    pub send_email_notifications: Option<bool>,
-    #[serde(rename = "RequireEmailVerification", skip_serializing_if = "Option::is_none")]
-    pub require_email_verification: Option<bool>,
-    #[serde(rename = "FeedbackName", skip_serializing_if = "Option::is_none")]
-    pub feedback_name: Option<String>,
-    #[serde(rename = "FeedbackEmail", skip_serializing_if = "Option::is_none")]
-    pub feedback_email: Option<String>,
-    #[serde(rename = "FeedbackOrganization", skip_serializing_if = "Option::is_none")]
-    pub feedback_organization: Option<String>,
-    #[serde(rename = "SMTPUsername", skip_serializing_if = "Option::is_none")]
-    pub smtp_username: Option<String>,
-    #[serde(rename = "SMTPPassword", skip_serializing_if = "Option::is_none")]
-    pub smtp_password: Option<String>,
-    #[serde(rename = "SMTPServer", skip_serializing_if = "Option::is_none")]
-    pub smtp_server: Option<String>,
-    #[serde(rename = "SMTPPort", skip_serializing_if = "Option::is_none")]
-    pub smtp_port: Option<String>,
-    #[serde(rename = "ConnectionSecurity", skip_serializing_if = "Option::is_none")]
-    pub connection_security: Option<String>,
-    #[serde(rename = "InviteSalt", skip_serializing_if = "Option::is_none")]
-    pub invite_salt: Option<String>,
-    #[serde(rename = "PasswordResetSalt", skip_serializing_if = "Option::is_none")]
-    pub password_reset_salt: Option<String>,
-    #[serde(rename = "SendPushNotifications", skip_serializing_if = "Option::is_none")]
-    pub send_push_notifications: Option<bool>,
-    #[serde(rename = "PushNotificationServer", skip_serializing_if = "Option::is_none")]
-    pub push_notification_server: Option<String>,
-    #[serde(rename = "PushNotificationContents", skip_serializing_if = "Option::is_none")]
-    pub push_notification_contents: Option<String>,
-    #[serde(rename = "EnableEmailBatching", skip_serializing_if = "Option::is_none")]
-    pub enable_email_batching: Option<bool>,
-    #[serde(rename = "EmailBatchingBufferSize", skip_serializing_if = "Option::is_none")]
-    pub email_batching_buffer_size: Option<i32>,
-    #[serde(rename = "EmailBatchingInterval", skip_serializing_if = "Option::is_none")]
-    pub email_batching_interval: Option<i32>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct ConfigEmailSettings {
+                    #[serde(rename = "EnableSignUpWithEmail", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub enable_sign_up_with_email: Option<bool>,
+                    #[serde(rename = "EnableSignInWithEmail", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub enable_sign_in_with_email: Option<bool>,
+                    #[serde(rename = "EnableSignInWithUsername", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub enable_sign_in_with_username: Option<bool>,
+                    #[serde(rename = "SendEmailNotifications", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub send_email_notifications: Option<bool>,
+                    #[serde(rename = "RequireEmailVerification", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub require_email_verification: Option<bool>,
+                    #[serde(rename = "FeedbackName", skip_serializing_if = "Option::is_none")]
+                    pub feedback_name: Option<String>,
+                    #[serde(rename = "FeedbackEmail", skip_serializing_if = "Option::is_none")]
+                    pub feedback_email: Option<String>,
+                    #[serde(rename = "FeedbackOrganization", skip_serializing_if = "Option::is_none")]
+                    pub feedback_organization: Option<String>,
+                    #[serde(rename = "SMTPUsername", skip_serializing_if = "Option::is_none")]
+                    pub smtp_username: Option<String>,
+                    #[serde(rename = "SMTPPassword", skip_serializing_if = "Option::is_none")]
+                    pub smtp_password: Option<String>,
+                    #[serde(rename = "SMTPServer", skip_serializing_if = "Option::is_none")]
+                    pub smtp_server: Option<String>,
+                    #[serde(rename = "SMTPPort", skip_serializing_if = "Option::is_none")]
+                    pub smtp_port: Option<String>,
+                    #[serde(rename = "ConnectionSecurity", skip_serializing_if = "Option::is_none")]
+                    pub connection_security: Option<String>,
+                    #[serde(rename = "InviteSalt", skip_serializing_if = "Option::is_none")]
+                    pub invite_salt: Option<String>,
+                    #[serde(rename = "PasswordResetSalt", skip_serializing_if = "Option::is_none")]
+                    pub password_reset_salt: Option<String>,
+                    #[serde(rename = "SendPushNotifications", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub send_push_notifications: Option<bool>,
+                    #[serde(rename = "PushNotificationServer", skip_serializing_if = "Option::is_none")]
+                    pub push_notification_server: Option<String>,
+                    #[serde(rename = "PushNotificationContents", skip_serializing_if = "Option::is_none")]
+                    pub push_notification_contents: Option<String>,
+                    #[serde(rename = "EnableEmailBatching", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub enable_email_batching: Option<bool>,
+                    #[serde(rename = "EmailBatchingBufferSize", skip_serializing_if = "Option::is_none")]
+                    pub email_batching_buffer_size: Option<i64>,
+                    #[serde(rename = "EmailBatchingInterval", skip_serializing_if = "Option::is_none")]
+                    pub email_batching_interval: Option<i64>,
+                }
 
-impl ConfigEmailSettings {
-    pub fn new() -> ConfigEmailSettings {
-        ConfigEmailSettings {
-            enable_sign_up_with_email: None,
-            enable_sign_in_with_email: None,
-            enable_sign_in_with_username: None,
-            send_email_notifications: None,
-            require_email_verification: None,
-            feedback_name: None,
-            feedback_email: None,
-            feedback_organization: None,
-            smtp_username: None,
-            smtp_password: None,
-            smtp_server: None,
-            smtp_port: None,
-            connection_security: None,
-            invite_salt: None,
-            password_reset_salt: None,
-            send_push_notifications: None,
-            push_notification_server: None,
-            push_notification_contents: None,
-            enable_email_batching: None,
-            email_batching_buffer_size: None,
-            email_batching_interval: None,
-        }
-    }
-}
+                impl ConfigEmailSettings {
+                pub fn new() -> ConfigEmailSettings {
+                ConfigEmailSettings {
+                    enable_sign_up_with_email: None,
+                    enable_sign_in_with_email: None,
+                    enable_sign_in_with_username: None,
+                    send_email_notifications: None,
+                    require_email_verification: None,
+                    feedback_name: None,
+                    feedback_email: None,
+                    feedback_organization: None,
+                    smtp_username: None,
+                    smtp_password: None,
+                    smtp_server: None,
+                    smtp_port: None,
+                    connection_security: None,
+                    invite_salt: None,
+                    password_reset_salt: None,
+                    send_push_notifications: None,
+                    push_notification_server: None,
+                    push_notification_contents: None,
+                    enable_email_batching: None,
+                    email_batching_buffer_size: None,
+                    email_batching_interval: None,
+                }
+                }
+                }
 
 

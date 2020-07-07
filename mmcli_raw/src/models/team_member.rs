@@ -11,43 +11,43 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct TeamMember {
-    /// The ID of the team this member belongs to.
-    #[serde(rename = "team_id", skip_serializing_if = "Option::is_none")]
-    pub team_id: Option<String>,
-    /// The ID of the user this member relates to.
-    #[serde(rename = "user_id", skip_serializing_if = "Option::is_none")]
-    pub user_id: Option<String>,
-    /// The complete list of roles assigned to this team member, as a space-separated list of role names, including any roles granted implicitly through permissions schemes.
-    #[serde(rename = "roles", skip_serializing_if = "Option::is_none")]
-    pub roles: Option<String>,
-    /// The time in milliseconds that this team member was deleted.
-    #[serde(rename = "delete_at", skip_serializing_if = "Option::is_none")]
-    pub delete_at: Option<i32>,
-    /// Whether this team member holds the default user role defined by the team's permissions scheme.
-    #[serde(rename = "scheme_user", skip_serializing_if = "Option::is_none")]
-    pub scheme_user: Option<bool>,
-    /// Whether this team member holds the default admin role defined by the team's permissions scheme.
-    #[serde(rename = "scheme_admin", skip_serializing_if = "Option::is_none")]
-    pub scheme_admin: Option<bool>,
-    /// The list of roles explicitly assigned to this team member, as a space separated list of role names. This list does *not* include any roles granted implicitly through permissions schemes.
-    #[serde(rename = "explicit_roles", skip_serializing_if = "Option::is_none")]
-    pub explicit_roles: Option<String>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct TeamMember {
+                        /// The ID of the team this member belongs to.
+                    #[serde(rename = "team_id", skip_serializing_if = "Option::is_none")]
+                    pub team_id: Option<String>,
+                        /// The ID of the user this member relates to.
+                    #[serde(rename = "user_id", skip_serializing_if = "Option::is_none")]
+                    pub user_id: Option<String>,
+                        /// The complete list of roles assigned to this team member, as a space-separated list of role names, including any roles granted implicitly through permissions schemes.
+                    #[serde(rename = "roles", skip_serializing_if = "Option::is_none")]
+                    pub roles: Option<String>,
+                        /// The time in milliseconds that this team member was deleted.
+                    #[serde(rename = "delete_at", skip_serializing_if = "Option::is_none")]
+                    pub delete_at: Option<i64>,
+                        /// Whether this team member holds the default user role defined by the team's permissions scheme.
+                    #[serde(rename = "scheme_user", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub scheme_user: Option<bool>,
+                        /// Whether this team member holds the default admin role defined by the team's permissions scheme.
+                    #[serde(rename = "scheme_admin", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub scheme_admin: Option<bool>,
+                        /// The list of roles explicitly assigned to this team member, as a space separated list of role names. This list does *not* include any roles granted implicitly through permissions schemes.
+                    #[serde(rename = "explicit_roles", skip_serializing_if = "Option::is_none")]
+                    pub explicit_roles: Option<String>,
+                }
 
-impl TeamMember {
-    pub fn new() -> TeamMember {
-        TeamMember {
-            team_id: None,
-            user_id: None,
-            roles: None,
-            delete_at: None,
-            scheme_user: None,
-            scheme_admin: None,
-            explicit_roles: None,
-        }
-    }
-}
+                impl TeamMember {
+                pub fn new() -> TeamMember {
+                TeamMember {
+                    team_id: None,
+                    user_id: None,
+                    roles: None,
+                    delete_at: None,
+                    scheme_user: None,
+                    scheme_admin: None,
+                    explicit_roles: None,
+                }
+                }
+                }
 
 

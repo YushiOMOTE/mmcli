@@ -11,19 +11,19 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct InlineResponse2003 {
-    /// The link for the user to follow to login or to complete the account switching when the current service is OAuth2/SAML
-    #[serde(rename = "follow_link", skip_serializing_if = "Option::is_none")]
-    pub follow_link: Option<String>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct InlineResponse2003 {
+                        /// The link for the user to follow to login or to complete the account switching when the current service is OAuth2/SAML
+                    #[serde(rename = "follow_link", skip_serializing_if = "Option::is_none")]
+                    pub follow_link: Option<String>,
+                }
 
-impl InlineResponse2003 {
-    pub fn new() -> InlineResponse2003 {
-        InlineResponse2003 {
-            follow_link: None,
-        }
-    }
-}
+                impl InlineResponse2003 {
+                pub fn new() -> InlineResponse2003 {
+                InlineResponse2003 {
+                    follow_link: None,
+                }
+                }
+                }
 
 

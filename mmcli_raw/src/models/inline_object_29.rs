@@ -11,19 +11,19 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct InlineObject29 {
-    /// Team privacy setting: 'O' for a public (open) team, 'I' for a private (invitation only) team
-    #[serde(rename = "privacy")]
-    pub privacy: String,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct InlineObject29 {
+                        /// Team privacy setting: 'O' for a public (open) team, 'I' for a private (invitation only) team
+                    #[serde(rename = "privacy")]
+                    pub privacy: String,
+                }
 
-impl InlineObject29 {
-    pub fn new(privacy: String) -> InlineObject29 {
-        InlineObject29 {
-            privacy,
-        }
-    }
-}
+                impl InlineObject29 {
+                pub fn new(privacy: String) -> InlineObject29 {
+                InlineObject29 {
+                    privacy,
+                }
+                }
+                }
 
 

@@ -11,23 +11,23 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct InlineObject62 {
-    /// A file to be uploaded
-    #[serde(rename = "image")]
-    pub image: std::path::PathBuf,
-    /// A JSON object containing a `name` field with the name of the emoji and a `creator_id` field with the id of the authenticated user.
-    #[serde(rename = "emoji")]
-    pub emoji: String,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct InlineObject62 {
+                        /// A file to be uploaded
+                    #[serde(rename = "image")]
+                    pub image: std::path::PathBuf,
+                        /// A JSON object containing a `name` field with the name of the emoji and a `creator_id` field with the id of the authenticated user.
+                    #[serde(rename = "emoji")]
+                    pub emoji: String,
+                }
 
-impl InlineObject62 {
-    pub fn new(image: std::path::PathBuf, emoji: String) -> InlineObject62 {
-        InlineObject62 {
-            image,
-            emoji,
-        }
-    }
-}
+                impl InlineObject62 {
+                pub fn new(image: std::path::PathBuf, emoji: String) -> InlineObject62 {
+                InlineObject62 {
+                    image,
+                    emoji,
+                }
+                }
+                }
 
 

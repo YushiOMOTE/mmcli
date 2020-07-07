@@ -76,8 +76,8 @@ Get a page of audits for all users on the system, selected with `page` and `per_
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**page** | Option<**i32**> | The page to select. |  |[default to 0]
-**per_page** | Option<**i32**> | The number of audits per page. |  |[default to 60]
+**page** | Option<**i64**> | The page to select. |  |[default to 0]
+**per_page** | Option<**i64**> | The number of audits per page. |  |[default to 60]
 
 ### Return type
 
@@ -506,7 +506,7 @@ Get a page of server logs, selected with `page` and `logs_per_page` query parame
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**page** | Option<**i32**> | The page to select. |  |[default to 0]
+**page** | Option<**i64**> | The page to select. |  |[default to 0]
 **logs_per_page** | Option<**String**> | The number of logs per page. There is a maximum limit of 10000 logs per page. |  |[default to 10000]
 
 ### Return type

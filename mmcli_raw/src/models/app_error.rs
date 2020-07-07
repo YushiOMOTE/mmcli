@@ -11,27 +11,27 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct AppError {
-    #[serde(rename = "status_code", skip_serializing_if = "Option::is_none")]
-    pub status_code: Option<i32>,
-    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
-    pub id: Option<String>,
-    #[serde(rename = "message", skip_serializing_if = "Option::is_none")]
-    pub message: Option<String>,
-    #[serde(rename = "request_id", skip_serializing_if = "Option::is_none")]
-    pub request_id: Option<String>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct AppError {
+                    #[serde(rename = "status_code", skip_serializing_if = "Option::is_none")]
+                    pub status_code: Option<i64>,
+                    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
+                    pub id: Option<String>,
+                    #[serde(rename = "message", skip_serializing_if = "Option::is_none")]
+                    pub message: Option<String>,
+                    #[serde(rename = "request_id", skip_serializing_if = "Option::is_none")]
+                    pub request_id: Option<String>,
+                }
 
-impl AppError {
-    pub fn new() -> AppError {
-        AppError {
-            status_code: None,
-            id: None,
-            message: None,
-            request_id: None,
-        }
-    }
-}
+                impl AppError {
+                pub fn new() -> AppError {
+                AppError {
+                    status_code: None,
+                    id: None,
+                    message: None,
+                    request_id: None,
+                }
+                }
+                }
 
 

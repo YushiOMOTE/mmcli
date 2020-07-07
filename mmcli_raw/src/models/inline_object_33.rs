@@ -11,18 +11,18 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct InlineObject33 {
-    #[serde(rename = "roles")]
-    pub roles: String,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct InlineObject33 {
+                    #[serde(rename = "roles")]
+                    pub roles: String,
+                }
 
-impl InlineObject33 {
-    pub fn new(roles: String) -> InlineObject33 {
-        InlineObject33 {
-            roles,
-        }
-    }
-}
+                impl InlineObject33 {
+                pub fn new(roles: String) -> InlineObject33 {
+                InlineObject33 {
+                    roles,
+                }
+                }
+                }
 
 

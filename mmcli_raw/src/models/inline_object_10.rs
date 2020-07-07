@@ -11,19 +11,19 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct InlineObject10 {
-    /// The email or username used to login
-    #[serde(rename = "login_id")]
-    pub login_id: String,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct InlineObject10 {
+                        /// The email or username used to login
+                    #[serde(rename = "login_id")]
+                    pub login_id: String,
+                }
 
-impl InlineObject10 {
-    pub fn new(login_id: String) -> InlineObject10 {
-        InlineObject10 {
-            login_id,
-        }
-    }
-}
+                impl InlineObject10 {
+                pub fn new(login_id: String) -> InlineObject10 {
+                InlineObject10 {
+                    login_id,
+                }
+                }
+                }
 
 

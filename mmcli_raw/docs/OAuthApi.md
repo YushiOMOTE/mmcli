@@ -178,8 +178,8 @@ Get a page of OAuth 2.0 client applications registered with Mattermost. ##### Pe
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**page** | Option<**i32**> | The page to select. |  |[default to 0]
-**per_page** | Option<**i32**> | The number of apps per page. |  |[default to 60]
+**page** | Option<**i64**> | The page to select. |  |[default to 0]
+**per_page** | Option<**i64**> | The number of apps per page. |  |[default to 60]
 
 ### Return type
 
@@ -240,8 +240,8 @@ Get a page of OAuth 2.0 client applications authorized to access a user's accoun
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **user_id** | **String** | User GUID | [required] |
-**page** | Option<**i32**> | The page to select. |  |[default to 0]
-**per_page** | Option<**i32**> | The number of apps per page. |  |[default to 60]
+**page** | Option<**i64**> | The page to select. |  |[default to 0]
+**per_page** | Option<**i64**> | The number of apps per page. |  |[default to 60]
 
 ### Return type
 

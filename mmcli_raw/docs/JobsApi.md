@@ -24,8 +24,8 @@ Get a page of jobs. Use the query parameters to modify the behaviour of this end
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**page** | Option<**i32**> | The page to select. |  |[default to 0]
-**per_page** | Option<**i32**> | The number of jobs per page. |  |[default to 60]
+**page** | Option<**i64**> | The page to select. |  |[default to 0]
+**per_page** | Option<**i64**> | The number of jobs per page. |  |[default to 60]
 
 ### Return type
 
@@ -146,8 +146,8 @@ Get a page of jobs of the given type. Use the query parameters to modify the beh
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **_type** | **String** | Job type | [required] |
-**page** | Option<**i32**> | The page to select. |  |[default to 0]
-**per_page** | Option<**i32**> | The number of jobs per page. |  |[default to 60]
+**page** | Option<**i64**> | The page to select. |  |[default to 0]
+**per_page** | Option<**i64**> | The number of jobs per page. |  |[default to 60]
 
 ### Return type
 

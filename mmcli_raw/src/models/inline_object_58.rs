@@ -11,19 +11,19 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct InlineObject58 {
-    /// The Site URL to test
-    #[serde(rename = "site_url")]
-    pub site_url: String,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct InlineObject58 {
+                        /// The Site URL to test
+                    #[serde(rename = "site_url")]
+                    pub site_url: String,
+                }
 
-impl InlineObject58 {
-    pub fn new(site_url: String) -> InlineObject58 {
-        InlineObject58 {
-            site_url,
-        }
-    }
-}
+                impl InlineObject58 {
+                pub fn new(site_url: String) -> InlineObject58 {
+                InlineObject58 {
+                    site_url,
+                }
+                }
+                }
 
 

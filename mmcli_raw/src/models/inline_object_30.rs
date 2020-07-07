@@ -11,27 +11,27 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct InlineObject30 {
-    /// The search term to match against the name or display name of teams
-    #[serde(rename = "term")]
-    pub term: String,
-    /// The page number to return, if paginated. If this parameter is not present with the `per_page` parameter then the results will be returned un-paged.
-    #[serde(rename = "page", skip_serializing_if = "Option::is_none")]
-    pub page: Option<String>,
-    /// The number of entries to return per page, if paginated. If this parameter is not present with the `page` parameter then the results will be returned un-paged.
-    #[serde(rename = "per_page", skip_serializing_if = "Option::is_none")]
-    pub per_page: Option<String>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct InlineObject30 {
+                        /// The search term to match against the name or display name of teams
+                    #[serde(rename = "term")]
+                    pub term: String,
+                        /// The page number to return, if paginated. If this parameter is not present with the `per_page` parameter then the results will be returned un-paged.
+                    #[serde(rename = "page", skip_serializing_if = "Option::is_none")]
+                    pub page: Option<String>,
+                        /// The number of entries to return per page, if paginated. If this parameter is not present with the `page` parameter then the results will be returned un-paged.
+                    #[serde(rename = "per_page", skip_serializing_if = "Option::is_none")]
+                    pub per_page: Option<String>,
+                }
 
-impl InlineObject30 {
-    pub fn new(term: String) -> InlineObject30 {
-        InlineObject30 {
-            term,
-            page: None,
-            per_page: None,
-        }
-    }
-}
+                impl InlineObject30 {
+                pub fn new(term: String) -> InlineObject30 {
+                InlineObject30 {
+                    term,
+                    page: None,
+                    per_page: None,
+                }
+                }
+                }
 
 

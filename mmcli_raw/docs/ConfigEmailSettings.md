@@ -23,8 +23,8 @@ Name | Type | Description | Notes
 **push_notification_server** | Option<**String**> |  | [optional]
 **push_notification_contents** | Option<**String**> |  | [optional]
 **enable_email_batching** | Option<**bool**> |  | [optional]
-**email_batching_buffer_size** | Option<**i32**> |  | [optional]
-**email_batching_interval** | Option<**i32**> |  | [optional]
+**email_batching_buffer_size** | Option<**i64**> |  | [optional]
+**email_batching_interval** | Option<**i64**> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

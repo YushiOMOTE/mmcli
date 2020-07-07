@@ -11,23 +11,23 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct InlineObject74 {
-    /// Channel Id where the command will execute
-    #[serde(rename = "channel_id")]
-    pub channel_id: String,
-    /// The slash command to execute
-    #[serde(rename = "command")]
-    pub command: String,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct InlineObject74 {
+                        /// Channel Id where the command will execute
+                    #[serde(rename = "channel_id")]
+                    pub channel_id: String,
+                        /// The slash command to execute
+                    #[serde(rename = "command")]
+                    pub command: String,
+                }
 
-impl InlineObject74 {
-    pub fn new(channel_id: String, command: String) -> InlineObject74 {
-        InlineObject74 {
-            channel_id,
-            command,
-        }
-    }
-}
+                impl InlineObject74 {
+                pub fn new(channel_id: String, command: String) -> InlineObject74 {
+                InlineObject74 {
+                    channel_id,
+                    command,
+                }
+                }
+                }
 
 

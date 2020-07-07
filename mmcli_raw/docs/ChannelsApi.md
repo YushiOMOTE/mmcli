@@ -184,8 +184,8 @@ Get a page of members for a channel. ##### Permissions `read_channel` permission
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **channel_id** | **String** | Channel GUID | [required] |
-**page** | Option<**i32**> | The page to select. |  |[default to 0]
-**per_page** | Option<**i32**> | The number of members per page. |  |[default to 60]
+**page** | Option<**i64**> | The page to select. |  |[default to 0]
+**per_page** | Option<**i64**> | The number of members per page. |  |[default to 60]
 
 ### Return type
 
@@ -248,8 +248,8 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **channel_id** | **String** | Channel GUID | [required] |
 **group_ids** | **String** | A comma-separated list of group ids. | [required] |[default to ]
-**page** | Option<**i32**> | The page to select. |  |[default to 0]
-**per_page** | Option<**i32**> | The number of users per page. |  |[default to 0]
+**page** | Option<**i64**> | The page to select. |  |[default to 0]
+**per_page** | Option<**i64**> | The number of users per page. |  |[default to 0]
 
 ### Return type
 
@@ -835,8 +835,8 @@ Get a list of all channels
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **not_associated_to_group** | Option<**String**> | Group GUID |  |
-**page** | Option<**i32**> |  |  |[default to 0]
-**per_page** | Option<**i32**> |  |  |[default to 0]
+**page** | Option<**i64**> |  |  |[default to 0]
+**per_page** | Option<**i64**> |  |  |[default to 0]
 **exclude_default_channels** | Option<**bool**> | Whether to exclude default channels (ex Town Square, Off-Topic) from the results. |  |[default to false]
 
 ### Return type
@@ -1082,8 +1082,8 @@ Get a page of deleted channels on a team based on query string parameters - team
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **team_id** | **String** | Team GUID | [required] |
-**page** | Option<**i32**> | The page to select. |  |[default to 0]
-**per_page** | Option<**i32**> | The number of public channels per page. |  |[default to 60]
+**page** | Option<**i64**> | The page to select. |  |[default to 0]
+**per_page** | Option<**i64**> | The number of public channels per page. |  |[default to 60]
 
 ### Return type
 
@@ -1114,8 +1114,8 @@ Get a page of public channels on a team based on query string parameters - page 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **team_id** | **String** | Team GUID | [required] |
-**page** | Option<**i32**> | The page to select. |  |[default to 0]
-**per_page** | Option<**i32**> | The number of public channels per page. |  |[default to 60]
+**page** | Option<**i64**> | The page to select. |  |[default to 0]
+**per_page** | Option<**i64**> | The number of public channels per page. |  |[default to 60]
 
 ### Return type
 

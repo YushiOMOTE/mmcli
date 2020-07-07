@@ -11,21 +11,21 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct ConfigPrivacySettings {
-    #[serde(rename = "ShowEmailAddress", skip_serializing_if = "Option::is_none")]
-    pub show_email_address: Option<bool>,
-    #[serde(rename = "ShowFullName", skip_serializing_if = "Option::is_none")]
-    pub show_full_name: Option<bool>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct ConfigPrivacySettings {
+                    #[serde(rename = "ShowEmailAddress", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub show_email_address: Option<bool>,
+                    #[serde(rename = "ShowFullName", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub show_full_name: Option<bool>,
+                }
 
-impl ConfigPrivacySettings {
-    pub fn new() -> ConfigPrivacySettings {
-        ConfigPrivacySettings {
-            show_email_address: None,
-            show_full_name: None,
-        }
-    }
-}
+                impl ConfigPrivacySettings {
+                pub fn new() -> ConfigPrivacySettings {
+                ConfigPrivacySettings {
+                    show_email_address: None,
+                    show_full_name: None,
+                }
+                }
+                }
 
 

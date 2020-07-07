@@ -14,8 +14,8 @@ Name | Type | Description | Notes
 **name** | Option<**String**> |  | [optional]
 **header** | Option<**String**> |  | [optional]
 **purpose** | Option<**String**> |  | [optional]
-**last_post_at** | Option<**i32**> | The time in milliseconds of the last post of a channel | [optional]
-**total_msg_count** | Option<**i32**> |  | [optional]
+**last_post_at** | Option<**i64**> | The time in milliseconds of the last post of a channel | [optional]
+**total_msg_count** | Option<**i64**> |  | [optional]
 **extra_update_at** | Option<**i64**> | Deprecated in Mattermost 5.0 release | [optional]
 **creator_id** | Option<**String**> |  | [optional]
 

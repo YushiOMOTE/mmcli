@@ -11,23 +11,23 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct InlineObject23 {
-    /// terms of service ID on which the user is acting on
-    #[serde(rename = "serviceTermsId")]
-    pub service_terms_id: String,
-    /// true or false, indicates whether the user accepted or rejected the terms of service.
-    #[serde(rename = "accepted")]
-    pub accepted: String,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct InlineObject23 {
+                        /// terms of service ID on which the user is acting on
+                    #[serde(rename = "serviceTermsId")]
+                    pub service_terms_id: String,
+                        /// true or false, indicates whether the user accepted or rejected the terms of service.
+                    #[serde(rename = "accepted")]
+                    pub accepted: String,
+                }
 
-impl InlineObject23 {
-    pub fn new(service_terms_id: String, accepted: String) -> InlineObject23 {
-        InlineObject23 {
-            service_terms_id,
-            accepted,
-        }
-    }
-}
+                impl InlineObject23 {
+                pub fn new(service_terms_id: String, accepted: String) -> InlineObject23 {
+                InlineObject23 {
+                    service_terms_id,
+                    accepted,
+                }
+                }
+                }
 
 

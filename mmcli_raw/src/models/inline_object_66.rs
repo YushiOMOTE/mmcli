@@ -11,47 +11,47 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct InlineObject66 {
-    /// The ID of the team that the webhook watchs
-    #[serde(rename = "team_id")]
-    pub team_id: String,
-    /// The ID of a public channel that the webhook watchs
-    #[serde(rename = "channel_id", skip_serializing_if = "Option::is_none")]
-    pub channel_id: Option<String>,
-    /// The description for this outgoing webhook
-    #[serde(rename = "description", skip_serializing_if = "Option::is_none")]
-    pub description: Option<String>,
-    /// The display name for this outgoing webhook
-    #[serde(rename = "display_name")]
-    pub display_name: String,
-    /// List of words for the webhook to trigger on
-    #[serde(rename = "trigger_words")]
-    pub trigger_words: Vec<String>,
-    /// When to trigger the webhook, `0` when a trigger word is present at all and `1` if the message starts with a trigger word
-    #[serde(rename = "trigger_when", skip_serializing_if = "Option::is_none")]
-    pub trigger_when: Option<i32>,
-    /// The URLs to POST the payloads to when the webhook is triggered
-    #[serde(rename = "callback_urls")]
-    pub callback_urls: Vec<String>,
-    /// The format to POST the data in, either `application/json` or `application/x-www-form-urlencoded`
-    #[serde(rename = "content_type", skip_serializing_if = "Option::is_none")]
-    pub content_type: Option<String>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct InlineObject66 {
+                        /// The ID of the team that the webhook watchs
+                    #[serde(rename = "team_id")]
+                    pub team_id: String,
+                        /// The ID of a public channel that the webhook watchs
+                    #[serde(rename = "channel_id", skip_serializing_if = "Option::is_none")]
+                    pub channel_id: Option<String>,
+                        /// The description for this outgoing webhook
+                    #[serde(rename = "description", skip_serializing_if = "Option::is_none")]
+                    pub description: Option<String>,
+                        /// The display name for this outgoing webhook
+                    #[serde(rename = "display_name")]
+                    pub display_name: String,
+                        /// List of words for the webhook to trigger on
+                    #[serde(rename = "trigger_words")]
+                    pub trigger_words: Vec<String>,
+                        /// When to trigger the webhook, `0` when a trigger word is present at all and `1` if the message starts with a trigger word
+                    #[serde(rename = "trigger_when", skip_serializing_if = "Option::is_none")]
+                    pub trigger_when: Option<i64>,
+                        /// The URLs to POST the payloads to when the webhook is triggered
+                    #[serde(rename = "callback_urls")]
+                    pub callback_urls: Vec<String>,
+                        /// The format to POST the data in, either `application/json` or `application/x-www-form-urlencoded`
+                    #[serde(rename = "content_type", skip_serializing_if = "Option::is_none")]
+                    pub content_type: Option<String>,
+                }
 
-impl InlineObject66 {
-    pub fn new(team_id: String, display_name: String, trigger_words: Vec<String>, callback_urls: Vec<String>) -> InlineObject66 {
-        InlineObject66 {
-            team_id,
-            channel_id: None,
-            description: None,
-            display_name,
-            trigger_words,
-            trigger_when: None,
-            callback_urls,
-            content_type: None,
-        }
-    }
-}
+                impl InlineObject66 {
+                pub fn new(team_id: String, display_name: String, trigger_words: Vec<String>, callback_urls: Vec<String>) -> InlineObject66 {
+                InlineObject66 {
+                    team_id,
+                    channel_id: None,
+                    description: None,
+                    display_name,
+                    trigger_words,
+                    trigger_when: None,
+                    callback_urls,
+                    content_type: None,
+                }
+                }
+                }
 
 

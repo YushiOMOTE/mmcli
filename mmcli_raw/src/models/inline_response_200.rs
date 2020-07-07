@@ -11,18 +11,18 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct InlineResponse200 {
-    #[serde(rename = "<CHANNEL_ID>", skip_serializing_if = "Option::is_none")]
-    pub CHANNEL_ID: Option<Vec<crate::models::User>>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct InlineResponse200 {
+                    #[serde(rename = "<CHANNEL_ID>", skip_serializing_if = "Option::is_none")]
+                    pub CHANNEL_ID: Option<Vec<crate::models::User>>,
+                }
 
-impl InlineResponse200 {
-    pub fn new() -> InlineResponse200 {
-        InlineResponse200 {
-            CHANNEL_ID: None,
-        }
-    }
-}
+                impl InlineResponse200 {
+                pub fn new() -> InlineResponse200 {
+                InlineResponse200 {
+                    CHANNEL_ID: None,
+                }
+                }
+                }
 
 

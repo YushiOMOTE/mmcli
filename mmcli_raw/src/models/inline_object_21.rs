@@ -11,19 +11,19 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct InlineObject21 {
-    /// The personal access token GUID to enable
-    #[serde(rename = "token_id")]
-    pub token_id: String,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct InlineObject21 {
+                        /// The personal access token GUID to enable
+                    #[serde(rename = "token_id")]
+                    pub token_id: String,
+                }
 
-impl InlineObject21 {
-    pub fn new(token_id: String) -> InlineObject21 {
-        InlineObject21 {
-            token_id,
-        }
-    }
-}
+                impl InlineObject21 {
+                pub fn new(token_id: String) -> InlineObject21 {
+                InlineObject21 {
+                    token_id,
+                }
+                }
+                }
 
 

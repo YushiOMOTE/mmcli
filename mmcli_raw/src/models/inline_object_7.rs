@@ -11,19 +11,19 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct InlineObject7 {
-    /// The image to be uploaded
-    #[serde(rename = "image")]
-    pub image: std::path::PathBuf,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct InlineObject7 {
+                        /// The image to be uploaded
+                    #[serde(rename = "image")]
+                    pub image: std::path::PathBuf,
+                }
 
-impl InlineObject7 {
-    pub fn new(image: std::path::PathBuf) -> InlineObject7 {
-        InlineObject7 {
-            image,
-        }
-    }
-}
+                impl InlineObject7 {
+                pub fn new(image: std::path::PathBuf) -> InlineObject7 {
+                InlineObject7 {
+                    image,
+                }
+                }
+                }
 
 

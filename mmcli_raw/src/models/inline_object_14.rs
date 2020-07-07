@@ -11,19 +11,19 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct InlineObject14 {
-    /// Mobile device id. For Android prefix the id with `android:` and Apple with `apple:`
-    #[serde(rename = "device_id")]
-    pub device_id: String,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct InlineObject14 {
+                        /// Mobile device id. For Android prefix the id with `android:` and Apple with `apple:`
+                    #[serde(rename = "device_id")]
+                    pub device_id: String,
+                }
 
-impl InlineObject14 {
-    pub fn new(device_id: String) -> InlineObject14 {
-        InlineObject14 {
-            device_id,
-        }
-    }
-}
+                impl InlineObject14 {
+                pub fn new(device_id: String) -> InlineObject14 {
+                InlineObject14 {
+                    device_id,
+                }
+                }
+                }
 
 

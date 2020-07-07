@@ -11,33 +11,33 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct ConfigSupportSettings {
-    #[serde(rename = "TermsOfServiceLink", skip_serializing_if = "Option::is_none")]
-    pub terms_of_service_link: Option<String>,
-    #[serde(rename = "PrivacyPolicyLink", skip_serializing_if = "Option::is_none")]
-    pub privacy_policy_link: Option<String>,
-    #[serde(rename = "AboutLink", skip_serializing_if = "Option::is_none")]
-    pub about_link: Option<String>,
-    #[serde(rename = "HelpLink", skip_serializing_if = "Option::is_none")]
-    pub help_link: Option<String>,
-    #[serde(rename = "ReportAProblemLink", skip_serializing_if = "Option::is_none")]
-    pub report_a_problem_link: Option<String>,
-    #[serde(rename = "SupportEmail", skip_serializing_if = "Option::is_none")]
-    pub support_email: Option<String>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct ConfigSupportSettings {
+                    #[serde(rename = "TermsOfServiceLink", skip_serializing_if = "Option::is_none")]
+                    pub terms_of_service_link: Option<String>,
+                    #[serde(rename = "PrivacyPolicyLink", skip_serializing_if = "Option::is_none")]
+                    pub privacy_policy_link: Option<String>,
+                    #[serde(rename = "AboutLink", skip_serializing_if = "Option::is_none")]
+                    pub about_link: Option<String>,
+                    #[serde(rename = "HelpLink", skip_serializing_if = "Option::is_none")]
+                    pub help_link: Option<String>,
+                    #[serde(rename = "ReportAProblemLink", skip_serializing_if = "Option::is_none")]
+                    pub report_a_problem_link: Option<String>,
+                    #[serde(rename = "SupportEmail", skip_serializing_if = "Option::is_none")]
+                    pub support_email: Option<String>,
+                }
 
-impl ConfigSupportSettings {
-    pub fn new() -> ConfigSupportSettings {
-        ConfigSupportSettings {
-            terms_of_service_link: None,
-            privacy_policy_link: None,
-            about_link: None,
-            help_link: None,
-            report_a_problem_link: None,
-            support_email: None,
-        }
-    }
-}
+                impl ConfigSupportSettings {
+                pub fn new() -> ConfigSupportSettings {
+                ConfigSupportSettings {
+                    terms_of_service_link: None,
+                    privacy_policy_link: None,
+                    about_link: None,
+                    help_link: None,
+                    report_a_problem_link: None,
+                    support_email: None,
+                }
+                }
+                }
 
 

@@ -11,37 +11,37 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct Audit {
-    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
-    pub id: Option<String>,
-    /// The time in milliseconds a audit was created
-    #[serde(rename = "create_at", skip_serializing_if = "Option::is_none")]
-    pub create_at: Option<i64>,
-    #[serde(rename = "user_id", skip_serializing_if = "Option::is_none")]
-    pub user_id: Option<String>,
-    #[serde(rename = "action", skip_serializing_if = "Option::is_none")]
-    pub action: Option<String>,
-    #[serde(rename = "extra_info", skip_serializing_if = "Option::is_none")]
-    pub extra_info: Option<String>,
-    #[serde(rename = "ip_address", skip_serializing_if = "Option::is_none")]
-    pub ip_address: Option<String>,
-    #[serde(rename = "session_id", skip_serializing_if = "Option::is_none")]
-    pub session_id: Option<String>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct Audit {
+                    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
+                    pub id: Option<String>,
+                        /// The time in milliseconds a audit was created
+                    #[serde(rename = "create_at", skip_serializing_if = "Option::is_none")]
+                    pub create_at: Option<i64>,
+                    #[serde(rename = "user_id", skip_serializing_if = "Option::is_none")]
+                    pub user_id: Option<String>,
+                    #[serde(rename = "action", skip_serializing_if = "Option::is_none")]
+                    pub action: Option<String>,
+                    #[serde(rename = "extra_info", skip_serializing_if = "Option::is_none")]
+                    pub extra_info: Option<String>,
+                    #[serde(rename = "ip_address", skip_serializing_if = "Option::is_none")]
+                    pub ip_address: Option<String>,
+                    #[serde(rename = "session_id", skip_serializing_if = "Option::is_none")]
+                    pub session_id: Option<String>,
+                }
 
-impl Audit {
-    pub fn new() -> Audit {
-        Audit {
-            id: None,
-            create_at: None,
-            user_id: None,
-            action: None,
-            extra_info: None,
-            ip_address: None,
-            session_id: None,
-        }
-    }
-}
+                impl Audit {
+                pub fn new() -> Audit {
+                Audit {
+                    id: None,
+                    create_at: None,
+                    user_id: None,
+                    action: None,
+                    extra_info: None,
+                    ip_address: None,
+                    session_id: None,
+                }
+                }
+                }
 
 

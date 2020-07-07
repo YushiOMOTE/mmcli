@@ -11,22 +11,22 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct PluginManifestServer {
-    #[serde(rename = "executables", skip_serializing_if = "Option::is_none")]
-    pub executables: Option<crate::models::PluginManifestServerExecutables>,
-    /// Path to the executable binary.
-    #[serde(rename = "executable", skip_serializing_if = "Option::is_none")]
-    pub executable: Option<String>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct PluginManifestServer {
+                    #[serde(rename = "executables", skip_serializing_if = "Option::is_none")]
+                    pub executables: Option<crate::models::PluginManifestServerExecutables>,
+                        /// Path to the executable binary.
+                    #[serde(rename = "executable", skip_serializing_if = "Option::is_none")]
+                    pub executable: Option<String>,
+                }
 
-impl PluginManifestServer {
-    pub fn new() -> PluginManifestServer {
-        PluginManifestServer {
-            executables: None,
-            executable: None,
-        }
-    }
-}
+                impl PluginManifestServer {
+                pub fn new() -> PluginManifestServer {
+                PluginManifestServer {
+                    executables: None,
+                    executable: None,
+                }
+                }
+                }
 
 

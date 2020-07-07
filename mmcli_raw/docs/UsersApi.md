@@ -110,7 +110,7 @@ Name | Type | Description  | Required | Notes
 **name** | **String** | Username, nickname first name or last name | [required] |
 **team_id** | Option<**String**> | Team ID |  |
 **channel_id** | Option<**String**> | Channel ID |  |
-**limit** | Option<**i32**> | The maximum number of users to return in each subresult  __Available as of server version 5.6. Defaults to `100` if not provided or on an earlier server version.__  |  |[default to 100]
+**limit** | Option<**i64**> | The maximum number of users to return in each subresult  __Available as of server version 5.6. Defaults to `100` if not provided or on an earlier server version.__  |  |[default to 100]
 
 ### Return type
 
@@ -257,8 +257,8 @@ Get a page of a list of users. Based on query string parameters, select users fr
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**page** | Option<**i32**> | The page to select. |  |[default to 0]
-**per_page** | Option<**i32**> | The number of users per page. There is a maximum limit of 200 users per page. |  |[default to 60]
+**page** | Option<**i64**> | The page to select. |  |[default to 0]
+**per_page** | Option<**i64**> | The number of users per page. There is a maximum limit of 200 users per page. |  |[default to 60]
 **in_team** | Option<**String**> | The ID of the team to get users for. |  |
 **not_in_team** | Option<**String**> | The ID of the team to exclude users for. Must not be used with \"in_team\" query parameter. |  |
 **in_channel** | Option<**String**> | The ID of the channel to get users for. |  |
@@ -330,7 +330,7 @@ Get a list of users based on a provided list of user ids. ##### Permissions Requ
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **request_body** | [**Vec<String>**](String.md) | List of user ids | [required] |
-**since** | Option<**i32**> | Only return users that have been modified since the given Unix timestamp (in milliseconds).  __Minimum server version__: 5.14  |  |
+**since** | Option<**i64**> | Only return users that have been modified since the given Unix timestamp (in milliseconds).  __Minimum server version__: 5.14  |  |
 
 ### Return type
 
@@ -770,8 +770,8 @@ Get a page of user access tokens for users on the system. Does not include the a
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**page** | Option<**i32**> | The page to select. |  |[default to 0]
-**per_page** | Option<**i32**> | The number of tokens per page. |  |[default to 60]
+**page** | Option<**i64**> | The page to select. |  |[default to 0]
+**per_page** | Option<**i64**> | The number of tokens per page. |  |[default to 60]
 
 ### Return type
 
@@ -1622,8 +1622,8 @@ Get a list of user access tokens for a user. Does not include the actual authent
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **user_id** | **String** | User GUID | [required] |
-**page** | Option<**i32**> | The page to select. |  |[default to 0]
-**per_page** | Option<**i32**> | The number of tokens per page. |  |[default to 60]
+**page** | Option<**i64**> | The page to select. |  |[default to 0]
+**per_page** | Option<**i64**> | The number of tokens per page. |  |[default to 60]
 
 ### Return type
 

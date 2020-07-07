@@ -585,7 +585,7 @@ pub async fn channels_channel_id_member_counts_by_group_get(configuration: &conf
 }
 
 /// Get a page of members for a channel. ##### Permissions `read_channel` permission for the channel. 
-pub async fn channels_channel_id_members_get(configuration: &configuration::Configuration, channel_id: &str, page: Option<i32>, per_page: Option<i32>) -> Result<Vec<crate::models::ChannelMember>, Error<ChannelsChannelIdMembersGetError>> {
+pub async fn channels_channel_id_members_get(configuration: &configuration::Configuration, channel_id: &str, page: Option<i64>, per_page: Option<i64>) -> Result<Vec<crate::models::ChannelMember>, Error<ChannelsChannelIdMembersGetError>> {
 
     let client = &configuration.client;
 
@@ -652,7 +652,7 @@ pub async fn channels_channel_id_members_ids_post(configuration: &configuration:
 }
 
 /// Get the set of users who are members of the channel minus the set of users who are members of the given groups. Each user object contains an array of group objects representing the group memberships for that user. Each user object contains the boolean fields `scheme_guest`, `scheme_user`, and `scheme_admin` representing the roles that user has for the given channel.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.14 
-pub async fn channels_channel_id_members_minus_group_members_get(configuration: &configuration::Configuration, channel_id: &str, group_ids: &str, page: Option<i32>, per_page: Option<i32>) -> Result<(), Error<ChannelsChannelIdMembersMinusGroupMembersGetError>> {
+pub async fn channels_channel_id_members_minus_group_members_get(configuration: &configuration::Configuration, channel_id: &str, group_ids: &str, page: Option<i64>, per_page: Option<i64>) -> Result<(), Error<ChannelsChannelIdMembersMinusGroupMembersGetError>> {
 
     let client = &configuration.client;
 
@@ -1240,7 +1240,7 @@ pub async fn channels_direct_post(configuration: &configuration::Configuration, 
 }
 
 /// ##### Permissions `manage_system` 
-pub async fn channels_get(configuration: &configuration::Configuration, not_associated_to_group: Option<&str>, page: Option<i32>, per_page: Option<i32>, exclude_default_channels: Option<bool>) -> Result<Vec<crate::models::Channel>, Error<ChannelsGetError>> {
+pub async fn channels_get(configuration: &configuration::Configuration, not_associated_to_group: Option<&str>, page: Option<i64>, per_page: Option<i64>, exclude_default_channels: Option<bool>) -> Result<Vec<crate::models::Channel>, Error<ChannelsGetError>> {
 
     let client = &configuration.client;
 
@@ -1501,7 +1501,7 @@ pub async fn teams_team_id_channels_autocomplete_get(configuration: &configurati
 }
 
 /// Get a page of deleted channels on a team based on query string parameters - team_id, page and per_page.  __Minimum server version__: 3.10 
-pub async fn teams_team_id_channels_deleted_get(configuration: &configuration::Configuration, team_id: &str, page: Option<i32>, per_page: Option<i32>) -> Result<Vec<crate::models::Channel>, Error<TeamsTeamIdChannelsDeletedGetError>> {
+pub async fn teams_team_id_channels_deleted_get(configuration: &configuration::Configuration, team_id: &str, page: Option<i64>, per_page: Option<i64>) -> Result<Vec<crate::models::Channel>, Error<TeamsTeamIdChannelsDeletedGetError>> {
 
     let client = &configuration.client;
 
@@ -1537,7 +1537,7 @@ pub async fn teams_team_id_channels_deleted_get(configuration: &configuration::C
 }
 
 /// Get a page of public channels on a team based on query string parameters - page and per_page. ##### Permissions Must be authenticated and have the `list_team_channels` permission. 
-pub async fn teams_team_id_channels_get(configuration: &configuration::Configuration, team_id: &str, page: Option<i32>, per_page: Option<i32>) -> Result<Vec<crate::models::Channel>, Error<TeamsTeamIdChannelsGetError>> {
+pub async fn teams_team_id_channels_get(configuration: &configuration::Configuration, team_id: &str, page: Option<i64>, per_page: Option<i64>) -> Result<Vec<crate::models::Channel>, Error<TeamsTeamIdChannelsGetError>> {
 
     let client = &configuration.client;
 

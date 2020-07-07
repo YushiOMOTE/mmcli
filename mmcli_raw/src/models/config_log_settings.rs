@@ -11,36 +11,36 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct ConfigLogSettings {
-    #[serde(rename = "EnableConsole", skip_serializing_if = "Option::is_none")]
-    pub enable_console: Option<bool>,
-    #[serde(rename = "ConsoleLevel", skip_serializing_if = "Option::is_none")]
-    pub console_level: Option<String>,
-    #[serde(rename = "EnableFile", skip_serializing_if = "Option::is_none")]
-    pub enable_file: Option<bool>,
-    #[serde(rename = "FileLevel", skip_serializing_if = "Option::is_none")]
-    pub file_level: Option<String>,
-    #[serde(rename = "FileLocation", skip_serializing_if = "Option::is_none")]
-    pub file_location: Option<String>,
-    #[serde(rename = "EnableWebhookDebugging", skip_serializing_if = "Option::is_none")]
-    pub enable_webhook_debugging: Option<bool>,
-    #[serde(rename = "EnableDiagnostics", skip_serializing_if = "Option::is_none")]
-    pub enable_diagnostics: Option<bool>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct ConfigLogSettings {
+                    #[serde(rename = "EnableConsole", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub enable_console: Option<bool>,
+                    #[serde(rename = "ConsoleLevel", skip_serializing_if = "Option::is_none")]
+                    pub console_level: Option<String>,
+                    #[serde(rename = "EnableFile", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub enable_file: Option<bool>,
+                    #[serde(rename = "FileLevel", skip_serializing_if = "Option::is_none")]
+                    pub file_level: Option<String>,
+                    #[serde(rename = "FileLocation", skip_serializing_if = "Option::is_none")]
+                    pub file_location: Option<String>,
+                    #[serde(rename = "EnableWebhookDebugging", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub enable_webhook_debugging: Option<bool>,
+                    #[serde(rename = "EnableDiagnostics", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub enable_diagnostics: Option<bool>,
+                }
 
-impl ConfigLogSettings {
-    pub fn new() -> ConfigLogSettings {
-        ConfigLogSettings {
-            enable_console: None,
-            console_level: None,
-            enable_file: None,
-            file_level: None,
-            file_location: None,
-            enable_webhook_debugging: None,
-            enable_diagnostics: None,
-        }
-    }
-}
+                impl ConfigLogSettings {
+                pub fn new() -> ConfigLogSettings {
+                ConfigLogSettings {
+                    enable_console: None,
+                    console_level: None,
+                    enable_file: None,
+                    file_level: None,
+                    file_location: None,
+                    enable_webhook_debugging: None,
+                    enable_diagnostics: None,
+                }
+                }
+                }
 
 

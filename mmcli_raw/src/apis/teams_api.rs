@@ -398,7 +398,7 @@ pub enum UsersUserIdTeamsUnreadGetError {
 
 
 /// For regular users only returns open teams. Users with the \"manage_system\" permission will return teams regardless of type. The result is based on query string parameters - page and per_page. ##### Permissions Must be authenticated. \"manage_system\" permission is required to show all teams. 
-pub async fn teams_get(configuration: &configuration::Configuration, page: Option<i32>, per_page: Option<i32>, include_total_count: Option<bool>) -> Result<Vec<crate::models::Team>, Error<TeamsGetError>> {
+pub async fn teams_get(configuration: &configuration::Configuration, page: Option<i64>, per_page: Option<i64>, include_total_count: Option<bool>) -> Result<Vec<crate::models::Team>, Error<TeamsGetError>> {
 
     let client = &configuration.client;
 
@@ -806,7 +806,7 @@ pub async fn teams_team_id_image_post(configuration: &configuration::Configurati
 }
 
 /// Import a team into a existing team. Import users, channels, posts, hooks. ##### Permissions Must have `permission_import_team` permission. 
-pub async fn teams_team_id_import_post(configuration: &configuration::Configuration, team_id: &str, file: std::path::PathBuf, filesize: i32, import_from: &str) -> Result<crate::models::InlineResponse2005, Error<TeamsTeamIdImportPostError>> {
+pub async fn teams_team_id_import_post(configuration: &configuration::Configuration, team_id: &str, file: std::path::PathBuf, filesize: i64, import_from: &str) -> Result<crate::models::InlineResponse2005, Error<TeamsTeamIdImportPostError>> {
 
     let client = &configuration.client;
 
@@ -937,7 +937,7 @@ pub async fn teams_team_id_members_batch_post(configuration: &configuration::Con
 }
 
 /// Get a page team members list based on query string parameters - team id, page and per page. ##### Permissions Must be authenticated and have the `view_team` permission. 
-pub async fn teams_team_id_members_get(configuration: &configuration::Configuration, team_id: &str, page: Option<i32>, per_page: Option<i32>) -> Result<Vec<crate::models::TeamMember>, Error<TeamsTeamIdMembersGetError>> {
+pub async fn teams_team_id_members_get(configuration: &configuration::Configuration, team_id: &str, page: Option<i64>, per_page: Option<i64>) -> Result<Vec<crate::models::TeamMember>, Error<TeamsTeamIdMembersGetError>> {
 
     let client = &configuration.client;
 
@@ -1004,7 +1004,7 @@ pub async fn teams_team_id_members_ids_post(configuration: &configuration::Confi
 }
 
 /// Get the set of users who are members of the team minus the set of users who are members of the given groups. Each user object contains an array of group objects representing the group memberships for that user. Each user object contains the boolean fields `scheme_guest`, `scheme_user`, and `scheme_admin` representing the roles that user has for the given team.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.14 
-pub async fn teams_team_id_members_minus_group_members_get(configuration: &configuration::Configuration, team_id: &str, group_ids: &str, page: Option<i32>, per_page: Option<i32>) -> Result<(), Error<TeamsTeamIdMembersMinusGroupMembersGetError>> {
+pub async fn teams_team_id_members_minus_group_members_get(configuration: &configuration::Configuration, team_id: &str, group_ids: &str, page: Option<i64>, per_page: Option<i64>) -> Result<(), Error<TeamsTeamIdMembersMinusGroupMembersGetError>> {
 
     let client = &configuration.client;
 

@@ -55,8 +55,8 @@ For regular users only returns open teams. Users with the \"manage_system\" perm
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**page** | Option<**i32**> | The page to select. |  |[default to 0]
-**per_page** | Option<**i32**> | The number of teams per page. |  |[default to 60]
+**page** | Option<**i64**> | The page to select. |  |[default to 0]
+**per_page** | Option<**i64**> | The number of teams per page. |  |[default to 60]
 **include_total_count** | Option<**bool**> |  |  |[default to false]
 
 ### Return type
@@ -448,7 +448,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **team_id** | **String** | Team GUID | [required] |
 **file** | **std::path::PathBuf** | A file to be uploaded in zip format. | [required] |
-**filesize** | **i32** | The size of the zip file to be imported. | [required] |
+**filesize** | **i64** | The size of the zip file to be imported. | [required] |
 **import_from** | **String** | String that defines from which application the team was exported to be imported into Mattermost. | [required] |
 
 ### Return type
@@ -574,8 +574,8 @@ Get a page team members list based on query string parameters - team id, page an
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **team_id** | **String** | Team GUID | [required] |
-**page** | Option<**i32**> | The page to select. |  |[default to 0]
-**per_page** | Option<**i32**> | The number of users per page. |  |[default to 60]
+**page** | Option<**i64**> | The page to select. |  |[default to 0]
+**per_page** | Option<**i64**> | The number of users per page. |  |[default to 60]
 
 ### Return type
 
@@ -638,8 +638,8 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **team_id** | **String** | Team GUID | [required] |
 **group_ids** | **String** | A comma-separated list of group ids. | [required] |[default to ]
-**page** | Option<**i32**> | The page to select. |  |[default to 0]
-**per_page** | Option<**i32**> | The number of users per page. |  |[default to 0]
+**page** | Option<**i64**> | The page to select. |  |[default to 0]
+**per_page** | Option<**i64**> | The number of users per page. |  |[default to 0]
 
 ### Return type
 

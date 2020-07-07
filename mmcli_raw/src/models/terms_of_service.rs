@@ -11,31 +11,31 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct TermsOfService {
-    /// The unique identifier of the terms of service.
-    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
-    pub id: Option<String>,
-    /// The time at which the terms of service was created.
-    #[serde(rename = "create_at", skip_serializing_if = "Option::is_none")]
-    pub create_at: Option<i64>,
-    /// The unique identifier of the user who created these terms of service.
-    #[serde(rename = "user_id", skip_serializing_if = "Option::is_none")]
-    pub user_id: Option<String>,
-    /// The text of terms of service. Supports Markdown.
-    #[serde(rename = "text", skip_serializing_if = "Option::is_none")]
-    pub text: Option<String>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct TermsOfService {
+                        /// The unique identifier of the terms of service.
+                    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
+                    pub id: Option<String>,
+                        /// The time at which the terms of service was created.
+                    #[serde(rename = "create_at", skip_serializing_if = "Option::is_none")]
+                    pub create_at: Option<i64>,
+                        /// The unique identifier of the user who created these terms of service.
+                    #[serde(rename = "user_id", skip_serializing_if = "Option::is_none")]
+                    pub user_id: Option<String>,
+                        /// The text of terms of service. Supports Markdown.
+                    #[serde(rename = "text", skip_serializing_if = "Option::is_none")]
+                    pub text: Option<String>,
+                }
 
-impl TermsOfService {
-    pub fn new() -> TermsOfService {
-        TermsOfService {
-            id: None,
-            create_at: None,
-            user_id: None,
-            text: None,
-        }
-    }
-}
+                impl TermsOfService {
+                pub fn new() -> TermsOfService {
+                TermsOfService {
+                    id: None,
+                    create_at: None,
+                    user_id: None,
+                    text: None,
+                }
+                }
+                }
 
 

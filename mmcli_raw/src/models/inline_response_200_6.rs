@@ -11,27 +11,27 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct InlineResponse2006 {
-    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
-    pub id: Option<String>,
-    #[serde(rename = "name", skip_serializing_if = "Option::is_none")]
-    pub name: Option<String>,
-    #[serde(rename = "display_name", skip_serializing_if = "Option::is_none")]
-    pub display_name: Option<String>,
-    #[serde(rename = "description", skip_serializing_if = "Option::is_none")]
-    pub description: Option<String>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct InlineResponse2006 {
+                    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
+                    pub id: Option<String>,
+                    #[serde(rename = "name", skip_serializing_if = "Option::is_none")]
+                    pub name: Option<String>,
+                    #[serde(rename = "display_name", skip_serializing_if = "Option::is_none")]
+                    pub display_name: Option<String>,
+                    #[serde(rename = "description", skip_serializing_if = "Option::is_none")]
+                    pub description: Option<String>,
+                }
 
-impl InlineResponse2006 {
-    pub fn new() -> InlineResponse2006 {
-        InlineResponse2006 {
-            id: None,
-            name: None,
-            display_name: None,
-            description: None,
-        }
-    }
-}
+                impl InlineResponse2006 {
+                pub fn new() -> InlineResponse2006 {
+                InlineResponse2006 {
+                    id: None,
+                    name: None,
+                    display_name: None,
+                    description: None,
+                }
+                }
+                }
 
 

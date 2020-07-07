@@ -36,9 +36,9 @@ Get a page of posts in a channel. Use the query parameters to modify the behavio
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **channel_id** | **String** | The channel ID to get the posts for | [required] |
-**page** | Option<**i32**> | The page to select |  |[default to 0]
-**per_page** | Option<**i32**> | The number of posts per page |  |[default to 60]
-**since** | Option<**i32**> | Provide a non-zero value in Unix time milliseconds to select posts created after that time |  |
+**page** | Option<**i64**> | The page to select |  |[default to 0]
+**per_page** | Option<**i64**> | The number of posts per page |  |[default to 60]
+**since** | Option<**i64**> | Provide a non-zero value in Unix time milliseconds to select posts created after that time |  |
 **before** | Option<**String**> | A post id to select the posts that came before this one |  |
 **after** | Option<**String**> | A post id to select the posts that came after this one |  |
 
@@ -437,8 +437,8 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **user_id** | **String** | ID of the user | [required] |
 **channel_id** | **String** | The channel ID to get the posts for | [required] |
-**limit_before** | Option<**i32**> | Number of posts before the last unread posts. Maximum is 200 posts if limit is set greater than that. |  |[default to 60]
-**limit_after** | Option<**i32**> | Number of posts after and including the last unread post. Maximum is 200 posts if limit is set greater than that. |  |[default to 60]
+**limit_before** | Option<**i64**> | Number of posts before the last unread posts. Maximum is 200 posts if limit is set greater than that. |  |[default to 60]
+**limit_after** | Option<**i64**> | Number of posts after and including the last unread post. Maximum is 200 posts if limit is set greater than that. |  |[default to 60]
 
 ### Return type
 
@@ -471,8 +471,8 @@ Name | Type | Description  | Required | Notes
 **user_id** | **String** | ID of the user | [required] |
 **team_id** | Option<**String**> | Team ID |  |
 **channel_id** | Option<**String**> | Channel ID |  |
-**page** | Option<**i32**> | The page to select |  |[default to 0]
-**per_page** | Option<**i32**> | The number of posts per page |  |[default to 60]
+**page** | Option<**i64**> | The page to select |  |[default to 0]
+**per_page** | Option<**i64**> | The number of posts per page |  |[default to 60]
 
 ### Return type
 

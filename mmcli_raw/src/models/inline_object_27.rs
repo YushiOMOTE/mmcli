@@ -11,36 +11,36 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct InlineObject27 {
-    #[serde(rename = "id")]
-    pub id: String,
-    #[serde(rename = "display_name")]
-    pub display_name: String,
-    #[serde(rename = "description")]
-    pub description: String,
-    #[serde(rename = "company_name")]
-    pub company_name: String,
-    #[serde(rename = "allowed_domains")]
-    pub allowed_domains: String,
-    #[serde(rename = "invite_id")]
-    pub invite_id: String,
-    #[serde(rename = "allow_open_invite")]
-    pub allow_open_invite: String,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct InlineObject27 {
+                    #[serde(rename = "id")]
+                    pub id: String,
+                    #[serde(rename = "display_name")]
+                    pub display_name: String,
+                    #[serde(rename = "description")]
+                    pub description: String,
+                    #[serde(rename = "company_name")]
+                    pub company_name: String,
+                    #[serde(rename = "allowed_domains")]
+                    pub allowed_domains: String,
+                    #[serde(rename = "invite_id")]
+                    pub invite_id: String,
+                    #[serde(rename = "allow_open_invite")]
+                    pub allow_open_invite: String,
+                }
 
-impl InlineObject27 {
-    pub fn new(id: String, display_name: String, description: String, company_name: String, allowed_domains: String, invite_id: String, allow_open_invite: String) -> InlineObject27 {
-        InlineObject27 {
-            id,
-            display_name,
-            description,
-            company_name,
-            allowed_domains,
-            invite_id,
-            allow_open_invite,
-        }
-    }
-}
+                impl InlineObject27 {
+                pub fn new(id: String, display_name: String, description: String, company_name: String, allowed_domains: String, invite_id: String, allow_open_invite: String) -> InlineObject27 {
+                InlineObject27 {
+                    id,
+                    display_name,
+                    description,
+                    company_name,
+                    allowed_domains,
+                    invite_id,
+                    allow_open_invite,
+                }
+                }
+                }
 
 

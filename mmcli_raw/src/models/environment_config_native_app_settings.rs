@@ -11,24 +11,24 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct EnvironmentConfigNativeAppSettings {
-    #[serde(rename = "AppDownloadLink", skip_serializing_if = "Option::is_none")]
-    pub app_download_link: Option<bool>,
-    #[serde(rename = "AndroidAppDownloadLink", skip_serializing_if = "Option::is_none")]
-    pub android_app_download_link: Option<bool>,
-    #[serde(rename = "IosAppDownloadLink", skip_serializing_if = "Option::is_none")]
-    pub ios_app_download_link: Option<bool>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct EnvironmentConfigNativeAppSettings {
+                    #[serde(rename = "AppDownloadLink", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub app_download_link: Option<bool>,
+                    #[serde(rename = "AndroidAppDownloadLink", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub android_app_download_link: Option<bool>,
+                    #[serde(rename = "IosAppDownloadLink", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub ios_app_download_link: Option<bool>,
+                }
 
-impl EnvironmentConfigNativeAppSettings {
-    pub fn new() -> EnvironmentConfigNativeAppSettings {
-        EnvironmentConfigNativeAppSettings {
-            app_download_link: None,
-            android_app_download_link: None,
-            ios_app_download_link: None,
-        }
-    }
-}
+                impl EnvironmentConfigNativeAppSettings {
+                pub fn new() -> EnvironmentConfigNativeAppSettings {
+                EnvironmentConfigNativeAppSettings {
+                    app_download_link: None,
+                    android_app_download_link: None,
+                    ios_app_download_link: None,
+                }
+                }
+                }
 
 

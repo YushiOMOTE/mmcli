@@ -11,25 +11,25 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct PostListWithSearchMatches {
-    #[serde(rename = "order", skip_serializing_if = "Option::is_none")]
-    pub order: Option<Vec<String>>,
-    #[serde(rename = "posts", skip_serializing_if = "Option::is_none")]
-    pub posts: Option<::std::collections::HashMap<String, crate::models::Post>>,
-    /// A mapping of post IDs to a list of matched terms within the post. This field will only be populated on servers running version 5.1 or greater with Elasticsearch enabled.
-    #[serde(rename = "matches", skip_serializing_if = "Option::is_none")]
-    pub matches: Option<::std::collections::HashMap<String, Vec<String>>>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct PostListWithSearchMatches {
+                    #[serde(rename = "order", skip_serializing_if = "Option::is_none")]
+                    pub order: Option<Vec<String>>,
+                    #[serde(rename = "posts", skip_serializing_if = "Option::is_none")]
+                    pub posts: Option<::std::collections::HashMap<String, crate::models::Post>>,
+                        /// A mapping of post IDs to a list of matched terms within the post. This field will only be populated on servers running version 5.1 or greater with Elasticsearch enabled.
+                    #[serde(rename = "matches", skip_serializing_if = "Option::is_none")]
+                    pub matches: Option<::std::collections::HashMap<String, Vec<String>>>,
+                }
 
-impl PostListWithSearchMatches {
-    pub fn new() -> PostListWithSearchMatches {
-        PostListWithSearchMatches {
-            order: None,
-            posts: None,
-            matches: None,
-        }
-    }
-}
+                impl PostListWithSearchMatches {
+                pub fn new() -> PostListWithSearchMatches {
+                PostListWithSearchMatches {
+                    order: None,
+                    posts: None,
+                    matches: None,
+                }
+                }
+                }
 
 

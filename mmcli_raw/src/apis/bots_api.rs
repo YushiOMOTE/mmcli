@@ -429,7 +429,7 @@ pub async fn bots_bot_user_id_put(configuration: &configuration::Configuration, 
 }
 
 /// Get a page of a list of bots. ##### Permissions Must have `read_bots` permission for bots you are managing, and `read_others_bots` permission for bots others are managing. __Minimum server version__: 5.10 
-pub async fn bots_get(configuration: &configuration::Configuration, page: Option<i32>, per_page: Option<i32>, include_deleted: Option<bool>, only_orphaned: Option<bool>) -> Result<Vec<crate::models::Bot>, Error<BotsGetError>> {
+pub async fn bots_get(configuration: &configuration::Configuration, page: Option<i64>, per_page: Option<i64>, include_deleted: Option<bool>, only_orphaned: Option<bool>) -> Result<Vec<crate::models::Bot>, Error<BotsGetError>> {
 
     let client = &configuration.client;
 

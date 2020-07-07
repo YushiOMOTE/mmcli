@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **create_at** | Option<**i64**> |  | [optional]
 **user_id** | Option<**String**> |  | [optional]
 **status** | Option<**String**> |  | [optional]
-**count** | Option<**i32**> |  | [optional]
+**count** | Option<**i64**> |  | [optional]
 **desc** | Option<**String**> |  | [optional]
 **_type** | Option<**String**> |  | [optional]
 **start_at** | Option<**i64**> |  | [optional]

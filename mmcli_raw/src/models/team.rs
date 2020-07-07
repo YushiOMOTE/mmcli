@@ -11,54 +11,54 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct Team {
-    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
-    pub id: Option<String>,
-    /// The time in milliseconds a team was created
-    #[serde(rename = "create_at", skip_serializing_if = "Option::is_none")]
-    pub create_at: Option<i64>,
-    /// The time in milliseconds a team was last updated
-    #[serde(rename = "update_at", skip_serializing_if = "Option::is_none")]
-    pub update_at: Option<i64>,
-    /// The time in milliseconds a team was deleted
-    #[serde(rename = "delete_at", skip_serializing_if = "Option::is_none")]
-    pub delete_at: Option<i64>,
-    #[serde(rename = "display_name", skip_serializing_if = "Option::is_none")]
-    pub display_name: Option<String>,
-    #[serde(rename = "name", skip_serializing_if = "Option::is_none")]
-    pub name: Option<String>,
-    #[serde(rename = "description", skip_serializing_if = "Option::is_none")]
-    pub description: Option<String>,
-    #[serde(rename = "email", skip_serializing_if = "Option::is_none")]
-    pub email: Option<String>,
-    #[serde(rename = "type", skip_serializing_if = "Option::is_none")]
-    pub _type: Option<String>,
-    #[serde(rename = "allowed_domains", skip_serializing_if = "Option::is_none")]
-    pub allowed_domains: Option<String>,
-    #[serde(rename = "invite_id", skip_serializing_if = "Option::is_none")]
-    pub invite_id: Option<String>,
-    #[serde(rename = "allow_open_invite", skip_serializing_if = "Option::is_none")]
-    pub allow_open_invite: Option<bool>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct Team {
+                    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
+                    pub id: Option<String>,
+                        /// The time in milliseconds a team was created
+                    #[serde(rename = "create_at", skip_serializing_if = "Option::is_none")]
+                    pub create_at: Option<i64>,
+                        /// The time in milliseconds a team was last updated
+                    #[serde(rename = "update_at", skip_serializing_if = "Option::is_none")]
+                    pub update_at: Option<i64>,
+                        /// The time in milliseconds a team was deleted
+                    #[serde(rename = "delete_at", skip_serializing_if = "Option::is_none")]
+                    pub delete_at: Option<i64>,
+                    #[serde(rename = "display_name", skip_serializing_if = "Option::is_none")]
+                    pub display_name: Option<String>,
+                    #[serde(rename = "name", skip_serializing_if = "Option::is_none")]
+                    pub name: Option<String>,
+                    #[serde(rename = "description", skip_serializing_if = "Option::is_none")]
+                    pub description: Option<String>,
+                    #[serde(rename = "email", skip_serializing_if = "Option::is_none")]
+                    pub email: Option<String>,
+                    #[serde(rename = "type", skip_serializing_if = "Option::is_none")]
+                    pub _type: Option<String>,
+                    #[serde(rename = "allowed_domains", skip_serializing_if = "Option::is_none")]
+                    pub allowed_domains: Option<String>,
+                    #[serde(rename = "invite_id", skip_serializing_if = "Option::is_none")]
+                    pub invite_id: Option<String>,
+                    #[serde(rename = "allow_open_invite", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub allow_open_invite: Option<bool>,
+                }
 
-impl Team {
-    pub fn new() -> Team {
-        Team {
-            id: None,
-            create_at: None,
-            update_at: None,
-            delete_at: None,
-            display_name: None,
-            name: None,
-            description: None,
-            email: None,
-            _type: None,
-            allowed_domains: None,
-            invite_id: None,
-            allow_open_invite: None,
-        }
-    }
-}
+                impl Team {
+                pub fn new() -> Team {
+                Team {
+                    id: None,
+                    create_at: None,
+                    update_at: None,
+                    delete_at: None,
+                    display_name: None,
+                    name: None,
+                    description: None,
+                    email: None,
+                    _type: None,
+                    allowed_domains: None,
+                    invite_id: None,
+                    allow_open_invite: None,
+                }
+                }
+                }
 
 

@@ -11,19 +11,19 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct InlineObject40 {
-    /// The search term to match against the members' usernames of the group channels
-    #[serde(rename = "term")]
-    pub term: String,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct InlineObject40 {
+                        /// The search term to match against the members' usernames of the group channels
+                    #[serde(rename = "term")]
+                    pub term: String,
+                }
 
-impl InlineObject40 {
-    pub fn new(term: String) -> InlineObject40 {
-        InlineObject40 {
-            term,
-        }
-    }
-}
+                impl InlineObject40 {
+                pub fn new(term: String) -> InlineObject40 {
+                InlineObject40 {
+                    term,
+                }
+                }
+                }
 
 

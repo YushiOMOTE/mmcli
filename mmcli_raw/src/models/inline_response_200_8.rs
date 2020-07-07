@@ -11,23 +11,23 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct InlineResponse2008 {
-    /// Value should be \"OK\" if successful
-    #[serde(rename = "status", skip_serializing_if = "Option::is_none")]
-    pub status: Option<String>,
-    /// A JSON object mapping channel IDs to the channel view times
-    #[serde(rename = "last_viewed_at_times", skip_serializing_if = "Option::is_none")]
-    pub last_viewed_at_times: Option<serde_json::Value>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct InlineResponse2008 {
+                        /// Value should be \"OK\" if successful
+                    #[serde(rename = "status", skip_serializing_if = "Option::is_none")]
+                    pub status: Option<String>,
+                        /// A JSON object mapping channel IDs to the channel view times
+                    #[serde(rename = "last_viewed_at_times", skip_serializing_if = "Option::is_none")]
+                    pub last_viewed_at_times: Option<serde_json::Value>,
+                }
 
-impl InlineResponse2008 {
-    pub fn new() -> InlineResponse2008 {
-        InlineResponse2008 {
-            status: None,
-            last_viewed_at_times: None,
-        }
-    }
-}
+                impl InlineResponse2008 {
+                pub fn new() -> InlineResponse2008 {
+                InlineResponse2008 {
+                    status: None,
+                    last_viewed_at_times: None,
+                }
+                }
+                }
 
 

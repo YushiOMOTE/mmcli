@@ -11,19 +11,19 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct InlineObject59 {
-    /// The license to be uploaded
-    #[serde(rename = "license")]
-    pub license: std::path::PathBuf,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct InlineObject59 {
+                        /// The license to be uploaded
+                    #[serde(rename = "license")]
+                    pub license: std::path::PathBuf,
+                }
 
-impl InlineObject59 {
-    pub fn new(license: std::path::PathBuf) -> InlineObject59 {
-        InlineObject59 {
-            license,
-        }
-    }
-}
+                impl InlineObject59 {
+                pub fn new(license: std::path::PathBuf) -> InlineObject59 {
+                InlineObject59 {
+                    license,
+                }
+                }
+                }
 
 

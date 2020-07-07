@@ -11,19 +11,19 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct InlineObject45 {
-    /// The search term to match against the name or display name of channels
-    #[serde(rename = "term")]
-    pub term: String,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct InlineObject45 {
+                        /// The search term to match against the name or display name of channels
+                    #[serde(rename = "term")]
+                    pub term: String,
+                }
 
-impl InlineObject45 {
-    pub fn new(term: String) -> InlineObject45 {
-        InlineObject45 {
-            term,
-        }
-    }
-}
+                impl InlineObject45 {
+                pub fn new(term: String) -> InlineObject45 {
+                InlineObject45 {
+                    term,
+                }
+                }
+                }
 
 

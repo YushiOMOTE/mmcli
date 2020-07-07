@@ -11,33 +11,33 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct ConfigRateLimitSettings {
-    #[serde(rename = "Enable", skip_serializing_if = "Option::is_none")]
-    pub enable: Option<bool>,
-    #[serde(rename = "PerSec", skip_serializing_if = "Option::is_none")]
-    pub per_sec: Option<i32>,
-    #[serde(rename = "MaxBurst", skip_serializing_if = "Option::is_none")]
-    pub max_burst: Option<i32>,
-    #[serde(rename = "MemoryStoreSize", skip_serializing_if = "Option::is_none")]
-    pub memory_store_size: Option<i32>,
-    #[serde(rename = "VaryByRemoteAddr", skip_serializing_if = "Option::is_none")]
-    pub vary_by_remote_addr: Option<bool>,
-    #[serde(rename = "VaryByHeader", skip_serializing_if = "Option::is_none")]
-    pub vary_by_header: Option<String>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct ConfigRateLimitSettings {
+                    #[serde(rename = "Enable", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub enable: Option<bool>,
+                    #[serde(rename = "PerSec", skip_serializing_if = "Option::is_none")]
+                    pub per_sec: Option<i64>,
+                    #[serde(rename = "MaxBurst", skip_serializing_if = "Option::is_none")]
+                    pub max_burst: Option<i64>,
+                    #[serde(rename = "MemoryStoreSize", skip_serializing_if = "Option::is_none")]
+                    pub memory_store_size: Option<i64>,
+                    #[serde(rename = "VaryByRemoteAddr", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub vary_by_remote_addr: Option<bool>,
+                    #[serde(rename = "VaryByHeader", skip_serializing_if = "Option::is_none")]
+                    pub vary_by_header: Option<String>,
+                }
 
-impl ConfigRateLimitSettings {
-    pub fn new() -> ConfigRateLimitSettings {
-        ConfigRateLimitSettings {
-            enable: None,
-            per_sec: None,
-            max_burst: None,
-            memory_store_size: None,
-            vary_by_remote_addr: None,
-            vary_by_header: None,
-        }
-    }
-}
+                impl ConfigRateLimitSettings {
+                pub fn new() -> ConfigRateLimitSettings {
+                ConfigRateLimitSettings {
+                    enable: None,
+                    per_sec: None,
+                    max_burst: None,
+                    memory_store_size: None,
+                    vary_by_remote_addr: None,
+                    vary_by_header: None,
+                }
+                }
+                }
 
 

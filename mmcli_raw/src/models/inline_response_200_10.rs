@@ -11,19 +11,19 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct InlineResponse20010 {
-    /// The new token
-    #[serde(rename = "token", skip_serializing_if = "Option::is_none")]
-    pub token: Option<String>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct InlineResponse20010 {
+                        /// The new token
+                    #[serde(rename = "token", skip_serializing_if = "Option::is_none")]
+                    pub token: Option<String>,
+                }
 
-impl InlineResponse20010 {
-    pub fn new() -> InlineResponse20010 {
-        InlineResponse20010 {
-            token: None,
-        }
-    }
-}
+                impl InlineResponse20010 {
+                pub fn new() -> InlineResponse20010 {
+                InlineResponse20010 {
+                    token: None,
+                }
+                }
+                }
 
 

@@ -11,21 +11,21 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct ChannelData {
-    #[serde(rename = "channel", skip_serializing_if = "Option::is_none")]
-    pub channel: Option<crate::models::Channel>,
-    #[serde(rename = "member", skip_serializing_if = "Option::is_none")]
-    pub member: Option<crate::models::ChannelMember>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct ChannelData {
+                    #[serde(rename = "channel", skip_serializing_if = "Option::is_none")]
+                    pub channel: Option<crate::models::Channel>,
+                    #[serde(rename = "member", skip_serializing_if = "Option::is_none")]
+                    pub member: Option<crate::models::ChannelMember>,
+                }
 
-impl ChannelData {
-    pub fn new() -> ChannelData {
-        ChannelData {
-            channel: None,
-            member: None,
-        }
-    }
-}
+                impl ChannelData {
+                pub fn new() -> ChannelData {
+                ChannelData {
+                    channel: None,
+                    member: None,
+                }
+                }
+                }
 
 

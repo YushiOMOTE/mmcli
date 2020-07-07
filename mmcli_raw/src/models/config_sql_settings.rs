@@ -11,36 +11,36 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct ConfigSqlSettings {
-    #[serde(rename = "DriverName", skip_serializing_if = "Option::is_none")]
-    pub driver_name: Option<String>,
-    #[serde(rename = "DataSource", skip_serializing_if = "Option::is_none")]
-    pub data_source: Option<String>,
-    #[serde(rename = "DataSourceReplicas", skip_serializing_if = "Option::is_none")]
-    pub data_source_replicas: Option<Vec<String>>,
-    #[serde(rename = "MaxIdleConns", skip_serializing_if = "Option::is_none")]
-    pub max_idle_conns: Option<i32>,
-    #[serde(rename = "MaxOpenConns", skip_serializing_if = "Option::is_none")]
-    pub max_open_conns: Option<i32>,
-    #[serde(rename = "Trace", skip_serializing_if = "Option::is_none")]
-    pub trace: Option<bool>,
-    #[serde(rename = "AtRestEncryptKey", skip_serializing_if = "Option::is_none")]
-    pub at_rest_encrypt_key: Option<String>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct ConfigSqlSettings {
+                    #[serde(rename = "DriverName", skip_serializing_if = "Option::is_none")]
+                    pub driver_name: Option<String>,
+                    #[serde(rename = "DataSource", skip_serializing_if = "Option::is_none")]
+                    pub data_source: Option<String>,
+                    #[serde(rename = "DataSourceReplicas", skip_serializing_if = "Option::is_none")]
+                    pub data_source_replicas: Option<Vec<String>>,
+                    #[serde(rename = "MaxIdleConns", skip_serializing_if = "Option::is_none")]
+                    pub max_idle_conns: Option<i64>,
+                    #[serde(rename = "MaxOpenConns", skip_serializing_if = "Option::is_none")]
+                    pub max_open_conns: Option<i64>,
+                    #[serde(rename = "Trace", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub trace: Option<bool>,
+                    #[serde(rename = "AtRestEncryptKey", skip_serializing_if = "Option::is_none")]
+                    pub at_rest_encrypt_key: Option<String>,
+                }
 
-impl ConfigSqlSettings {
-    pub fn new() -> ConfigSqlSettings {
-        ConfigSqlSettings {
-            driver_name: None,
-            data_source: None,
-            data_source_replicas: None,
-            max_idle_conns: None,
-            max_open_conns: None,
-            trace: None,
-            at_rest_encrypt_key: None,
-        }
-    }
-}
+                impl ConfigSqlSettings {
+                pub fn new() -> ConfigSqlSettings {
+                ConfigSqlSettings {
+                    driver_name: None,
+                    data_source: None,
+                    data_source_replicas: None,
+                    max_idle_conns: None,
+                    max_open_conns: None,
+                    trace: None,
+                    at_rest_encrypt_key: None,
+                }
+                }
+                }
 
 

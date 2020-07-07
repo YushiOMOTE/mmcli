@@ -11,36 +11,36 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct ConfigGitLabSettings {
-    #[serde(rename = "Enable", skip_serializing_if = "Option::is_none")]
-    pub enable: Option<bool>,
-    #[serde(rename = "Secret", skip_serializing_if = "Option::is_none")]
-    pub secret: Option<String>,
-    #[serde(rename = "Id", skip_serializing_if = "Option::is_none")]
-    pub id: Option<String>,
-    #[serde(rename = "Scope", skip_serializing_if = "Option::is_none")]
-    pub scope: Option<String>,
-    #[serde(rename = "AuthEndpoint", skip_serializing_if = "Option::is_none")]
-    pub auth_endpoint: Option<String>,
-    #[serde(rename = "TokenEndpoint", skip_serializing_if = "Option::is_none")]
-    pub token_endpoint: Option<String>,
-    #[serde(rename = "UserApiEndpoint", skip_serializing_if = "Option::is_none")]
-    pub user_api_endpoint: Option<String>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct ConfigGitLabSettings {
+                    #[serde(rename = "Enable", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub enable: Option<bool>,
+                    #[serde(rename = "Secret", skip_serializing_if = "Option::is_none")]
+                    pub secret: Option<String>,
+                    #[serde(rename = "Id", skip_serializing_if = "Option::is_none")]
+                    pub id: Option<String>,
+                    #[serde(rename = "Scope", skip_serializing_if = "Option::is_none")]
+                    pub scope: Option<String>,
+                    #[serde(rename = "AuthEndpoint", skip_serializing_if = "Option::is_none")]
+                    pub auth_endpoint: Option<String>,
+                    #[serde(rename = "TokenEndpoint", skip_serializing_if = "Option::is_none")]
+                    pub token_endpoint: Option<String>,
+                    #[serde(rename = "UserApiEndpoint", skip_serializing_if = "Option::is_none")]
+                    pub user_api_endpoint: Option<String>,
+                }
 
-impl ConfigGitLabSettings {
-    pub fn new() -> ConfigGitLabSettings {
-        ConfigGitLabSettings {
-            enable: None,
-            secret: None,
-            id: None,
-            scope: None,
-            auth_endpoint: None,
-            token_endpoint: None,
-            user_api_endpoint: None,
-        }
-    }
-}
+                impl ConfigGitLabSettings {
+                pub fn new() -> ConfigGitLabSettings {
+                ConfigGitLabSettings {
+                    enable: None,
+                    secret: None,
+                    id: None,
+                    scope: None,
+                    auth_endpoint: None,
+                    token_endpoint: None,
+                    user_api_endpoint: None,
+                }
+                }
+                }
 
 

@@ -147,8 +147,8 @@ Get a page of metadata for custom emoji on the system. Since server version 4.7,
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**page** | Option<**i32**> | The page to select. |  |[default to 0]
-**per_page** | Option<**i32**> | The number of users per page. |  |[default to 60]
+**page** | Option<**i64**> | The page to select. |  |[default to 0]
+**per_page** | Option<**i64**> | The number of users per page. |  |[default to 60]
 **sort** | Option<**String**> | Either blank for no sorting or \"name\" to sort by emoji names. Minimum server version for sorting is 4.7. |  |[default to ]
 
 ### Return type

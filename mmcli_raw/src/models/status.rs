@@ -11,27 +11,27 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct Status {
-    #[serde(rename = "user_id", skip_serializing_if = "Option::is_none")]
-    pub user_id: Option<String>,
-    #[serde(rename = "status", skip_serializing_if = "Option::is_none")]
-    pub status: Option<String>,
-    #[serde(rename = "manual", skip_serializing_if = "Option::is_none")]
-    pub manual: Option<bool>,
-    #[serde(rename = "last_activity_at", skip_serializing_if = "Option::is_none")]
-    pub last_activity_at: Option<i64>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct Status {
+                    #[serde(rename = "user_id", skip_serializing_if = "Option::is_none")]
+                    pub user_id: Option<String>,
+                    #[serde(rename = "status", skip_serializing_if = "Option::is_none")]
+                    pub status: Option<String>,
+                    #[serde(rename = "manual", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub manual: Option<bool>,
+                    #[serde(rename = "last_activity_at", skip_serializing_if = "Option::is_none")]
+                    pub last_activity_at: Option<i64>,
+                }
 
-impl Status {
-    pub fn new() -> Status {
-        Status {
-            user_id: None,
-            status: None,
-            manual: None,
-            last_activity_at: None,
-        }
-    }
-}
+                impl Status {
+                pub fn new() -> Status {
+                Status {
+                    user_id: None,
+                    status: None,
+                    manual: None,
+                    last_activity_at: None,
+                }
+                }
+                }
 
 

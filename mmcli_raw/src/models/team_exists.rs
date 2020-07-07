@@ -11,18 +11,18 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct TeamExists {
-    #[serde(rename = "exists", skip_serializing_if = "Option::is_none")]
-    pub exists: Option<bool>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct TeamExists {
+                    #[serde(rename = "exists", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub exists: Option<bool>,
+                }
 
-impl TeamExists {
-    pub fn new() -> TeamExists {
-        TeamExists {
-            exists: None,
-        }
-    }
-}
+                impl TeamExists {
+                pub fn new() -> TeamExists {
+                TeamExists {
+                    exists: None,
+                }
+                }
+                }
 
 

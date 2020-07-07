@@ -11,43 +11,43 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct IncomingWebhook {
-    /// The unique identifier for this incoming webhook
-    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
-    pub id: Option<String>,
-    /// The time in milliseconds a incoming webhook was created
-    #[serde(rename = "create_at", skip_serializing_if = "Option::is_none")]
-    pub create_at: Option<i64>,
-    /// The time in milliseconds a incoming webhook was last updated
-    #[serde(rename = "update_at", skip_serializing_if = "Option::is_none")]
-    pub update_at: Option<i64>,
-    /// The time in milliseconds a incoming webhook was deleted
-    #[serde(rename = "delete_at", skip_serializing_if = "Option::is_none")]
-    pub delete_at: Option<i64>,
-    /// The ID of a public channel or private group that receives the webhook payloads
-    #[serde(rename = "channel_id", skip_serializing_if = "Option::is_none")]
-    pub channel_id: Option<String>,
-    /// The description for this incoming webhook
-    #[serde(rename = "description", skip_serializing_if = "Option::is_none")]
-    pub description: Option<String>,
-    /// The display name for this incoming webhook
-    #[serde(rename = "display_name", skip_serializing_if = "Option::is_none")]
-    pub display_name: Option<String>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct IncomingWebhook {
+                        /// The unique identifier for this incoming webhook
+                    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
+                    pub id: Option<String>,
+                        /// The time in milliseconds a incoming webhook was created
+                    #[serde(rename = "create_at", skip_serializing_if = "Option::is_none")]
+                    pub create_at: Option<i64>,
+                        /// The time in milliseconds a incoming webhook was last updated
+                    #[serde(rename = "update_at", skip_serializing_if = "Option::is_none")]
+                    pub update_at: Option<i64>,
+                        /// The time in milliseconds a incoming webhook was deleted
+                    #[serde(rename = "delete_at", skip_serializing_if = "Option::is_none")]
+                    pub delete_at: Option<i64>,
+                        /// The ID of a public channel or private group that receives the webhook payloads
+                    #[serde(rename = "channel_id", skip_serializing_if = "Option::is_none")]
+                    pub channel_id: Option<String>,
+                        /// The description for this incoming webhook
+                    #[serde(rename = "description", skip_serializing_if = "Option::is_none")]
+                    pub description: Option<String>,
+                        /// The display name for this incoming webhook
+                    #[serde(rename = "display_name", skip_serializing_if = "Option::is_none")]
+                    pub display_name: Option<String>,
+                }
 
-impl IncomingWebhook {
-    pub fn new() -> IncomingWebhook {
-        IncomingWebhook {
-            id: None,
-            create_at: None,
-            update_at: None,
-            delete_at: None,
-            channel_id: None,
-            description: None,
-            display_name: None,
-        }
-    }
-}
+                impl IncomingWebhook {
+                pub fn new() -> IncomingWebhook {
+                IncomingWebhook {
+                    id: None,
+                    create_at: None,
+                    update_at: None,
+                    delete_at: None,
+                    channel_id: None,
+                    description: None,
+                    display_name: None,
+                }
+                }
+                }
 
 

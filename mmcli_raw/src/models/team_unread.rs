@@ -11,24 +11,24 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct TeamUnread {
-    #[serde(rename = "team_id", skip_serializing_if = "Option::is_none")]
-    pub team_id: Option<String>,
-    #[serde(rename = "msg_count", skip_serializing_if = "Option::is_none")]
-    pub msg_count: Option<i32>,
-    #[serde(rename = "mention_count", skip_serializing_if = "Option::is_none")]
-    pub mention_count: Option<i32>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct TeamUnread {
+                    #[serde(rename = "team_id", skip_serializing_if = "Option::is_none")]
+                    pub team_id: Option<String>,
+                    #[serde(rename = "msg_count", skip_serializing_if = "Option::is_none")]
+                    pub msg_count: Option<i64>,
+                    #[serde(rename = "mention_count", skip_serializing_if = "Option::is_none")]
+                    pub mention_count: Option<i64>,
+                }
 
-impl TeamUnread {
-    pub fn new() -> TeamUnread {
-        TeamUnread {
-            team_id: None,
-            msg_count: None,
-            mention_count: None,
-        }
-    }
-}
+                impl TeamUnread {
+                pub fn new() -> TeamUnread {
+                TeamUnread {
+                    team_id: None,
+                    msg_count: None,
+                    mention_count: None,
+                }
+                }
+                }
 
 

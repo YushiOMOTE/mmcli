@@ -11,19 +11,19 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct StatusOk {
-    /// Will contain \"ok\" if the request was successful and there was nothing else to return
-    #[serde(rename = "status", skip_serializing_if = "Option::is_none")]
-    pub status: Option<String>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct StatusOk {
+                        /// Will contain \"ok\" if the request was successful and there was nothing else to return
+                    #[serde(rename = "status", skip_serializing_if = "Option::is_none")]
+                    pub status: Option<String>,
+                }
 
-impl StatusOk {
-    pub fn new() -> StatusOk {
-        StatusOk {
-            status: None,
-        }
-    }
-}
+                impl StatusOk {
+                pub fn new() -> StatusOk {
+                StatusOk {
+                    status: None,
+                }
+                }
+                }
 
 

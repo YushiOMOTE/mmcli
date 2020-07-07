@@ -260,7 +260,7 @@ pub async fn oauth_apps_app_id_regen_secret_post(configuration: &configuration::
 }
 
 /// Get a page of OAuth 2.0 client applications registered with Mattermost. ##### Permissions With `manage_oauth` permission, the apps registered by the logged in user are returned. With `manage_system_wide_oauth` permission, all apps regardless of creator are returned. 
-pub async fn oauth_apps_get(configuration: &configuration::Configuration, page: Option<i32>, per_page: Option<i32>) -> Result<Vec<crate::models::OAuthApp>, Error<OauthAppsGetError>> {
+pub async fn oauth_apps_get(configuration: &configuration::Configuration, page: Option<i64>, per_page: Option<i64>) -> Result<Vec<crate::models::OAuthApp>, Error<OauthAppsGetError>> {
 
     let client = &configuration.client;
 
@@ -327,7 +327,7 @@ pub async fn oauth_apps_post(configuration: &configuration::Configuration, inlin
 }
 
 /// Get a page of OAuth 2.0 client applications authorized to access a user's account. ##### Permissions Must be authenticated as the user or have `edit_other_users` permission. 
-pub async fn users_user_id_oauth_apps_authorized_get(configuration: &configuration::Configuration, user_id: &str, page: Option<i32>, per_page: Option<i32>) -> Result<Vec<crate::models::OAuthApp>, Error<UsersUserIdOauthAppsAuthorizedGetError>> {
+pub async fn users_user_id_oauth_apps_authorized_get(configuration: &configuration::Configuration, user_id: &str, page: Option<i64>, per_page: Option<i64>) -> Result<Vec<crate::models::OAuthApp>, Error<UsersUserIdOauthAppsAuthorizedGetError>> {
 
     let client = &configuration.client;
 

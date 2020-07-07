@@ -11,21 +11,21 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct ChannelModerationPatch {
-    #[serde(rename = "name", skip_serializing_if = "Option::is_none")]
-    pub name: Option<String>,
-    #[serde(rename = "roles", skip_serializing_if = "Option::is_none")]
-    pub roles: Option<crate::models::ChannelModeratedRolesPatch>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct ChannelModerationPatch {
+                    #[serde(rename = "name", skip_serializing_if = "Option::is_none")]
+                    pub name: Option<String>,
+                    #[serde(rename = "roles", skip_serializing_if = "Option::is_none")]
+                    pub roles: Option<crate::models::ChannelModeratedRolesPatch>,
+                }
 
-impl ChannelModerationPatch {
-    pub fn new() -> ChannelModerationPatch {
-        ChannelModerationPatch {
-            name: None,
-            roles: None,
-        }
-    }
-}
+                impl ChannelModerationPatch {
+                pub fn new() -> ChannelModerationPatch {
+                ChannelModerationPatch {
+                    name: None,
+                    roles: None,
+                }
+                }
+                }
 
 

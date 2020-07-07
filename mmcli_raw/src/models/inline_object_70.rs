@@ -11,19 +11,19 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct InlineObject70 {
-    /// The private key file
-    #[serde(rename = "certificate")]
-    pub certificate: std::path::PathBuf,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct InlineObject70 {
+                        /// The private key file
+                    #[serde(rename = "certificate")]
+                    pub certificate: std::path::PathBuf,
+                }
 
-impl InlineObject70 {
-    pub fn new(certificate: std::path::PathBuf) -> InlineObject70 {
-        InlineObject70 {
-            certificate,
-        }
-    }
-}
+                impl InlineObject70 {
+                pub fn new(certificate: std::path::PathBuf) -> InlineObject70 {
+                InlineObject70 {
+                    certificate,
+                }
+                }
+                }
 
 

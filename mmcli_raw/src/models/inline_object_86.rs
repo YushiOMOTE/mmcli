@@ -11,45 +11,45 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct InlineObject86 {
-    #[serde(rename = "email", skip_serializing_if = "Option::is_none")]
-    pub email: Option<String>,
-    #[serde(rename = "username", skip_serializing_if = "Option::is_none")]
-    pub username: Option<String>,
-    #[serde(rename = "password", skip_serializing_if = "Option::is_none")]
-    pub password: Option<String>,
-    #[serde(rename = "first_name", skip_serializing_if = "Option::is_none")]
-    pub first_name: Option<String>,
-    #[serde(rename = "last_name", skip_serializing_if = "Option::is_none")]
-    pub last_name: Option<String>,
-    #[serde(rename = "nickname", skip_serializing_if = "Option::is_none")]
-    pub nickname: Option<String>,
-    #[serde(rename = "locale", skip_serializing_if = "Option::is_none")]
-    pub locale: Option<String>,
-    #[serde(rename = "position", skip_serializing_if = "Option::is_none")]
-    pub position: Option<String>,
-    #[serde(rename = "props", skip_serializing_if = "Option::is_none")]
-    pub props: Option<serde_json::Value>,
-    #[serde(rename = "notify_props", skip_serializing_if = "Option::is_none")]
-    pub notify_props: Option<crate::models::UserNotifyProps>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct InlineObject86 {
+                    #[serde(rename = "email", skip_serializing_if = "Option::is_none")]
+                    pub email: Option<String>,
+                    #[serde(rename = "username", skip_serializing_if = "Option::is_none")]
+                    pub username: Option<String>,
+                    #[serde(rename = "password", skip_serializing_if = "Option::is_none")]
+                    pub password: Option<String>,
+                    #[serde(rename = "first_name", skip_serializing_if = "Option::is_none")]
+                    pub first_name: Option<String>,
+                    #[serde(rename = "last_name", skip_serializing_if = "Option::is_none")]
+                    pub last_name: Option<String>,
+                    #[serde(rename = "nickname", skip_serializing_if = "Option::is_none")]
+                    pub nickname: Option<String>,
+                    #[serde(rename = "locale", skip_serializing_if = "Option::is_none")]
+                    pub locale: Option<String>,
+                    #[serde(rename = "position", skip_serializing_if = "Option::is_none")]
+                    pub position: Option<String>,
+                    #[serde(rename = "props", skip_serializing_if = "Option::is_none")]
+                    pub props: Option<serde_json::Value>,
+                    #[serde(rename = "notify_props", skip_serializing_if = "Option::is_none")]
+                    pub notify_props: Option<crate::models::UserNotifyProps>,
+                }
 
-impl InlineObject86 {
-    pub fn new() -> InlineObject86 {
-        InlineObject86 {
-            email: None,
-            username: None,
-            password: None,
-            first_name: None,
-            last_name: None,
-            nickname: None,
-            locale: None,
-            position: None,
-            props: None,
-            notify_props: None,
-        }
-    }
-}
+                impl InlineObject86 {
+                pub fn new() -> InlineObject86 {
+                InlineObject86 {
+                    email: None,
+                    username: None,
+                    password: None,
+                    first_name: None,
+                    last_name: None,
+                    nickname: None,
+                    locale: None,
+                    position: None,
+                    props: None,
+                    notify_props: None,
+                }
+                }
+                }
 
 

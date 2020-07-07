@@ -11,19 +11,19 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct InlineObject22 {
-    /// The search term to match against the token id, user id or username.
-    #[serde(rename = "term")]
-    pub term: String,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct InlineObject22 {
+                        /// The search term to match against the token id, user id or username.
+                    #[serde(rename = "term")]
+                    pub term: String,
+                }
 
-impl InlineObject22 {
-    pub fn new(term: String) -> InlineObject22 {
-        InlineObject22 {
-            term,
-        }
-    }
-}
+                impl InlineObject22 {
+                pub fn new(term: String) -> InlineObject22 {
+                InlineObject22 {
+                    term,
+                }
+                }
+                }
 
 

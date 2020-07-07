@@ -11,24 +11,24 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct InlineObject83 {
-    #[serde(rename = "username")]
-    pub username: String,
-    #[serde(rename = "display_name", skip_serializing_if = "Option::is_none")]
-    pub display_name: Option<String>,
-    #[serde(rename = "description", skip_serializing_if = "Option::is_none")]
-    pub description: Option<String>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct InlineObject83 {
+                    #[serde(rename = "username")]
+                    pub username: String,
+                    #[serde(rename = "display_name", skip_serializing_if = "Option::is_none")]
+                    pub display_name: Option<String>,
+                    #[serde(rename = "description", skip_serializing_if = "Option::is_none")]
+                    pub description: Option<String>,
+                }
 
-impl InlineObject83 {
-    pub fn new(username: String) -> InlineObject83 {
-        InlineObject83 {
-            username,
-            display_name: None,
-            description: None,
-        }
-    }
-}
+                impl InlineObject83 {
+                pub fn new(username: String) -> InlineObject83 {
+                InlineObject83 {
+                    username,
+                    display_name: None,
+                    description: None,
+                }
+                }
+                }
 
 

@@ -11,64 +11,64 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct SlackAttachment {
-    #[serde(rename = "Id", skip_serializing_if = "Option::is_none")]
-    pub id: Option<String>,
-    #[serde(rename = "Fallback", skip_serializing_if = "Option::is_none")]
-    pub fallback: Option<String>,
-    #[serde(rename = "Color", skip_serializing_if = "Option::is_none")]
-    pub color: Option<String>,
-    #[serde(rename = "Pretext", skip_serializing_if = "Option::is_none")]
-    pub pretext: Option<String>,
-    #[serde(rename = "AuthorName", skip_serializing_if = "Option::is_none")]
-    pub author_name: Option<String>,
-    #[serde(rename = "AuthorLink", skip_serializing_if = "Option::is_none")]
-    pub author_link: Option<String>,
-    #[serde(rename = "AuthorIcon", skip_serializing_if = "Option::is_none")]
-    pub author_icon: Option<String>,
-    #[serde(rename = "Title", skip_serializing_if = "Option::is_none")]
-    pub title: Option<String>,
-    #[serde(rename = "TitleLink", skip_serializing_if = "Option::is_none")]
-    pub title_link: Option<String>,
-    #[serde(rename = "Text", skip_serializing_if = "Option::is_none")]
-    pub text: Option<String>,
-    #[serde(rename = "Fields", skip_serializing_if = "Option::is_none")]
-    pub fields: Option<Vec<crate::models::SlackAttachmentField>>,
-    #[serde(rename = "ImageURL", skip_serializing_if = "Option::is_none")]
-    pub image_url: Option<String>,
-    #[serde(rename = "ThumbURL", skip_serializing_if = "Option::is_none")]
-    pub thumb_url: Option<String>,
-    #[serde(rename = "Footer", skip_serializing_if = "Option::is_none")]
-    pub footer: Option<String>,
-    #[serde(rename = "FooterIcon", skip_serializing_if = "Option::is_none")]
-    pub footer_icon: Option<String>,
-    /// The timestamp of the slack attachment, either type of string or integer
-    #[serde(rename = "Timestamp", skip_serializing_if = "Option::is_none")]
-    pub timestamp: Option<String>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct SlackAttachment {
+                    #[serde(rename = "Id", skip_serializing_if = "Option::is_none")]
+                    pub id: Option<String>,
+                    #[serde(rename = "Fallback", skip_serializing_if = "Option::is_none")]
+                    pub fallback: Option<String>,
+                    #[serde(rename = "Color", skip_serializing_if = "Option::is_none")]
+                    pub color: Option<String>,
+                    #[serde(rename = "Pretext", skip_serializing_if = "Option::is_none")]
+                    pub pretext: Option<String>,
+                    #[serde(rename = "AuthorName", skip_serializing_if = "Option::is_none")]
+                    pub author_name: Option<String>,
+                    #[serde(rename = "AuthorLink", skip_serializing_if = "Option::is_none")]
+                    pub author_link: Option<String>,
+                    #[serde(rename = "AuthorIcon", skip_serializing_if = "Option::is_none")]
+                    pub author_icon: Option<String>,
+                    #[serde(rename = "Title", skip_serializing_if = "Option::is_none")]
+                    pub title: Option<String>,
+                    #[serde(rename = "TitleLink", skip_serializing_if = "Option::is_none")]
+                    pub title_link: Option<String>,
+                    #[serde(rename = "Text", skip_serializing_if = "Option::is_none")]
+                    pub text: Option<String>,
+                    #[serde(rename = "Fields", skip_serializing_if = "Option::is_none")]
+                    pub fields: Option<Vec<crate::models::SlackAttachmentField>>,
+                    #[serde(rename = "ImageURL", skip_serializing_if = "Option::is_none")]
+                    pub image_url: Option<String>,
+                    #[serde(rename = "ThumbURL", skip_serializing_if = "Option::is_none")]
+                    pub thumb_url: Option<String>,
+                    #[serde(rename = "Footer", skip_serializing_if = "Option::is_none")]
+                    pub footer: Option<String>,
+                    #[serde(rename = "FooterIcon", skip_serializing_if = "Option::is_none")]
+                    pub footer_icon: Option<String>,
+                        /// The timestamp of the slack attachment, either type of string or integer
+                    #[serde(rename = "Timestamp", skip_serializing_if = "Option::is_none")]
+                    pub timestamp: Option<String>,
+                }
 
-impl SlackAttachment {
-    pub fn new() -> SlackAttachment {
-        SlackAttachment {
-            id: None,
-            fallback: None,
-            color: None,
-            pretext: None,
-            author_name: None,
-            author_link: None,
-            author_icon: None,
-            title: None,
-            title_link: None,
-            text: None,
-            fields: None,
-            image_url: None,
-            thumb_url: None,
-            footer: None,
-            footer_icon: None,
-            timestamp: None,
-        }
-    }
-}
+                impl SlackAttachment {
+                pub fn new() -> SlackAttachment {
+                SlackAttachment {
+                    id: None,
+                    fallback: None,
+                    color: None,
+                    pretext: None,
+                    author_name: None,
+                    author_link: None,
+                    author_icon: None,
+                    title: None,
+                    title_link: None,
+                    text: None,
+                    fields: None,
+                    image_url: None,
+                    thumb_url: None,
+                    footer: None,
+                    footer_icon: None,
+                    timestamp: None,
+                }
+                }
+                }
 
 

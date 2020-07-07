@@ -11,18 +11,18 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct UsersStats {
-    #[serde(rename = "total_users_count", skip_serializing_if = "Option::is_none")]
-    pub total_users_count: Option<i32>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct UsersStats {
+                    #[serde(rename = "total_users_count", skip_serializing_if = "Option::is_none")]
+                    pub total_users_count: Option<i64>,
+                }
 
-impl UsersStats {
-    pub fn new() -> UsersStats {
-        UsersStats {
-            total_users_count: None,
-        }
-    }
-}
+                impl UsersStats {
+                pub fn new() -> UsersStats {
+                UsersStats {
+                    total_users_count: None,
+                }
+                }
+                }
 
 

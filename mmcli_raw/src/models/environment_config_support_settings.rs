@@ -11,33 +11,33 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct EnvironmentConfigSupportSettings {
-    #[serde(rename = "TermsOfServiceLink", skip_serializing_if = "Option::is_none")]
-    pub terms_of_service_link: Option<bool>,
-    #[serde(rename = "PrivacyPolicyLink", skip_serializing_if = "Option::is_none")]
-    pub privacy_policy_link: Option<bool>,
-    #[serde(rename = "AboutLink", skip_serializing_if = "Option::is_none")]
-    pub about_link: Option<bool>,
-    #[serde(rename = "HelpLink", skip_serializing_if = "Option::is_none")]
-    pub help_link: Option<bool>,
-    #[serde(rename = "ReportAProblemLink", skip_serializing_if = "Option::is_none")]
-    pub report_a_problem_link: Option<bool>,
-    #[serde(rename = "SupportEmail", skip_serializing_if = "Option::is_none")]
-    pub support_email: Option<bool>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct EnvironmentConfigSupportSettings {
+                    #[serde(rename = "TermsOfServiceLink", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub terms_of_service_link: Option<bool>,
+                    #[serde(rename = "PrivacyPolicyLink", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub privacy_policy_link: Option<bool>,
+                    #[serde(rename = "AboutLink", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub about_link: Option<bool>,
+                    #[serde(rename = "HelpLink", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub help_link: Option<bool>,
+                    #[serde(rename = "ReportAProblemLink", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub report_a_problem_link: Option<bool>,
+                    #[serde(rename = "SupportEmail", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub support_email: Option<bool>,
+                }
 
-impl EnvironmentConfigSupportSettings {
-    pub fn new() -> EnvironmentConfigSupportSettings {
-        EnvironmentConfigSupportSettings {
-            terms_of_service_link: None,
-            privacy_policy_link: None,
-            about_link: None,
-            help_link: None,
-            report_a_problem_link: None,
-            support_email: None,
-        }
-    }
-}
+                impl EnvironmentConfigSupportSettings {
+                pub fn new() -> EnvironmentConfigSupportSettings {
+                EnvironmentConfigSupportSettings {
+                    terms_of_service_link: None,
+                    privacy_policy_link: None,
+                    about_link: None,
+                    help_link: None,
+                    report_a_problem_link: None,
+                    support_email: None,
+                }
+                }
+                }
 
 

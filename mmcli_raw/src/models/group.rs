@@ -11,45 +11,45 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct Group {
-    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
-    pub id: Option<String>,
-    #[serde(rename = "name", skip_serializing_if = "Option::is_none")]
-    pub name: Option<String>,
-    #[serde(rename = "display_name", skip_serializing_if = "Option::is_none")]
-    pub display_name: Option<String>,
-    #[serde(rename = "description", skip_serializing_if = "Option::is_none")]
-    pub description: Option<String>,
-    #[serde(rename = "source", skip_serializing_if = "Option::is_none")]
-    pub source: Option<String>,
-    #[serde(rename = "remote_id", skip_serializing_if = "Option::is_none")]
-    pub remote_id: Option<String>,
-    #[serde(rename = "create_at", skip_serializing_if = "Option::is_none")]
-    pub create_at: Option<i64>,
-    #[serde(rename = "update_at", skip_serializing_if = "Option::is_none")]
-    pub update_at: Option<i64>,
-    #[serde(rename = "delete_at", skip_serializing_if = "Option::is_none")]
-    pub delete_at: Option<i64>,
-    #[serde(rename = "has_syncables", skip_serializing_if = "Option::is_none")]
-    pub has_syncables: Option<bool>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct Group {
+                    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
+                    pub id: Option<String>,
+                    #[serde(rename = "name", skip_serializing_if = "Option::is_none")]
+                    pub name: Option<String>,
+                    #[serde(rename = "display_name", skip_serializing_if = "Option::is_none")]
+                    pub display_name: Option<String>,
+                    #[serde(rename = "description", skip_serializing_if = "Option::is_none")]
+                    pub description: Option<String>,
+                    #[serde(rename = "source", skip_serializing_if = "Option::is_none")]
+                    pub source: Option<String>,
+                    #[serde(rename = "remote_id", skip_serializing_if = "Option::is_none")]
+                    pub remote_id: Option<String>,
+                    #[serde(rename = "create_at", skip_serializing_if = "Option::is_none")]
+                    pub create_at: Option<i64>,
+                    #[serde(rename = "update_at", skip_serializing_if = "Option::is_none")]
+                    pub update_at: Option<i64>,
+                    #[serde(rename = "delete_at", skip_serializing_if = "Option::is_none")]
+                    pub delete_at: Option<i64>,
+                    #[serde(rename = "has_syncables", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub has_syncables: Option<bool>,
+                }
 
-impl Group {
-    pub fn new() -> Group {
-        Group {
-            id: None,
-            name: None,
-            display_name: None,
-            description: None,
-            source: None,
-            remote_id: None,
-            create_at: None,
-            update_at: None,
-            delete_at: None,
-            has_syncables: None,
-        }
-    }
-}
+                impl Group {
+                pub fn new() -> Group {
+                Group {
+                    id: None,
+                    name: None,
+                    display_name: None,
+                    description: None,
+                    source: None,
+                    remote_id: None,
+                    create_at: None,
+                    update_at: None,
+                    delete_at: None,
+                    has_syncables: None,
+                }
+                }
+                }
 
 

@@ -11,19 +11,19 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct InlineObject19 {
-    /// The user access token GUID to revoke
-    #[serde(rename = "token_id")]
-    pub token_id: String,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct InlineObject19 {
+                        /// The user access token GUID to revoke
+                    #[serde(rename = "token_id")]
+                    pub token_id: String,
+                }
 
-impl InlineObject19 {
-    pub fn new(token_id: String) -> InlineObject19 {
-        InlineObject19 {
-            token_id,
-        }
-    }
-}
+                impl InlineObject19 {
+                pub fn new(token_id: String) -> InlineObject19 {
+                InlineObject19 {
+                    token_id,
+                }
+                }
+                }
 
 

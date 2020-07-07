@@ -11,26 +11,26 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct InlineObject81 {
-    /// Trigger ID provided by other action
-    #[serde(rename = "trigger_id")]
-    pub trigger_id: String,
-    /// The URL to send the submitted dialog payload to
-    #[serde(rename = "url")]
-    pub url: String,
-    #[serde(rename = "dialog")]
-    pub dialog: crate::models::ActionsDialogsOpenDialog,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct InlineObject81 {
+                        /// Trigger ID provided by other action
+                    #[serde(rename = "trigger_id")]
+                    pub trigger_id: String,
+                        /// The URL to send the submitted dialog payload to
+                    #[serde(rename = "url")]
+                    pub url: String,
+                    #[serde(rename = "dialog")]
+                    pub dialog: crate::models::ActionsDialogsOpenDialog,
+                }
 
-impl InlineObject81 {
-    pub fn new(trigger_id: String, url: String, dialog: crate::models::ActionsDialogsOpenDialog) -> InlineObject81 {
-        InlineObject81 {
-            trigger_id,
-            url,
-            dialog,
-        }
-    }
-}
+                impl InlineObject81 {
+                pub fn new(trigger_id: String, url: String, dialog: crate::models::ActionsDialogsOpenDialog) -> InlineObject81 {
+                InlineObject81 {
+                    trigger_id,
+                    url,
+                    dialog,
+                }
+                }
+                }
 
 

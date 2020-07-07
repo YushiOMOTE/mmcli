@@ -11,21 +11,21 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct PostMetadataImages {
-    #[serde(rename = "height", skip_serializing_if = "Option::is_none")]
-    pub height: Option<i32>,
-    #[serde(rename = "width", skip_serializing_if = "Option::is_none")]
-    pub width: Option<i32>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct PostMetadataImages {
+                    #[serde(rename = "height", skip_serializing_if = "Option::is_none")]
+                    pub height: Option<i64>,
+                    #[serde(rename = "width", skip_serializing_if = "Option::is_none")]
+                    pub width: Option<i64>,
+                }
 
-impl PostMetadataImages {
-    pub fn new() -> PostMetadataImages {
-        PostMetadataImages {
-            height: None,
-            width: None,
-        }
-    }
-}
+                impl PostMetadataImages {
+                pub fn new() -> PostMetadataImages {
+                PostMetadataImages {
+                    height: None,
+                    width: None,
+                }
+                }
+                }
 
 

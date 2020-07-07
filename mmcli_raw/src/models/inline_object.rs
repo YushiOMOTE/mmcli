@@ -11,34 +11,34 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct InlineObject {
-    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
-    pub id: Option<String>,
-    #[serde(rename = "login_id", skip_serializing_if = "Option::is_none")]
-    pub login_id: Option<String>,
-    #[serde(rename = "token", skip_serializing_if = "Option::is_none")]
-    pub token: Option<String>,
-    #[serde(rename = "device_id", skip_serializing_if = "Option::is_none")]
-    pub device_id: Option<String>,
-    #[serde(rename = "ldap_only", skip_serializing_if = "Option::is_none")]
-    pub ldap_only: Option<bool>,
-    /// The password used for email authentication.
-    #[serde(rename = "password", skip_serializing_if = "Option::is_none")]
-    pub password: Option<String>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct InlineObject {
+                    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
+                    pub id: Option<String>,
+                    #[serde(rename = "login_id", skip_serializing_if = "Option::is_none")]
+                    pub login_id: Option<String>,
+                    #[serde(rename = "token", skip_serializing_if = "Option::is_none")]
+                    pub token: Option<String>,
+                    #[serde(rename = "device_id", skip_serializing_if = "Option::is_none")]
+                    pub device_id: Option<String>,
+                    #[serde(rename = "ldap_only", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub ldap_only: Option<bool>,
+                        /// The password used for email authentication.
+                    #[serde(rename = "password", skip_serializing_if = "Option::is_none")]
+                    pub password: Option<String>,
+                }
 
-impl InlineObject {
-    pub fn new() -> InlineObject {
-        InlineObject {
-            id: None,
-            login_id: None,
-            token: None,
-            device_id: None,
-            ldap_only: None,
-            password: None,
-        }
-    }
-}
+                impl InlineObject {
+                pub fn new() -> InlineObject {
+                InlineObject {
+                    id: None,
+                    login_id: None,
+                    token: None,
+                    device_id: None,
+                    ldap_only: None,
+                    password: None,
+                }
+                }
+                }
 
 

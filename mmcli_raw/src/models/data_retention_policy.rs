@@ -11,31 +11,31 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct DataRetentionPolicy {
-    /// Indicates whether data retention policy deletion of messages is enabled.
-    #[serde(rename = "message_deletion_enabled", skip_serializing_if = "Option::is_none")]
-    pub message_deletion_enabled: Option<bool>,
-    /// Indicates whether data retention policy deletion of file attachments is enabled.
-    #[serde(rename = "file_deletion_enabled", skip_serializing_if = "Option::is_none")]
-    pub file_deletion_enabled: Option<bool>,
-    /// The current server timestamp before which messages should be deleted.
-    #[serde(rename = "message_retention_cutoff", skip_serializing_if = "Option::is_none")]
-    pub message_retention_cutoff: Option<i32>,
-    /// The current server timestamp before which files should be deleted.
-    #[serde(rename = "file_retention_cutoff", skip_serializing_if = "Option::is_none")]
-    pub file_retention_cutoff: Option<i32>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct DataRetentionPolicy {
+                        /// Indicates whether data retention policy deletion of messages is enabled.
+                    #[serde(rename = "message_deletion_enabled", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub message_deletion_enabled: Option<bool>,
+                        /// Indicates whether data retention policy deletion of file attachments is enabled.
+                    #[serde(rename = "file_deletion_enabled", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub file_deletion_enabled: Option<bool>,
+                        /// The current server timestamp before which messages should be deleted.
+                    #[serde(rename = "message_retention_cutoff", skip_serializing_if = "Option::is_none")]
+                    pub message_retention_cutoff: Option<i64>,
+                        /// The current server timestamp before which files should be deleted.
+                    #[serde(rename = "file_retention_cutoff", skip_serializing_if = "Option::is_none")]
+                    pub file_retention_cutoff: Option<i64>,
+                }
 
-impl DataRetentionPolicy {
-    pub fn new() -> DataRetentionPolicy {
-        DataRetentionPolicy {
-            message_deletion_enabled: None,
-            file_deletion_enabled: None,
-            message_retention_cutoff: None,
-            file_retention_cutoff: None,
-        }
-    }
-}
+                impl DataRetentionPolicy {
+                pub fn new() -> DataRetentionPolicy {
+                DataRetentionPolicy {
+                    message_deletion_enabled: None,
+                    file_deletion_enabled: None,
+                    message_retention_cutoff: None,
+                    file_retention_cutoff: None,
+                }
+                }
+                }
 
 

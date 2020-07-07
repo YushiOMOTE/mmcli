@@ -11,43 +11,43 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct ClusterInfo {
-    /// The unique ID for the node
-    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
-    pub id: Option<String>,
-    /// The server version the node is on
-    #[serde(rename = "version", skip_serializing_if = "Option::is_none")]
-    pub version: Option<String>,
-    /// The hash of the configuartion file the node is using
-    #[serde(rename = "config_hash", skip_serializing_if = "Option::is_none")]
-    pub config_hash: Option<String>,
-    /// The URL used to communicate with those node from other nodes
-    #[serde(rename = "internode_url", skip_serializing_if = "Option::is_none")]
-    pub internode_url: Option<String>,
-    /// The hostname for this node
-    #[serde(rename = "hostname", skip_serializing_if = "Option::is_none")]
-    pub hostname: Option<String>,
-    /// The time of the last ping to this node
-    #[serde(rename = "last_ping", skip_serializing_if = "Option::is_none")]
-    pub last_ping: Option<i32>,
-    /// Whether or not the node is alive and well
-    #[serde(rename = "is_alive", skip_serializing_if = "Option::is_none")]
-    pub is_alive: Option<bool>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct ClusterInfo {
+                        /// The unique ID for the node
+                    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
+                    pub id: Option<String>,
+                        /// The server version the node is on
+                    #[serde(rename = "version", skip_serializing_if = "Option::is_none")]
+                    pub version: Option<String>,
+                        /// The hash of the configuartion file the node is using
+                    #[serde(rename = "config_hash", skip_serializing_if = "Option::is_none")]
+                    pub config_hash: Option<String>,
+                        /// The URL used to communicate with those node from other nodes
+                    #[serde(rename = "internode_url", skip_serializing_if = "Option::is_none")]
+                    pub internode_url: Option<String>,
+                        /// The hostname for this node
+                    #[serde(rename = "hostname", skip_serializing_if = "Option::is_none")]
+                    pub hostname: Option<String>,
+                        /// The time of the last ping to this node
+                    #[serde(rename = "last_ping", skip_serializing_if = "Option::is_none")]
+                    pub last_ping: Option<i64>,
+                        /// Whether or not the node is alive and well
+                    #[serde(rename = "is_alive", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub is_alive: Option<bool>,
+                }
 
-impl ClusterInfo {
-    pub fn new() -> ClusterInfo {
-        ClusterInfo {
-            id: None,
-            version: None,
-            config_hash: None,
-            internode_url: None,
-            hostname: None,
-            last_ping: None,
-            is_alive: None,
-        }
-    }
-}
+                impl ClusterInfo {
+                pub fn new() -> ClusterInfo {
+                ClusterInfo {
+                    id: None,
+                    version: None,
+                    config_hash: None,
+                    internode_url: None,
+                    hostname: None,
+                    last_ping: None,
+                    is_alive: None,
+                }
+                }
+                }
 
 

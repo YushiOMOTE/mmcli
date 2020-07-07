@@ -11,33 +11,33 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct EnvironmentConfigRateLimitSettings {
-    #[serde(rename = "Enable", skip_serializing_if = "Option::is_none")]
-    pub enable: Option<bool>,
-    #[serde(rename = "PerSec", skip_serializing_if = "Option::is_none")]
-    pub per_sec: Option<bool>,
-    #[serde(rename = "MaxBurst", skip_serializing_if = "Option::is_none")]
-    pub max_burst: Option<bool>,
-    #[serde(rename = "MemoryStoreSize", skip_serializing_if = "Option::is_none")]
-    pub memory_store_size: Option<bool>,
-    #[serde(rename = "VaryByRemoteAddr", skip_serializing_if = "Option::is_none")]
-    pub vary_by_remote_addr: Option<bool>,
-    #[serde(rename = "VaryByHeader", skip_serializing_if = "Option::is_none")]
-    pub vary_by_header: Option<bool>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct EnvironmentConfigRateLimitSettings {
+                    #[serde(rename = "Enable", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub enable: Option<bool>,
+                    #[serde(rename = "PerSec", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub per_sec: Option<bool>,
+                    #[serde(rename = "MaxBurst", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub max_burst: Option<bool>,
+                    #[serde(rename = "MemoryStoreSize", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub memory_store_size: Option<bool>,
+                    #[serde(rename = "VaryByRemoteAddr", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub vary_by_remote_addr: Option<bool>,
+                    #[serde(rename = "VaryByHeader", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub vary_by_header: Option<bool>,
+                }
 
-impl EnvironmentConfigRateLimitSettings {
-    pub fn new() -> EnvironmentConfigRateLimitSettings {
-        EnvironmentConfigRateLimitSettings {
-            enable: None,
-            per_sec: None,
-            max_burst: None,
-            memory_store_size: None,
-            vary_by_remote_addr: None,
-            vary_by_header: None,
-        }
-    }
-}
+                impl EnvironmentConfigRateLimitSettings {
+                pub fn new() -> EnvironmentConfigRateLimitSettings {
+                EnvironmentConfigRateLimitSettings {
+                    enable: None,
+                    per_sec: None,
+                    max_burst: None,
+                    memory_store_size: None,
+                    vary_by_remote_addr: None,
+                    vary_by_header: None,
+                }
+                }
+                }
 
 

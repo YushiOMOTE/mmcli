@@ -11,25 +11,25 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct SlackAttachmentField {
-    #[serde(rename = "Title", skip_serializing_if = "Option::is_none")]
-    pub title: Option<String>,
-    /// The value of the attachment, set as string but capable with golang interface
-    #[serde(rename = "Value", skip_serializing_if = "Option::is_none")]
-    pub value: Option<String>,
-    #[serde(rename = "Short", skip_serializing_if = "Option::is_none")]
-    pub short: Option<bool>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct SlackAttachmentField {
+                    #[serde(rename = "Title", skip_serializing_if = "Option::is_none")]
+                    pub title: Option<String>,
+                        /// The value of the attachment, set as string but capable with golang interface
+                    #[serde(rename = "Value", skip_serializing_if = "Option::is_none")]
+                    pub value: Option<String>,
+                    #[serde(rename = "Short", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub short: Option<bool>,
+                }
 
-impl SlackAttachmentField {
-    pub fn new() -> SlackAttachmentField {
-        SlackAttachmentField {
-            title: None,
-            value: None,
-            short: None,
-        }
-    }
-}
+                impl SlackAttachmentField {
+                pub fn new() -> SlackAttachmentField {
+                SlackAttachmentField {
+                    title: None,
+                    value: None,
+                    short: None,
+                }
+                }
+                }
 
 

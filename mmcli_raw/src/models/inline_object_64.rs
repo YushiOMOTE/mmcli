@@ -11,35 +11,35 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct InlineObject64 {
-    /// The ID of a public channel or private group that receives the webhook payloads.
-    #[serde(rename = "channel_id")]
-    pub channel_id: String,
-    /// The display name for this incoming webhook
-    #[serde(rename = "display_name", skip_serializing_if = "Option::is_none")]
-    pub display_name: Option<String>,
-    /// The description for this incoming webhook
-    #[serde(rename = "description", skip_serializing_if = "Option::is_none")]
-    pub description: Option<String>,
-    /// The username this incoming webhook will post as.
-    #[serde(rename = "username", skip_serializing_if = "Option::is_none")]
-    pub username: Option<String>,
-    /// The profile picture this incoming webhook will use when posting.
-    #[serde(rename = "icon_url", skip_serializing_if = "Option::is_none")]
-    pub icon_url: Option<String>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct InlineObject64 {
+                        /// The ID of a public channel or private group that receives the webhook payloads.
+                    #[serde(rename = "channel_id")]
+                    pub channel_id: String,
+                        /// The display name for this incoming webhook
+                    #[serde(rename = "display_name", skip_serializing_if = "Option::is_none")]
+                    pub display_name: Option<String>,
+                        /// The description for this incoming webhook
+                    #[serde(rename = "description", skip_serializing_if = "Option::is_none")]
+                    pub description: Option<String>,
+                        /// The username this incoming webhook will post as.
+                    #[serde(rename = "username", skip_serializing_if = "Option::is_none")]
+                    pub username: Option<String>,
+                        /// The profile picture this incoming webhook will use when posting.
+                    #[serde(rename = "icon_url", skip_serializing_if = "Option::is_none")]
+                    pub icon_url: Option<String>,
+                }
 
-impl InlineObject64 {
-    pub fn new(channel_id: String) -> InlineObject64 {
-        InlineObject64 {
-            channel_id,
-            display_name: None,
-            description: None,
-            username: None,
-            icon_url: None,
-        }
-    }
-}
+                impl InlineObject64 {
+                pub fn new(channel_id: String) -> InlineObject64 {
+                InlineObject64 {
+                    channel_id,
+                    display_name: None,
+                    description: None,
+                    username: None,
+                    icon_url: None,
+                }
+                }
+                }
 
 

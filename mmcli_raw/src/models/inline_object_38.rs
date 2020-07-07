@@ -11,39 +11,39 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct InlineObject38 {
-    /// The team ID of the team to create the channel on
-    #[serde(rename = "team_id")]
-    pub team_id: String,
-    /// The unique handle for the channel, will be present in the channel URL
-    #[serde(rename = "name")]
-    pub name: String,
-    /// The non-unique UI name for the channel
-    #[serde(rename = "display_name")]
-    pub display_name: String,
-    /// A short description of the purpose of the channel
-    #[serde(rename = "purpose", skip_serializing_if = "Option::is_none")]
-    pub purpose: Option<String>,
-    /// Markdown-formatted text to display in the header of the channel
-    #[serde(rename = "header", skip_serializing_if = "Option::is_none")]
-    pub header: Option<String>,
-    /// 'O' for a public channel, 'P' for a private channel
-    #[serde(rename = "type")]
-    pub _type: String,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct InlineObject38 {
+                        /// The team ID of the team to create the channel on
+                    #[serde(rename = "team_id")]
+                    pub team_id: String,
+                        /// The unique handle for the channel, will be present in the channel URL
+                    #[serde(rename = "name")]
+                    pub name: String,
+                        /// The non-unique UI name for the channel
+                    #[serde(rename = "display_name")]
+                    pub display_name: String,
+                        /// A short description of the purpose of the channel
+                    #[serde(rename = "purpose", skip_serializing_if = "Option::is_none")]
+                    pub purpose: Option<String>,
+                        /// Markdown-formatted text to display in the header of the channel
+                    #[serde(rename = "header", skip_serializing_if = "Option::is_none")]
+                    pub header: Option<String>,
+                        /// 'O' for a public channel, 'P' for a private channel
+                    #[serde(rename = "type")]
+                    pub _type: String,
+                }
 
-impl InlineObject38 {
-    pub fn new(team_id: String, name: String, display_name: String, _type: String) -> InlineObject38 {
-        InlineObject38 {
-            team_id,
-            name,
-            display_name,
-            purpose: None,
-            header: None,
-            _type,
-        }
-    }
-}
+                impl InlineObject38 {
+                pub fn new(team_id: String, name: String, display_name: String, _type: String) -> InlineObject38 {
+                InlineObject38 {
+                    team_id,
+                    name,
+                    display_name,
+                    purpose: None,
+                    header: None,
+                    _type,
+                }
+                }
+                }
 
 

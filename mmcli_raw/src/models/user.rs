@@ -11,86 +11,86 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct User {
-    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
-    pub id: Option<String>,
-    /// The time in milliseconds a user was created
-    #[serde(rename = "create_at", skip_serializing_if = "Option::is_none")]
-    pub create_at: Option<i64>,
-    /// The time in milliseconds a user was last updated
-    #[serde(rename = "update_at", skip_serializing_if = "Option::is_none")]
-    pub update_at: Option<i64>,
-    /// The time in milliseconds a user was deleted
-    #[serde(rename = "delete_at", skip_serializing_if = "Option::is_none")]
-    pub delete_at: Option<i64>,
-    #[serde(rename = "username", skip_serializing_if = "Option::is_none")]
-    pub username: Option<String>,
-    #[serde(rename = "first_name", skip_serializing_if = "Option::is_none")]
-    pub first_name: Option<String>,
-    #[serde(rename = "last_name", skip_serializing_if = "Option::is_none")]
-    pub last_name: Option<String>,
-    #[serde(rename = "nickname", skip_serializing_if = "Option::is_none")]
-    pub nickname: Option<String>,
-    #[serde(rename = "email", skip_serializing_if = "Option::is_none")]
-    pub email: Option<String>,
-    #[serde(rename = "email_verified", skip_serializing_if = "Option::is_none")]
-    pub email_verified: Option<bool>,
-    #[serde(rename = "auth_service", skip_serializing_if = "Option::is_none")]
-    pub auth_service: Option<String>,
-    #[serde(rename = "roles", skip_serializing_if = "Option::is_none")]
-    pub roles: Option<String>,
-    #[serde(rename = "locale", skip_serializing_if = "Option::is_none")]
-    pub locale: Option<String>,
-    #[serde(rename = "notify_props", skip_serializing_if = "Option::is_none")]
-    pub notify_props: Option<crate::models::UserNotifyProps>,
-    #[serde(rename = "props", skip_serializing_if = "Option::is_none")]
-    pub props: Option<serde_json::Value>,
-    #[serde(rename = "last_password_update", skip_serializing_if = "Option::is_none")]
-    pub last_password_update: Option<i32>,
-    #[serde(rename = "last_picture_update", skip_serializing_if = "Option::is_none")]
-    pub last_picture_update: Option<i32>,
-    #[serde(rename = "failed_attempts", skip_serializing_if = "Option::is_none")]
-    pub failed_attempts: Option<i32>,
-    #[serde(rename = "mfa_active", skip_serializing_if = "Option::is_none")]
-    pub mfa_active: Option<bool>,
-    #[serde(rename = "timezone", skip_serializing_if = "Option::is_none")]
-    pub timezone: Option<crate::models::Timezone>,
-    /// ID of accepted terms of service, if any. This field is not present if empty.
-    #[serde(rename = "terms_of_service_id", skip_serializing_if = "Option::is_none")]
-    pub terms_of_service_id: Option<String>,
-    /// The time in milliseconds the user accepted the terms of service
-    #[serde(rename = "terms_of_service_create_at", skip_serializing_if = "Option::is_none")]
-    pub terms_of_service_create_at: Option<i64>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct User {
+                    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
+                    pub id: Option<String>,
+                        /// The time in milliseconds a user was created
+                    #[serde(rename = "create_at", skip_serializing_if = "Option::is_none")]
+                    pub create_at: Option<i64>,
+                        /// The time in milliseconds a user was last updated
+                    #[serde(rename = "update_at", skip_serializing_if = "Option::is_none")]
+                    pub update_at: Option<i64>,
+                        /// The time in milliseconds a user was deleted
+                    #[serde(rename = "delete_at", skip_serializing_if = "Option::is_none")]
+                    pub delete_at: Option<i64>,
+                    #[serde(rename = "username", skip_serializing_if = "Option::is_none")]
+                    pub username: Option<String>,
+                    #[serde(rename = "first_name", skip_serializing_if = "Option::is_none")]
+                    pub first_name: Option<String>,
+                    #[serde(rename = "last_name", skip_serializing_if = "Option::is_none")]
+                    pub last_name: Option<String>,
+                    #[serde(rename = "nickname", skip_serializing_if = "Option::is_none")]
+                    pub nickname: Option<String>,
+                    #[serde(rename = "email", skip_serializing_if = "Option::is_none")]
+                    pub email: Option<String>,
+                    #[serde(rename = "email_verified", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub email_verified: Option<bool>,
+                    #[serde(rename = "auth_service", skip_serializing_if = "Option::is_none")]
+                    pub auth_service: Option<String>,
+                    #[serde(rename = "roles", skip_serializing_if = "Option::is_none")]
+                    pub roles: Option<String>,
+                    #[serde(rename = "locale", skip_serializing_if = "Option::is_none")]
+                    pub locale: Option<String>,
+                    #[serde(rename = "notify_props", skip_serializing_if = "Option::is_none")]
+                    pub notify_props: Option<crate::models::UserNotifyProps>,
+                    #[serde(rename = "props", skip_serializing_if = "Option::is_none")]
+                    pub props: Option<serde_json::Value>,
+                    #[serde(rename = "last_password_update", skip_serializing_if = "Option::is_none")]
+                    pub last_password_update: Option<i64>,
+                    #[serde(rename = "last_picture_update", skip_serializing_if = "Option::is_none")]
+                    pub last_picture_update: Option<i64>,
+                    #[serde(rename = "failed_attempts", skip_serializing_if = "Option::is_none")]
+                    pub failed_attempts: Option<i64>,
+                    #[serde(rename = "mfa_active", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub mfa_active: Option<bool>,
+                    #[serde(rename = "timezone", skip_serializing_if = "Option::is_none")]
+                    pub timezone: Option<crate::models::Timezone>,
+                        /// ID of accepted terms of service, if any. This field is not present if empty.
+                    #[serde(rename = "terms_of_service_id", skip_serializing_if = "Option::is_none")]
+                    pub terms_of_service_id: Option<String>,
+                        /// The time in milliseconds the user accepted the terms of service
+                    #[serde(rename = "terms_of_service_create_at", skip_serializing_if = "Option::is_none")]
+                    pub terms_of_service_create_at: Option<i64>,
+                }
 
-impl User {
-    pub fn new() -> User {
-        User {
-            id: None,
-            create_at: None,
-            update_at: None,
-            delete_at: None,
-            username: None,
-            first_name: None,
-            last_name: None,
-            nickname: None,
-            email: None,
-            email_verified: None,
-            auth_service: None,
-            roles: None,
-            locale: None,
-            notify_props: None,
-            props: None,
-            last_password_update: None,
-            last_picture_update: None,
-            failed_attempts: None,
-            mfa_active: None,
-            timezone: None,
-            terms_of_service_id: None,
-            terms_of_service_create_at: None,
-        }
-    }
-}
+                impl User {
+                pub fn new() -> User {
+                User {
+                    id: None,
+                    create_at: None,
+                    update_at: None,
+                    delete_at: None,
+                    username: None,
+                    first_name: None,
+                    last_name: None,
+                    nickname: None,
+                    email: None,
+                    email_verified: None,
+                    auth_service: None,
+                    roles: None,
+                    locale: None,
+                    notify_props: None,
+                    props: None,
+                    last_password_update: None,
+                    last_picture_update: None,
+                    failed_attempts: None,
+                    mfa_active: None,
+                    timezone: None,
+                    terms_of_service_id: None,
+                    terms_of_service_create_at: None,
+                }
+                }
+                }
 
 

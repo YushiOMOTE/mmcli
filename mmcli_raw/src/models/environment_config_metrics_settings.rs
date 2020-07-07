@@ -11,24 +11,24 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct EnvironmentConfigMetricsSettings {
-    #[serde(rename = "Enable", skip_serializing_if = "Option::is_none")]
-    pub enable: Option<bool>,
-    #[serde(rename = "BlockProfileRate", skip_serializing_if = "Option::is_none")]
-    pub block_profile_rate: Option<bool>,
-    #[serde(rename = "ListenAddress", skip_serializing_if = "Option::is_none")]
-    pub listen_address: Option<bool>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct EnvironmentConfigMetricsSettings {
+                    #[serde(rename = "Enable", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub enable: Option<bool>,
+                    #[serde(rename = "BlockProfileRate", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub block_profile_rate: Option<bool>,
+                    #[serde(rename = "ListenAddress", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub listen_address: Option<bool>,
+                }
 
-impl EnvironmentConfigMetricsSettings {
-    pub fn new() -> EnvironmentConfigMetricsSettings {
-        EnvironmentConfigMetricsSettings {
-            enable: None,
-            block_profile_rate: None,
-            listen_address: None,
-        }
-    }
-}
+                impl EnvironmentConfigMetricsSettings {
+                pub fn new() -> EnvironmentConfigMetricsSettings {
+                EnvironmentConfigMetricsSettings {
+                    enable: None,
+                    block_profile_rate: None,
+                    listen_address: None,
+                }
+                }
+                }
 
 

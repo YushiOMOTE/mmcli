@@ -11,23 +11,23 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct InlineObject9 {
-    /// Use `true` to activate, `false` to deactivate
-    #[serde(rename = "activate")]
-    pub activate: bool,
-    /// The code produced by your MFA client. Required if `activate` is true
-    #[serde(rename = "code", skip_serializing_if = "Option::is_none")]
-    pub code: Option<String>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct InlineObject9 {
+                        /// Use `true` to activate, `false` to deactivate
+                    #[serde(rename = "activate", deserialize_with = "crate::de::parse_bool")]
+                    pub activate: bool,
+                        /// The code produced by your MFA client. Required if `activate` is true
+                    #[serde(rename = "code", skip_serializing_if = "Option::is_none")]
+                    pub code: Option<String>,
+                }
 
-impl InlineObject9 {
-    pub fn new(activate: bool) -> InlineObject9 {
-        InlineObject9 {
-            activate,
-            code: None,
-        }
-    }
-}
+                impl InlineObject9 {
+                pub fn new(activate: bool) -> InlineObject9 {
+                InlineObject9 {
+                    activate,
+                    code: None,
+                }
+                }
+                }
 
 

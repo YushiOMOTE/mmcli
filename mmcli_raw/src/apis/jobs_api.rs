@@ -69,7 +69,7 @@ pub enum JobsTypeTypeGetError {
 
 
 /// Get a page of jobs. Use the query parameters to modify the behaviour of this endpoint. __Minimum server version: 4.1__ ##### Permissions Must have `manage_jobs` permission. 
-pub async fn jobs_get(configuration: &configuration::Configuration, page: Option<i32>, per_page: Option<i32>) -> Result<Vec<crate::models::Job>, Error<JobsGetError>> {
+pub async fn jobs_get(configuration: &configuration::Configuration, page: Option<i64>, per_page: Option<i64>) -> Result<Vec<crate::models::Job>, Error<JobsGetError>> {
 
     let client = &configuration.client;
 
@@ -196,7 +196,7 @@ pub async fn jobs_post(configuration: &configuration::Configuration, inline_obje
 }
 
 /// Get a page of jobs of the given type. Use the query parameters to modify the behaviour of this endpoint. __Minimum server version: 4.1__ ##### Permissions Must have `manage_jobs` permission. 
-pub async fn jobs_type_type_get(configuration: &configuration::Configuration, _type: &str, page: Option<i32>, per_page: Option<i32>) -> Result<Vec<crate::models::Job>, Error<JobsTypeTypeGetError>> {
+pub async fn jobs_type_type_get(configuration: &configuration::Configuration, _type: &str, page: Option<i64>, per_page: Option<i64>) -> Result<Vec<crate::models::Job>, Error<JobsTypeTypeGetError>> {
 
     let client = &configuration.client;
 

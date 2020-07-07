@@ -11,24 +11,24 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct ConfigLocalizationSettings {
-    #[serde(rename = "DefaultServerLocale", skip_serializing_if = "Option::is_none")]
-    pub default_server_locale: Option<String>,
-    #[serde(rename = "DefaultClientLocale", skip_serializing_if = "Option::is_none")]
-    pub default_client_locale: Option<String>,
-    #[serde(rename = "AvailableLocales", skip_serializing_if = "Option::is_none")]
-    pub available_locales: Option<String>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct ConfigLocalizationSettings {
+                    #[serde(rename = "DefaultServerLocale", skip_serializing_if = "Option::is_none")]
+                    pub default_server_locale: Option<String>,
+                    #[serde(rename = "DefaultClientLocale", skip_serializing_if = "Option::is_none")]
+                    pub default_client_locale: Option<String>,
+                    #[serde(rename = "AvailableLocales", skip_serializing_if = "Option::is_none")]
+                    pub available_locales: Option<String>,
+                }
 
-impl ConfigLocalizationSettings {
-    pub fn new() -> ConfigLocalizationSettings {
-        ConfigLocalizationSettings {
-            default_server_locale: None,
-            default_client_locale: None,
-            available_locales: None,
-        }
-    }
-}
+                impl ConfigLocalizationSettings {
+                pub fn new() -> ConfigLocalizationSettings {
+                ConfigLocalizationSettings {
+                    default_server_locale: None,
+                    default_client_locale: None,
+                    available_locales: None,
+                }
+                }
+                }
 
 

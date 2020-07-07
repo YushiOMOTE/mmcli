@@ -11,19 +11,19 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct InlineObject68 {
-    /// The IDP certificate file
-    #[serde(rename = "certificate")]
-    pub certificate: std::path::PathBuf,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct InlineObject68 {
+                        /// The IDP certificate file
+                    #[serde(rename = "certificate")]
+                    pub certificate: std::path::PathBuf,
+                }
 
-impl InlineObject68 {
-    pub fn new(certificate: std::path::PathBuf) -> InlineObject68 {
-        InlineObject68 {
-            certificate,
-        }
-    }
-}
+                impl InlineObject68 {
+                pub fn new(certificate: std::path::PathBuf) -> InlineObject68 {
+                InlineObject68 {
+                    certificate,
+                }
+                }
+                }
 
 

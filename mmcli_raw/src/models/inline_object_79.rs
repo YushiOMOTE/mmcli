@@ -11,23 +11,23 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct InlineObject79 {
-    /// The human readable name of the scheme
-    #[serde(rename = "name", skip_serializing_if = "Option::is_none")]
-    pub name: Option<String>,
-    /// The description of the scheme
-    #[serde(rename = "description", skip_serializing_if = "Option::is_none")]
-    pub description: Option<String>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct InlineObject79 {
+                        /// The human readable name of the scheme
+                    #[serde(rename = "name", skip_serializing_if = "Option::is_none")]
+                    pub name: Option<String>,
+                        /// The description of the scheme
+                    #[serde(rename = "description", skip_serializing_if = "Option::is_none")]
+                    pub description: Option<String>,
+                }
 
-impl InlineObject79 {
-    pub fn new() -> InlineObject79 {
-        InlineObject79 {
-            name: None,
-            description: None,
-        }
-    }
-}
+                impl InlineObject79 {
+                pub fn new() -> InlineObject79 {
+                InlineObject79 {
+                    name: None,
+                    description: None,
+                }
+                }
+                }
 
 

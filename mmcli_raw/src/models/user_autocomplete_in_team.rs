@@ -11,19 +11,19 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct UserAutocompleteInTeam {
-    /// A list of user objects in the team
-    #[serde(rename = "in_team", skip_serializing_if = "Option::is_none")]
-    pub in_team: Option<Vec<crate::models::User>>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct UserAutocompleteInTeam {
+                        /// A list of user objects in the team
+                    #[serde(rename = "in_team", skip_serializing_if = "Option::is_none")]
+                    pub in_team: Option<Vec<crate::models::User>>,
+                }
 
-impl UserAutocompleteInTeam {
-    pub fn new() -> UserAutocompleteInTeam {
-        UserAutocompleteInTeam {
-            in_team: None,
-        }
-    }
-}
+                impl UserAutocompleteInTeam {
+                pub fn new() -> UserAutocompleteInTeam {
+                UserAutocompleteInTeam {
+                    in_team: None,
+                }
+                }
+                }
 
 

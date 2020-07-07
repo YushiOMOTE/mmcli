@@ -11,19 +11,19 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct InlineObject77 {
-    /// The permissions the role should grant.
-    #[serde(rename = "permissions", skip_serializing_if = "Option::is_none")]
-    pub permissions: Option<Vec<String>>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct InlineObject77 {
+                        /// The permissions the role should grant.
+                    #[serde(rename = "permissions", skip_serializing_if = "Option::is_none")]
+                    pub permissions: Option<Vec<String>>,
+                }
 
-impl InlineObject77 {
-    pub fn new() -> InlineObject77 {
-        InlineObject77 {
-            permissions: None,
-        }
-    }
-}
+                impl InlineObject77 {
+                pub fn new() -> InlineObject77 {
+                InlineObject77 {
+                    permissions: None,
+                }
+                }
+                }
 
 

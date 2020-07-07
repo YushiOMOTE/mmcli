@@ -11,39 +11,39 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct InlineObject17 {
-    /// The service the user currently uses to login
-    #[serde(rename = "current_service")]
-    pub current_service: String,
-    /// The service the user will use to login
-    #[serde(rename = "new_service")]
-    pub new_service: String,
-    /// The email of the user
-    #[serde(rename = "email", skip_serializing_if = "Option::is_none")]
-    pub email: Option<String>,
-    /// The password used with the current service
-    #[serde(rename = "password", skip_serializing_if = "Option::is_none")]
-    pub password: Option<String>,
-    /// The MFA code of the current service
-    #[serde(rename = "mfa_code", skip_serializing_if = "Option::is_none")]
-    pub mfa_code: Option<String>,
-    /// The LDAP/AD id of the user
-    #[serde(rename = "ldap_id", skip_serializing_if = "Option::is_none")]
-    pub ldap_id: Option<String>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct InlineObject17 {
+                        /// The service the user currently uses to login
+                    #[serde(rename = "current_service")]
+                    pub current_service: String,
+                        /// The service the user will use to login
+                    #[serde(rename = "new_service")]
+                    pub new_service: String,
+                        /// The email of the user
+                    #[serde(rename = "email", skip_serializing_if = "Option::is_none")]
+                    pub email: Option<String>,
+                        /// The password used with the current service
+                    #[serde(rename = "password", skip_serializing_if = "Option::is_none")]
+                    pub password: Option<String>,
+                        /// The MFA code of the current service
+                    #[serde(rename = "mfa_code", skip_serializing_if = "Option::is_none")]
+                    pub mfa_code: Option<String>,
+                        /// The LDAP/AD id of the user
+                    #[serde(rename = "ldap_id", skip_serializing_if = "Option::is_none")]
+                    pub ldap_id: Option<String>,
+                }
 
-impl InlineObject17 {
-    pub fn new(current_service: String, new_service: String) -> InlineObject17 {
-        InlineObject17 {
-            current_service,
-            new_service,
-            email: None,
-            password: None,
-            mfa_code: None,
-            ldap_id: None,
-        }
-    }
-}
+                impl InlineObject17 {
+                pub fn new(current_service: String, new_service: String) -> InlineObject17 {
+                InlineObject17 {
+                    current_service,
+                    new_service,
+                    email: None,
+                    password: None,
+                    mfa_code: None,
+                    ldap_id: None,
+                }
+                }
+                }
 
 

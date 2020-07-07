@@ -11,69 +11,69 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct ConfigFileSettings {
-    #[serde(rename = "MaxFileSize", skip_serializing_if = "Option::is_none")]
-    pub max_file_size: Option<i32>,
-    #[serde(rename = "DriverName", skip_serializing_if = "Option::is_none")]
-    pub driver_name: Option<String>,
-    #[serde(rename = "Directory", skip_serializing_if = "Option::is_none")]
-    pub directory: Option<String>,
-    #[serde(rename = "EnablePublicLink", skip_serializing_if = "Option::is_none")]
-    pub enable_public_link: Option<bool>,
-    #[serde(rename = "PublicLinkSalt", skip_serializing_if = "Option::is_none")]
-    pub public_link_salt: Option<String>,
-    #[serde(rename = "ThumbnailWidth", skip_serializing_if = "Option::is_none")]
-    pub thumbnail_width: Option<i32>,
-    #[serde(rename = "ThumbnailHeight", skip_serializing_if = "Option::is_none")]
-    pub thumbnail_height: Option<i32>,
-    #[serde(rename = "PreviewWidth", skip_serializing_if = "Option::is_none")]
-    pub preview_width: Option<i32>,
-    #[serde(rename = "PreviewHeight", skip_serializing_if = "Option::is_none")]
-    pub preview_height: Option<i32>,
-    #[serde(rename = "ProfileWidth", skip_serializing_if = "Option::is_none")]
-    pub profile_width: Option<i32>,
-    #[serde(rename = "ProfileHeight", skip_serializing_if = "Option::is_none")]
-    pub profile_height: Option<i32>,
-    #[serde(rename = "InitialFont", skip_serializing_if = "Option::is_none")]
-    pub initial_font: Option<String>,
-    #[serde(rename = "AmazonS3AccessKeyId", skip_serializing_if = "Option::is_none")]
-    pub amazon_s3_access_key_id: Option<String>,
-    #[serde(rename = "AmazonS3SecretAccessKey", skip_serializing_if = "Option::is_none")]
-    pub amazon_s3_secret_access_key: Option<String>,
-    #[serde(rename = "AmazonS3Bucket", skip_serializing_if = "Option::is_none")]
-    pub amazon_s3_bucket: Option<String>,
-    #[serde(rename = "AmazonS3Region", skip_serializing_if = "Option::is_none")]
-    pub amazon_s3_region: Option<String>,
-    #[serde(rename = "AmazonS3Endpoint", skip_serializing_if = "Option::is_none")]
-    pub amazon_s3_endpoint: Option<String>,
-    #[serde(rename = "AmazonS3SSL", skip_serializing_if = "Option::is_none")]
-    pub amazon_s3_ssl: Option<bool>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct ConfigFileSettings {
+                    #[serde(rename = "MaxFileSize", skip_serializing_if = "Option::is_none")]
+                    pub max_file_size: Option<i64>,
+                    #[serde(rename = "DriverName", skip_serializing_if = "Option::is_none")]
+                    pub driver_name: Option<String>,
+                    #[serde(rename = "Directory", skip_serializing_if = "Option::is_none")]
+                    pub directory: Option<String>,
+                    #[serde(rename = "EnablePublicLink", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub enable_public_link: Option<bool>,
+                    #[serde(rename = "PublicLinkSalt", skip_serializing_if = "Option::is_none")]
+                    pub public_link_salt: Option<String>,
+                    #[serde(rename = "ThumbnailWidth", skip_serializing_if = "Option::is_none")]
+                    pub thumbnail_width: Option<i64>,
+                    #[serde(rename = "ThumbnailHeight", skip_serializing_if = "Option::is_none")]
+                    pub thumbnail_height: Option<i64>,
+                    #[serde(rename = "PreviewWidth", skip_serializing_if = "Option::is_none")]
+                    pub preview_width: Option<i64>,
+                    #[serde(rename = "PreviewHeight", skip_serializing_if = "Option::is_none")]
+                    pub preview_height: Option<i64>,
+                    #[serde(rename = "ProfileWidth", skip_serializing_if = "Option::is_none")]
+                    pub profile_width: Option<i64>,
+                    #[serde(rename = "ProfileHeight", skip_serializing_if = "Option::is_none")]
+                    pub profile_height: Option<i64>,
+                    #[serde(rename = "InitialFont", skip_serializing_if = "Option::is_none")]
+                    pub initial_font: Option<String>,
+                    #[serde(rename = "AmazonS3AccessKeyId", skip_serializing_if = "Option::is_none")]
+                    pub amazon_s3_access_key_id: Option<String>,
+                    #[serde(rename = "AmazonS3SecretAccessKey", skip_serializing_if = "Option::is_none")]
+                    pub amazon_s3_secret_access_key: Option<String>,
+                    #[serde(rename = "AmazonS3Bucket", skip_serializing_if = "Option::is_none")]
+                    pub amazon_s3_bucket: Option<String>,
+                    #[serde(rename = "AmazonS3Region", skip_serializing_if = "Option::is_none")]
+                    pub amazon_s3_region: Option<String>,
+                    #[serde(rename = "AmazonS3Endpoint", skip_serializing_if = "Option::is_none")]
+                    pub amazon_s3_endpoint: Option<String>,
+                    #[serde(rename = "AmazonS3SSL", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub amazon_s3_ssl: Option<bool>,
+                }
 
-impl ConfigFileSettings {
-    pub fn new() -> ConfigFileSettings {
-        ConfigFileSettings {
-            max_file_size: None,
-            driver_name: None,
-            directory: None,
-            enable_public_link: None,
-            public_link_salt: None,
-            thumbnail_width: None,
-            thumbnail_height: None,
-            preview_width: None,
-            preview_height: None,
-            profile_width: None,
-            profile_height: None,
-            initial_font: None,
-            amazon_s3_access_key_id: None,
-            amazon_s3_secret_access_key: None,
-            amazon_s3_bucket: None,
-            amazon_s3_region: None,
-            amazon_s3_endpoint: None,
-            amazon_s3_ssl: None,
-        }
-    }
-}
+                impl ConfigFileSettings {
+                pub fn new() -> ConfigFileSettings {
+                ConfigFileSettings {
+                    max_file_size: None,
+                    driver_name: None,
+                    directory: None,
+                    enable_public_link: None,
+                    public_link_salt: None,
+                    thumbnail_width: None,
+                    thumbnail_height: None,
+                    preview_width: None,
+                    preview_height: None,
+                    profile_width: None,
+                    profile_height: None,
+                    initial_font: None,
+                    amazon_s3_access_key_id: None,
+                    amazon_s3_secret_access_key: None,
+                    amazon_s3_bucket: None,
+                    amazon_s3_region: None,
+                    amazon_s3_endpoint: None,
+                    amazon_s3_ssl: None,
+                }
+                }
+                }
 
 

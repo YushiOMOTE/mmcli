@@ -11,23 +11,23 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct InlineObject61 {
-    /// The error level, ERROR or DEBUG
-    #[serde(rename = "level")]
-    pub level: String,
-    /// Message to send to the server logs
-    #[serde(rename = "message")]
-    pub message: String,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct InlineObject61 {
+                        /// The error level, ERROR or DEBUG
+                    #[serde(rename = "level")]
+                    pub level: String,
+                        /// Message to send to the server logs
+                    #[serde(rename = "message")]
+                    pub message: String,
+                }
 
-impl InlineObject61 {
-    pub fn new(level: String, message: String) -> InlineObject61 {
-        InlineObject61 {
-            level,
-            message,
-        }
-    }
-}
+                impl InlineObject61 {
+                pub fn new(level: String, message: String) -> InlineObject61 {
+                InlineObject61 {
+                    level,
+                    message,
+                }
+                }
+                }
 
 

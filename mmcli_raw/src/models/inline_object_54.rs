@@ -11,35 +11,35 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct InlineObject54 {
-    /// ID of the post to update
-    #[serde(rename = "id")]
-    pub id: String,
-    /// Set to `true` to pin the post to the channel it is in
-    #[serde(rename = "is_pinned", skip_serializing_if = "Option::is_none")]
-    pub is_pinned: Option<bool>,
-    /// The message text of the post
-    #[serde(rename = "message", skip_serializing_if = "Option::is_none")]
-    pub message: Option<String>,
-    /// Set to `true` if the post has reactions to it
-    #[serde(rename = "has_reactions", skip_serializing_if = "Option::is_none")]
-    pub has_reactions: Option<bool>,
-    /// A general JSON property bag to attach to the post
-    #[serde(rename = "props", skip_serializing_if = "Option::is_none")]
-    pub props: Option<String>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct InlineObject54 {
+                        /// ID of the post to update
+                    #[serde(rename = "id")]
+                    pub id: String,
+                        /// Set to `true` to pin the post to the channel it is in
+                    #[serde(rename = "is_pinned", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub is_pinned: Option<bool>,
+                        /// The message text of the post
+                    #[serde(rename = "message", skip_serializing_if = "Option::is_none")]
+                    pub message: Option<String>,
+                        /// Set to `true` if the post has reactions to it
+                    #[serde(rename = "has_reactions", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub has_reactions: Option<bool>,
+                        /// A general JSON property bag to attach to the post
+                    #[serde(rename = "props", skip_serializing_if = "Option::is_none")]
+                    pub props: Option<String>,
+                }
 
-impl InlineObject54 {
-    pub fn new(id: String) -> InlineObject54 {
-        InlineObject54 {
-            id,
-            is_pinned: None,
-            message: None,
-            has_reactions: None,
-            props: None,
-        }
-    }
-}
+                impl InlineObject54 {
+                pub fn new(id: String) -> InlineObject54 {
+                InlineObject54 {
+                    id,
+                    is_pinned: None,
+                    message: None,
+                    has_reactions: None,
+                    props: None,
+                }
+                }
+                }
 
 

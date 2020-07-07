@@ -11,23 +11,23 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct InlineObject57 {
-    /// The type of job to create
-    #[serde(rename = "type")]
-    pub _type: String,
-    /// An object containing any additional data required for this job type
-    #[serde(rename = "data", skip_serializing_if = "Option::is_none")]
-    pub data: Option<serde_json::Value>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct InlineObject57 {
+                        /// The type of job to create
+                    #[serde(rename = "type")]
+                    pub _type: String,
+                        /// An object containing any additional data required for this job type
+                    #[serde(rename = "data", skip_serializing_if = "Option::is_none")]
+                    pub data: Option<serde_json::Value>,
+                }
 
-impl InlineObject57 {
-    pub fn new(_type: String) -> InlineObject57 {
-        InlineObject57 {
-            _type,
-            data: None,
-        }
-    }
-}
+                impl InlineObject57 {
+                pub fn new(_type: String) -> InlineObject57 {
+                InlineObject57 {
+                    _type,
+                    data: None,
+                }
+                }
+                }
 
 

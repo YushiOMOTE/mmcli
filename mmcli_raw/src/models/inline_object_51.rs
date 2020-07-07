@@ -11,19 +11,19 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct InlineObject51 {
-    /// The ID of the scheme.
-    #[serde(rename = "scheme_id")]
-    pub scheme_id: String,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct InlineObject51 {
+                        /// The ID of the scheme.
+                    #[serde(rename = "scheme_id")]
+                    pub scheme_id: String,
+                }
 
-impl InlineObject51 {
-    pub fn new(scheme_id: String) -> InlineObject51 {
-        InlineObject51 {
-            scheme_id,
-        }
-    }
-}
+                impl InlineObject51 {
+                pub fn new(scheme_id: String) -> InlineObject51 {
+                InlineObject51 {
+                    scheme_id,
+                }
+                }
+                }
 
 

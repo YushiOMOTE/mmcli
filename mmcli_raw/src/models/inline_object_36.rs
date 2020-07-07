@@ -11,27 +11,27 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct InlineObject36 {
-    /// A file to be uploaded in zip format.
-    #[serde(rename = "file")]
-    pub file: std::path::PathBuf,
-    /// The size of the zip file to be imported.
-    #[serde(rename = "filesize")]
-    pub filesize: i32,
-    /// String that defines from which application the team was exported to be imported into Mattermost.
-    #[serde(rename = "importFrom")]
-    pub import_from: String,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct InlineObject36 {
+                        /// A file to be uploaded in zip format.
+                    #[serde(rename = "file")]
+                    pub file: std::path::PathBuf,
+                        /// The size of the zip file to be imported.
+                    #[serde(rename = "filesize")]
+                    pub filesize: i64,
+                        /// String that defines from which application the team was exported to be imported into Mattermost.
+                    #[serde(rename = "importFrom")]
+                    pub import_from: String,
+                }
 
-impl InlineObject36 {
-    pub fn new(file: std::path::PathBuf, filesize: i32, import_from: String) -> InlineObject36 {
-        InlineObject36 {
-            file,
-            filesize,
-            import_from,
-        }
-    }
-}
+                impl InlineObject36 {
+                pub fn new(file: std::path::PathBuf, filesize: i64, import_from: String) -> InlineObject36 {
+                InlineObject36 {
+                    file,
+                    filesize,
+                    import_from,
+                }
+                }
+                }
 
 

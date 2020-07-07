@@ -11,35 +11,35 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct InlineObject55 {
-    /// Set to `true` to pin the post to the channel it is in
-    #[serde(rename = "is_pinned", skip_serializing_if = "Option::is_none")]
-    pub is_pinned: Option<bool>,
-    /// The message text of the post
-    #[serde(rename = "message", skip_serializing_if = "Option::is_none")]
-    pub message: Option<String>,
-    /// The list of files attached to this post
-    #[serde(rename = "file_ids", skip_serializing_if = "Option::is_none")]
-    pub file_ids: Option<Vec<String>>,
-    /// Set to `true` if the post has reactions to it
-    #[serde(rename = "has_reactions", skip_serializing_if = "Option::is_none")]
-    pub has_reactions: Option<bool>,
-    /// A general JSON property bag to attach to the post
-    #[serde(rename = "props", skip_serializing_if = "Option::is_none")]
-    pub props: Option<String>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct InlineObject55 {
+                        /// Set to `true` to pin the post to the channel it is in
+                    #[serde(rename = "is_pinned", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub is_pinned: Option<bool>,
+                        /// The message text of the post
+                    #[serde(rename = "message", skip_serializing_if = "Option::is_none")]
+                    pub message: Option<String>,
+                        /// The list of files attached to this post
+                    #[serde(rename = "file_ids", skip_serializing_if = "Option::is_none")]
+                    pub file_ids: Option<Vec<String>>,
+                        /// Set to `true` if the post has reactions to it
+                    #[serde(rename = "has_reactions", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub has_reactions: Option<bool>,
+                        /// A general JSON property bag to attach to the post
+                    #[serde(rename = "props", skip_serializing_if = "Option::is_none")]
+                    pub props: Option<String>,
+                }
 
-impl InlineObject55 {
-    pub fn new() -> InlineObject55 {
-        InlineObject55 {
-            is_pinned: None,
-            message: None,
-            file_ids: None,
-            has_reactions: None,
-            props: None,
-        }
-    }
-}
+                impl InlineObject55 {
+                pub fn new() -> InlineObject55 {
+                InlineObject55 {
+                    is_pinned: None,
+                    message: None,
+                    file_ids: None,
+                    has_reactions: None,
+                    props: None,
+                }
+                }
+                }
 
 

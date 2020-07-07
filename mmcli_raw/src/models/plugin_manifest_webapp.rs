@@ -11,19 +11,19 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct PluginManifestWebapp {
-    /// Path to the webapp JavaScript bundle.
-    #[serde(rename = "bundle_path", skip_serializing_if = "Option::is_none")]
-    pub bundle_path: Option<String>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct PluginManifestWebapp {
+                        /// Path to the webapp JavaScript bundle.
+                    #[serde(rename = "bundle_path", skip_serializing_if = "Option::is_none")]
+                    pub bundle_path: Option<String>,
+                }
 
-impl PluginManifestWebapp {
-    pub fn new() -> PluginManifestWebapp {
-        PluginManifestWebapp {
-            bundle_path: None,
-        }
-    }
-}
+                impl PluginManifestWebapp {
+                pub fn new() -> PluginManifestWebapp {
+                PluginManifestWebapp {
+                    bundle_path: None,
+                }
+                }
+                }
 
 

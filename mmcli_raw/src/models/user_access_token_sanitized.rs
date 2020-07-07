@@ -11,31 +11,31 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct UserAccessTokenSanitized {
-    /// Unique identifier for the token
-    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
-    pub id: Option<String>,
-    /// The user the token authenticates for
-    #[serde(rename = "user_id", skip_serializing_if = "Option::is_none")]
-    pub user_id: Option<String>,
-    /// A description of the token usage
-    #[serde(rename = "description", skip_serializing_if = "Option::is_none")]
-    pub description: Option<String>,
-    /// Indicates whether the token is active
-    #[serde(rename = "is_active", skip_serializing_if = "Option::is_none")]
-    pub is_active: Option<bool>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct UserAccessTokenSanitized {
+                        /// Unique identifier for the token
+                    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
+                    pub id: Option<String>,
+                        /// The user the token authenticates for
+                    #[serde(rename = "user_id", skip_serializing_if = "Option::is_none")]
+                    pub user_id: Option<String>,
+                        /// A description of the token usage
+                    #[serde(rename = "description", skip_serializing_if = "Option::is_none")]
+                    pub description: Option<String>,
+                        /// Indicates whether the token is active
+                    #[serde(rename = "is_active", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub is_active: Option<bool>,
+                }
 
-impl UserAccessTokenSanitized {
-    pub fn new() -> UserAccessTokenSanitized {
-        UserAccessTokenSanitized {
-            id: None,
-            user_id: None,
-            description: None,
-            is_active: None,
-        }
-    }
-}
+                impl UserAccessTokenSanitized {
+                pub fn new() -> UserAccessTokenSanitized {
+                UserAccessTokenSanitized {
+                    id: None,
+                    user_id: None,
+                    description: None,
+                    is_active: None,
+                }
+                }
+                }
 
 

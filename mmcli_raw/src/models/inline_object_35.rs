@@ -11,27 +11,27 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct InlineObject35 {
-    /// List of emails
-    #[serde(rename = "emails")]
-    pub emails: Vec<String>,
-    /// List of channel ids
-    #[serde(rename = "channels")]
-    pub channels: Vec<String>,
-    /// Message to include in the invite
-    #[serde(rename = "message", skip_serializing_if = "Option::is_none")]
-    pub message: Option<String>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct InlineObject35 {
+                        /// List of emails
+                    #[serde(rename = "emails")]
+                    pub emails: Vec<String>,
+                        /// List of channel ids
+                    #[serde(rename = "channels")]
+                    pub channels: Vec<String>,
+                        /// Message to include in the invite
+                    #[serde(rename = "message", skip_serializing_if = "Option::is_none")]
+                    pub message: Option<String>,
+                }
 
-impl InlineObject35 {
-    pub fn new(emails: Vec<String>, channels: Vec<String>) -> InlineObject35 {
-        InlineObject35 {
-            emails,
-            channels,
-            message: None,
-        }
-    }
-}
+                impl InlineObject35 {
+                pub fn new(emails: Vec<String>, channels: Vec<String>) -> InlineObject35 {
+                InlineObject35 {
+                    emails,
+                    channels,
+                    message: None,
+                }
+                }
+                }
 
 

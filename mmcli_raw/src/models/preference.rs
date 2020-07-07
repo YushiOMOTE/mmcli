@@ -11,28 +11,28 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct Preference {
-    /// The ID of the user that owns this preference
-    #[serde(rename = "user_id", skip_serializing_if = "Option::is_none")]
-    pub user_id: Option<String>,
-    #[serde(rename = "category", skip_serializing_if = "Option::is_none")]
-    pub category: Option<String>,
-    #[serde(rename = "name", skip_serializing_if = "Option::is_none")]
-    pub name: Option<String>,
-    #[serde(rename = "value", skip_serializing_if = "Option::is_none")]
-    pub value: Option<String>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct Preference {
+                        /// The ID of the user that owns this preference
+                    #[serde(rename = "user_id", skip_serializing_if = "Option::is_none")]
+                    pub user_id: Option<String>,
+                    #[serde(rename = "category", skip_serializing_if = "Option::is_none")]
+                    pub category: Option<String>,
+                    #[serde(rename = "name", skip_serializing_if = "Option::is_none")]
+                    pub name: Option<String>,
+                    #[serde(rename = "value", skip_serializing_if = "Option::is_none")]
+                    pub value: Option<String>,
+                }
 
-impl Preference {
-    pub fn new() -> Preference {
-        Preference {
-            user_id: None,
-            category: None,
-            name: None,
-            value: None,
-        }
-    }
-}
+                impl Preference {
+                pub fn new() -> Preference {
+                Preference {
+                    user_id: None,
+                    category: None,
+                    name: None,
+                    value: None,
+                }
+                }
+                }
 
 

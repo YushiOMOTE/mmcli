@@ -11,30 +11,30 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct EnvironmentConfigPasswordSettings {
-    #[serde(rename = "MinimumLength", skip_serializing_if = "Option::is_none")]
-    pub minimum_length: Option<bool>,
-    #[serde(rename = "Lowercase", skip_serializing_if = "Option::is_none")]
-    pub lowercase: Option<bool>,
-    #[serde(rename = "Number", skip_serializing_if = "Option::is_none")]
-    pub number: Option<bool>,
-    #[serde(rename = "Uppercase", skip_serializing_if = "Option::is_none")]
-    pub uppercase: Option<bool>,
-    #[serde(rename = "Symbol", skip_serializing_if = "Option::is_none")]
-    pub symbol: Option<bool>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct EnvironmentConfigPasswordSettings {
+                    #[serde(rename = "MinimumLength", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub minimum_length: Option<bool>,
+                    #[serde(rename = "Lowercase", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub lowercase: Option<bool>,
+                    #[serde(rename = "Number", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub number: Option<bool>,
+                    #[serde(rename = "Uppercase", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub uppercase: Option<bool>,
+                    #[serde(rename = "Symbol", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub symbol: Option<bool>,
+                }
 
-impl EnvironmentConfigPasswordSettings {
-    pub fn new() -> EnvironmentConfigPasswordSettings {
-        EnvironmentConfigPasswordSettings {
-            minimum_length: None,
-            lowercase: None,
-            number: None,
-            uppercase: None,
-            symbol: None,
-        }
-    }
-}
+                impl EnvironmentConfigPasswordSettings {
+                pub fn new() -> EnvironmentConfigPasswordSettings {
+                EnvironmentConfigPasswordSettings {
+                    minimum_length: None,
+                    lowercase: None,
+                    number: None,
+                    uppercase: None,
+                    symbol: None,
+                }
+                }
+                }
 
 

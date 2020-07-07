@@ -11,34 +11,34 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct CommandResponse {
-    /// The response type either in_channel or ephemeral
-    #[serde(rename = "ResponseType", skip_serializing_if = "Option::is_none")]
-    pub response_type: Option<String>,
-    #[serde(rename = "Text", skip_serializing_if = "Option::is_none")]
-    pub text: Option<String>,
-    #[serde(rename = "Username", skip_serializing_if = "Option::is_none")]
-    pub username: Option<String>,
-    #[serde(rename = "IconURL", skip_serializing_if = "Option::is_none")]
-    pub icon_url: Option<String>,
-    #[serde(rename = "GotoLocation", skip_serializing_if = "Option::is_none")]
-    pub goto_location: Option<String>,
-    #[serde(rename = "Attachments", skip_serializing_if = "Option::is_none")]
-    pub attachments: Option<Vec<crate::models::SlackAttachment>>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct CommandResponse {
+                        /// The response type either in_channel or ephemeral
+                    #[serde(rename = "ResponseType", skip_serializing_if = "Option::is_none")]
+                    pub response_type: Option<String>,
+                    #[serde(rename = "Text", skip_serializing_if = "Option::is_none")]
+                    pub text: Option<String>,
+                    #[serde(rename = "Username", skip_serializing_if = "Option::is_none")]
+                    pub username: Option<String>,
+                    #[serde(rename = "IconURL", skip_serializing_if = "Option::is_none")]
+                    pub icon_url: Option<String>,
+                    #[serde(rename = "GotoLocation", skip_serializing_if = "Option::is_none")]
+                    pub goto_location: Option<String>,
+                    #[serde(rename = "Attachments", skip_serializing_if = "Option::is_none")]
+                    pub attachments: Option<Vec<crate::models::SlackAttachment>>,
+                }
 
-impl CommandResponse {
-    pub fn new() -> CommandResponse {
-        CommandResponse {
-            response_type: None,
-            text: None,
-            username: None,
-            icon_url: None,
-            goto_location: None,
-            attachments: None,
-        }
-    }
-}
+                impl CommandResponse {
+                pub fn new() -> CommandResponse {
+                CommandResponse {
+                    response_type: None,
+                    text: None,
+                    username: None,
+                    icon_url: None,
+                    goto_location: None,
+                    attachments: None,
+                }
+                }
+                }
 
 

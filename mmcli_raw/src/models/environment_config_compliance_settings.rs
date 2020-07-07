@@ -11,24 +11,24 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct EnvironmentConfigComplianceSettings {
-    #[serde(rename = "Enable", skip_serializing_if = "Option::is_none")]
-    pub enable: Option<bool>,
-    #[serde(rename = "Directory", skip_serializing_if = "Option::is_none")]
-    pub directory: Option<bool>,
-    #[serde(rename = "EnableDaily", skip_serializing_if = "Option::is_none")]
-    pub enable_daily: Option<bool>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct EnvironmentConfigComplianceSettings {
+                    #[serde(rename = "Enable", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub enable: Option<bool>,
+                    #[serde(rename = "Directory", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub directory: Option<bool>,
+                    #[serde(rename = "EnableDaily", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub enable_daily: Option<bool>,
+                }
 
-impl EnvironmentConfigComplianceSettings {
-    pub fn new() -> EnvironmentConfigComplianceSettings {
-        EnvironmentConfigComplianceSettings {
-            enable: None,
-            directory: None,
-            enable_daily: None,
-        }
-    }
-}
+                impl EnvironmentConfigComplianceSettings {
+                pub fn new() -> EnvironmentConfigComplianceSettings {
+                EnvironmentConfigComplianceSettings {
+                    enable: None,
+                    directory: None,
+                    enable_daily: None,
+                }
+                }
+                }
 
 

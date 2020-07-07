@@ -613,7 +613,7 @@ pub async fn bots_bot_user_id_convert_to_user_post(configuration: &configuration
 }
 
 /// Get a list of users for the purpose of autocompleting based on the provided search term. Specify a combination of `team_id` and `channel_id` to filter results further. ##### Permissions Requires an active session and `view_team` and `read_channel` on any teams or channels used to filter the results further. 
-pub async fn users_autocomplete_get(configuration: &configuration::Configuration, name: &str, team_id: Option<&str>, channel_id: Option<&str>, limit: Option<i32>) -> Result<crate::models::UserAutocomplete, Error<UsersAutocompleteGetError>> {
+pub async fn users_autocomplete_get(configuration: &configuration::Configuration, name: &str, team_id: Option<&str>, channel_id: Option<&str>, limit: Option<i64>) -> Result<crate::models::UserAutocomplete, Error<UsersAutocompleteGetError>> {
 
     let client = &configuration.client;
 
@@ -775,7 +775,7 @@ pub async fn users_email_verify_send_post(configuration: &configuration::Configu
 }
 
 /// Get a page of a list of users. Based on query string parameters, select users from a team, channel, or select users not in a specific channel.  Since server version 4.0, some basic sorting is available using the `sort` query parameter. Sorting is currently only supported when selecting users on a team. ##### Permissions Requires an active session and (if specified) membership to the channel or team being selected from. 
-pub async fn users_get(configuration: &configuration::Configuration, page: Option<i32>, per_page: Option<i32>, in_team: Option<&str>, not_in_team: Option<&str>, in_channel: Option<&str>, not_in_channel: Option<&str>, in_group: Option<&str>, group_constrained: Option<bool>, without_team: Option<bool>, active: Option<bool>, inactive: Option<bool>, role: Option<&str>, sort: Option<&str>) -> Result<Vec<crate::models::User>, Error<UsersGetError>> {
+pub async fn users_get(configuration: &configuration::Configuration, page: Option<i64>, per_page: Option<i64>, in_team: Option<&str>, not_in_team: Option<&str>, in_channel: Option<&str>, not_in_channel: Option<&str>, in_group: Option<&str>, group_constrained: Option<bool>, without_team: Option<bool>, active: Option<bool>, inactive: Option<bool>, role: Option<&str>, sort: Option<&str>) -> Result<Vec<crate::models::User>, Error<UsersGetError>> {
 
     let client = &configuration.client;
 
@@ -875,7 +875,7 @@ pub async fn users_group_channels_post(configuration: &configuration::Configurat
 }
 
 /// Get a list of users based on a provided list of user ids. ##### Permissions Requires an active session but no other permissions. 
-pub async fn users_ids_post(configuration: &configuration::Configuration, request_body: Vec<String>, since: Option<i32>) -> Result<Vec<crate::models::User>, Error<UsersIdsPostError>> {
+pub async fn users_ids_post(configuration: &configuration::Configuration, request_body: Vec<String>, since: Option<i64>) -> Result<Vec<crate::models::User>, Error<UsersIdsPostError>> {
 
     let client = &configuration.client;
 
@@ -1345,7 +1345,7 @@ pub async fn users_tokens_enable_post(configuration: &configuration::Configurati
 }
 
 /// Get a page of user access tokens for users on the system. Does not include the actual authentication tokens. Use query parameters for paging.  __Minimum server version__: 4.7  ##### Permissions Must have `manage_system` permission. 
-pub async fn users_tokens_get(configuration: &configuration::Configuration, page: Option<i32>, per_page: Option<i32>) -> Result<Vec<crate::models::UserAccessTokenSanitized>, Error<UsersTokensGetError>> {
+pub async fn users_tokens_get(configuration: &configuration::Configuration, page: Option<i64>, per_page: Option<i64>) -> Result<Vec<crate::models::UserAccessTokenSanitized>, Error<UsersTokensGetError>> {
 
     let client = &configuration.client;
 
@@ -2205,7 +2205,7 @@ pub async fn users_user_id_terms_of_service_post(configuration: &configuration::
 }
 
 /// Get a list of user access tokens for a user. Does not include the actual authentication tokens. Use query parameters for paging.  __Minimum server version__: 4.1  ##### Permissions Must have `read_user_access_token` permission. For non-self requests, must also have the `edit_other_users` permission. 
-pub async fn users_user_id_tokens_get(configuration: &configuration::Configuration, user_id: &str, page: Option<i32>, per_page: Option<i32>) -> Result<Vec<crate::models::UserAccessTokenSanitized>, Error<UsersUserIdTokensGetError>> {
+pub async fn users_user_id_tokens_get(configuration: &configuration::Configuration, user_id: &str, page: Option<i64>, per_page: Option<i64>) -> Result<Vec<crate::models::UserAccessTokenSanitized>, Error<UsersUserIdTokensGetError>> {
 
     let client = &configuration.client;
 

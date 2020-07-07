@@ -11,36 +11,36 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct EnvironmentConfigGitLabSettings {
-    #[serde(rename = "Enable", skip_serializing_if = "Option::is_none")]
-    pub enable: Option<bool>,
-    #[serde(rename = "Secret", skip_serializing_if = "Option::is_none")]
-    pub secret: Option<bool>,
-    #[serde(rename = "Id", skip_serializing_if = "Option::is_none")]
-    pub id: Option<bool>,
-    #[serde(rename = "Scope", skip_serializing_if = "Option::is_none")]
-    pub scope: Option<bool>,
-    #[serde(rename = "AuthEndpoint", skip_serializing_if = "Option::is_none")]
-    pub auth_endpoint: Option<bool>,
-    #[serde(rename = "TokenEndpoint", skip_serializing_if = "Option::is_none")]
-    pub token_endpoint: Option<bool>,
-    #[serde(rename = "UserApiEndpoint", skip_serializing_if = "Option::is_none")]
-    pub user_api_endpoint: Option<bool>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct EnvironmentConfigGitLabSettings {
+                    #[serde(rename = "Enable", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub enable: Option<bool>,
+                    #[serde(rename = "Secret", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub secret: Option<bool>,
+                    #[serde(rename = "Id", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub id: Option<bool>,
+                    #[serde(rename = "Scope", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub scope: Option<bool>,
+                    #[serde(rename = "AuthEndpoint", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub auth_endpoint: Option<bool>,
+                    #[serde(rename = "TokenEndpoint", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub token_endpoint: Option<bool>,
+                    #[serde(rename = "UserApiEndpoint", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub user_api_endpoint: Option<bool>,
+                }
 
-impl EnvironmentConfigGitLabSettings {
-    pub fn new() -> EnvironmentConfigGitLabSettings {
-        EnvironmentConfigGitLabSettings {
-            enable: None,
-            secret: None,
-            id: None,
-            scope: None,
-            auth_endpoint: None,
-            token_endpoint: None,
-            user_api_endpoint: None,
-        }
-    }
-}
+                impl EnvironmentConfigGitLabSettings {
+                pub fn new() -> EnvironmentConfigGitLabSettings {
+                EnvironmentConfigGitLabSettings {
+                    enable: None,
+                    secret: None,
+                    id: None,
+                    scope: None,
+                    auth_endpoint: None,
+                    token_endpoint: None,
+                    user_api_endpoint: None,
+                }
+                }
+                }
 
 

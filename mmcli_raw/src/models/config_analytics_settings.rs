@@ -11,18 +11,18 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct ConfigAnalyticsSettings {
-    #[serde(rename = "MaxUsersForStatistics", skip_serializing_if = "Option::is_none")]
-    pub max_users_for_statistics: Option<i32>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct ConfigAnalyticsSettings {
+                    #[serde(rename = "MaxUsersForStatistics", skip_serializing_if = "Option::is_none")]
+                    pub max_users_for_statistics: Option<i64>,
+                }
 
-impl ConfigAnalyticsSettings {
-    pub fn new() -> ConfigAnalyticsSettings {
-        ConfigAnalyticsSettings {
-            max_users_for_statistics: None,
-        }
-    }
-}
+                impl ConfigAnalyticsSettings {
+                pub fn new() -> ConfigAnalyticsSettings {
+                ConfigAnalyticsSettings {
+                    max_users_for_statistics: None,
+                }
+                }
+                }
 
 

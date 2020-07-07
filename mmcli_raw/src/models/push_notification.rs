@@ -11,81 +11,81 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct PushNotification {
-    #[serde(rename = "ack_id", skip_serializing_if = "Option::is_none")]
-    pub ack_id: Option<String>,
-    #[serde(rename = "platform", skip_serializing_if = "Option::is_none")]
-    pub platform: Option<String>,
-    #[serde(rename = "server_id", skip_serializing_if = "Option::is_none")]
-    pub server_id: Option<String>,
-    #[serde(rename = "device_id", skip_serializing_if = "Option::is_none")]
-    pub device_id: Option<String>,
-    #[serde(rename = "post_id", skip_serializing_if = "Option::is_none")]
-    pub post_id: Option<String>,
-    #[serde(rename = "category", skip_serializing_if = "Option::is_none")]
-    pub category: Option<String>,
-    #[serde(rename = "sound", skip_serializing_if = "Option::is_none")]
-    pub sound: Option<String>,
-    #[serde(rename = "message", skip_serializing_if = "Option::is_none")]
-    pub message: Option<String>,
-    #[serde(rename = "badge", skip_serializing_if = "Option::is_none")]
-    pub badge: Option<f32>,
-    #[serde(rename = "cont_ava", skip_serializing_if = "Option::is_none")]
-    pub cont_ava: Option<f32>,
-    #[serde(rename = "team_id", skip_serializing_if = "Option::is_none")]
-    pub team_id: Option<String>,
-    #[serde(rename = "channel_id", skip_serializing_if = "Option::is_none")]
-    pub channel_id: Option<String>,
-    #[serde(rename = "root_id", skip_serializing_if = "Option::is_none")]
-    pub root_id: Option<String>,
-    #[serde(rename = "channel_name", skip_serializing_if = "Option::is_none")]
-    pub channel_name: Option<String>,
-    #[serde(rename = "type", skip_serializing_if = "Option::is_none")]
-    pub _type: Option<String>,
-    #[serde(rename = "sender_id", skip_serializing_if = "Option::is_none")]
-    pub sender_id: Option<String>,
-    #[serde(rename = "sender_name", skip_serializing_if = "Option::is_none")]
-    pub sender_name: Option<String>,
-    #[serde(rename = "override_username", skip_serializing_if = "Option::is_none")]
-    pub override_username: Option<String>,
-    #[serde(rename = "override_icon_url", skip_serializing_if = "Option::is_none")]
-    pub override_icon_url: Option<String>,
-    #[serde(rename = "from_webhook", skip_serializing_if = "Option::is_none")]
-    pub from_webhook: Option<String>,
-    #[serde(rename = "version", skip_serializing_if = "Option::is_none")]
-    pub version: Option<String>,
-    #[serde(rename = "is_id_loaded", skip_serializing_if = "Option::is_none")]
-    pub is_id_loaded: Option<bool>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct PushNotification {
+                    #[serde(rename = "ack_id", skip_serializing_if = "Option::is_none")]
+                    pub ack_id: Option<String>,
+                    #[serde(rename = "platform", skip_serializing_if = "Option::is_none")]
+                    pub platform: Option<String>,
+                    #[serde(rename = "server_id", skip_serializing_if = "Option::is_none")]
+                    pub server_id: Option<String>,
+                    #[serde(rename = "device_id", skip_serializing_if = "Option::is_none")]
+                    pub device_id: Option<String>,
+                    #[serde(rename = "post_id", skip_serializing_if = "Option::is_none")]
+                    pub post_id: Option<String>,
+                    #[serde(rename = "category", skip_serializing_if = "Option::is_none")]
+                    pub category: Option<String>,
+                    #[serde(rename = "sound", skip_serializing_if = "Option::is_none")]
+                    pub sound: Option<String>,
+                    #[serde(rename = "message", skip_serializing_if = "Option::is_none")]
+                    pub message: Option<String>,
+                    #[serde(rename = "badge", skip_serializing_if = "Option::is_none")]
+                    pub badge: Option<f32>,
+                    #[serde(rename = "cont_ava", skip_serializing_if = "Option::is_none")]
+                    pub cont_ava: Option<f32>,
+                    #[serde(rename = "team_id", skip_serializing_if = "Option::is_none")]
+                    pub team_id: Option<String>,
+                    #[serde(rename = "channel_id", skip_serializing_if = "Option::is_none")]
+                    pub channel_id: Option<String>,
+                    #[serde(rename = "root_id", skip_serializing_if = "Option::is_none")]
+                    pub root_id: Option<String>,
+                    #[serde(rename = "channel_name", skip_serializing_if = "Option::is_none")]
+                    pub channel_name: Option<String>,
+                    #[serde(rename = "type", skip_serializing_if = "Option::is_none")]
+                    pub _type: Option<String>,
+                    #[serde(rename = "sender_id", skip_serializing_if = "Option::is_none")]
+                    pub sender_id: Option<String>,
+                    #[serde(rename = "sender_name", skip_serializing_if = "Option::is_none")]
+                    pub sender_name: Option<String>,
+                    #[serde(rename = "override_username", skip_serializing_if = "Option::is_none")]
+                    pub override_username: Option<String>,
+                    #[serde(rename = "override_icon_url", skip_serializing_if = "Option::is_none")]
+                    pub override_icon_url: Option<String>,
+                    #[serde(rename = "from_webhook", skip_serializing_if = "Option::is_none")]
+                    pub from_webhook: Option<String>,
+                    #[serde(rename = "version", skip_serializing_if = "Option::is_none")]
+                    pub version: Option<String>,
+                    #[serde(rename = "is_id_loaded", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub is_id_loaded: Option<bool>,
+                }
 
-impl PushNotification {
-    pub fn new() -> PushNotification {
-        PushNotification {
-            ack_id: None,
-            platform: None,
-            server_id: None,
-            device_id: None,
-            post_id: None,
-            category: None,
-            sound: None,
-            message: None,
-            badge: None,
-            cont_ava: None,
-            team_id: None,
-            channel_id: None,
-            root_id: None,
-            channel_name: None,
-            _type: None,
-            sender_id: None,
-            sender_name: None,
-            override_username: None,
-            override_icon_url: None,
-            from_webhook: None,
-            version: None,
-            is_id_loaded: None,
-        }
-    }
-}
+                impl PushNotification {
+                pub fn new() -> PushNotification {
+                PushNotification {
+                    ack_id: None,
+                    platform: None,
+                    server_id: None,
+                    device_id: None,
+                    post_id: None,
+                    category: None,
+                    sound: None,
+                    message: None,
+                    badge: None,
+                    cont_ava: None,
+                    team_id: None,
+                    channel_id: None,
+                    root_id: None,
+                    channel_name: None,
+                    _type: None,
+                    sender_id: None,
+                    sender_name: None,
+                    override_username: None,
+                    override_icon_url: None,
+                    from_webhook: None,
+                    version: None,
+                    is_id_loaded: None,
+                }
+                }
+                }
 
 

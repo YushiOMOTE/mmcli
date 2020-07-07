@@ -11,19 +11,19 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct InlineObject12 {
-    /// The email of the user
-    #[serde(rename = "email")]
-    pub email: String,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct InlineObject12 {
+                        /// The email of the user
+                    #[serde(rename = "email")]
+                    pub email: String,
+                }
 
-impl InlineObject12 {
-    pub fn new(email: String) -> InlineObject12 {
-        InlineObject12 {
-            email,
-        }
-    }
-}
+                impl InlineObject12 {
+                pub fn new(email: String) -> InlineObject12 {
+                InlineObject12 {
+                    email,
+                }
+                }
+                }
 
 

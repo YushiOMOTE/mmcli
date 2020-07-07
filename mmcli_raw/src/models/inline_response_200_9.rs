@@ -11,18 +11,18 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct InlineResponse2009 {
-    #[serde(rename = "location", skip_serializing_if = "Option::is_none")]
-    pub location: Option<String>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct InlineResponse2009 {
+                    #[serde(rename = "location", skip_serializing_if = "Option::is_none")]
+                    pub location: Option<String>,
+                }
 
-impl InlineResponse2009 {
-    pub fn new() -> InlineResponse2009 {
-        InlineResponse2009 {
-            location: None,
-        }
-    }
-}
+                impl InlineResponse2009 {
+                pub fn new() -> InlineResponse2009 {
+                InlineResponse2009 {
+                    location: None,
+                }
+                }
+                }
 
 

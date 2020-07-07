@@ -11,35 +11,35 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct AutocompleteSuggestion {
-    /// Completed suggestion
-    #[serde(rename = "Complete", skip_serializing_if = "Option::is_none")]
-    pub complete: Option<String>,
-    /// Predicted text user might want to input
-    #[serde(rename = "Suggestion", skip_serializing_if = "Option::is_none")]
-    pub suggestion: Option<String>,
-    /// Hint about suggested input
-    #[serde(rename = "Hint", skip_serializing_if = "Option::is_none")]
-    pub hint: Option<String>,
-    /// Description of the suggested command
-    #[serde(rename = "Description", skip_serializing_if = "Option::is_none")]
-    pub description: Option<String>,
-    /// Base64 encoded svg image
-    #[serde(rename = "IconData", skip_serializing_if = "Option::is_none")]
-    pub icon_data: Option<String>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct AutocompleteSuggestion {
+                        /// Completed suggestion
+                    #[serde(rename = "Complete", skip_serializing_if = "Option::is_none")]
+                    pub complete: Option<String>,
+                        /// Predicted text user might want to input
+                    #[serde(rename = "Suggestion", skip_serializing_if = "Option::is_none")]
+                    pub suggestion: Option<String>,
+                        /// Hint about suggested input
+                    #[serde(rename = "Hint", skip_serializing_if = "Option::is_none")]
+                    pub hint: Option<String>,
+                        /// Description of the suggested command
+                    #[serde(rename = "Description", skip_serializing_if = "Option::is_none")]
+                    pub description: Option<String>,
+                        /// Base64 encoded svg image
+                    #[serde(rename = "IconData", skip_serializing_if = "Option::is_none")]
+                    pub icon_data: Option<String>,
+                }
 
-impl AutocompleteSuggestion {
-    pub fn new() -> AutocompleteSuggestion {
-        AutocompleteSuggestion {
-            complete: None,
-            suggestion: None,
-            hint: None,
-            description: None,
-            icon_data: None,
-        }
-    }
-}
+                impl AutocompleteSuggestion {
+                pub fn new() -> AutocompleteSuggestion {
+                AutocompleteSuggestion {
+                    complete: None,
+                    suggestion: None,
+                    hint: None,
+                    description: None,
+                    icon_data: None,
+                }
+                }
+                }
 
 

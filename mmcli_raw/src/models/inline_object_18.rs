@@ -11,19 +11,19 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct InlineObject18 {
-    /// A description of the token usage
-    #[serde(rename = "description")]
-    pub description: String,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct InlineObject18 {
+                        /// A description of the token usage
+                    #[serde(rename = "description")]
+                    pub description: String,
+                }
 
-impl InlineObject18 {
-    pub fn new(description: String) -> InlineObject18 {
-        InlineObject18 {
-            description,
-        }
-    }
-}
+                impl InlineObject18 {
+                pub fn new(description: String) -> InlineObject18 {
+                InlineObject18 {
+                    description,
+                }
+                }
+                }
 
 

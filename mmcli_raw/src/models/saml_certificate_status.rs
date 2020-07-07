@@ -11,27 +11,27 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct SamlCertificateStatus {
-    /// Status is good when `true`
-    #[serde(rename = "idp_certificate_file", skip_serializing_if = "Option::is_none")]
-    pub idp_certificate_file: Option<bool>,
-    /// Status is good when `true`
-    #[serde(rename = "public_certificate_file", skip_serializing_if = "Option::is_none")]
-    pub public_certificate_file: Option<bool>,
-    /// Status is good when `true`
-    #[serde(rename = "private_key_file", skip_serializing_if = "Option::is_none")]
-    pub private_key_file: Option<bool>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct SamlCertificateStatus {
+                        /// Status is good when `true`
+                    #[serde(rename = "idp_certificate_file", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub idp_certificate_file: Option<bool>,
+                        /// Status is good when `true`
+                    #[serde(rename = "public_certificate_file", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub public_certificate_file: Option<bool>,
+                        /// Status is good when `true`
+                    #[serde(rename = "private_key_file", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub private_key_file: Option<bool>,
+                }
 
-impl SamlCertificateStatus {
-    pub fn new() -> SamlCertificateStatus {
-        SamlCertificateStatus {
-            idp_certificate_file: None,
-            public_certificate_file: None,
-            private_key_file: None,
-        }
-    }
-}
+                impl SamlCertificateStatus {
+                pub fn new() -> SamlCertificateStatus {
+                SamlCertificateStatus {
+                    idp_certificate_file: None,
+                    public_certificate_file: None,
+                    private_key_file: None,
+                }
+                }
+                }
 
 

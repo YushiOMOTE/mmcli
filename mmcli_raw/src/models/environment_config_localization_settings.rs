@@ -11,24 +11,24 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct EnvironmentConfigLocalizationSettings {
-    #[serde(rename = "DefaultServerLocale", skip_serializing_if = "Option::is_none")]
-    pub default_server_locale: Option<bool>,
-    #[serde(rename = "DefaultClientLocale", skip_serializing_if = "Option::is_none")]
-    pub default_client_locale: Option<bool>,
-    #[serde(rename = "AvailableLocales", skip_serializing_if = "Option::is_none")]
-    pub available_locales: Option<bool>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct EnvironmentConfigLocalizationSettings {
+                    #[serde(rename = "DefaultServerLocale", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub default_server_locale: Option<bool>,
+                    #[serde(rename = "DefaultClientLocale", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub default_client_locale: Option<bool>,
+                    #[serde(rename = "AvailableLocales", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub available_locales: Option<bool>,
+                }
 
-impl EnvironmentConfigLocalizationSettings {
-    pub fn new() -> EnvironmentConfigLocalizationSettings {
-        EnvironmentConfigLocalizationSettings {
-            default_server_locale: None,
-            default_client_locale: None,
-            available_locales: None,
-        }
-    }
-}
+                impl EnvironmentConfigLocalizationSettings {
+                pub fn new() -> EnvironmentConfigLocalizationSettings {
+                EnvironmentConfigLocalizationSettings {
+                    default_server_locale: None,
+                    default_client_locale: None,
+                    available_locales: None,
+                }
+                }
+                }
 
 

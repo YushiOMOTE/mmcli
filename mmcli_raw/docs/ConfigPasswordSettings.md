@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**minimum_length** | Option<**i32**> |  | [optional]
+**minimum_length** | Option<**i64**> |  | [optional]
 **lowercase** | Option<**bool**> |  | [optional]
 **number** | Option<**bool**> |  | [optional]
 **uppercase** | Option<**bool**> |  | [optional]

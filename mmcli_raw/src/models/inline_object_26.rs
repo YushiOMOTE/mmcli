@@ -11,27 +11,27 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct InlineObject26 {
-    /// Unique handler for a team, will be present in the team URL
-    #[serde(rename = "name")]
-    pub name: String,
-    /// Non-unique UI name for the team
-    #[serde(rename = "display_name")]
-    pub display_name: String,
-    /// `'O'` for open, `'I'` for invite only
-    #[serde(rename = "type")]
-    pub _type: String,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct InlineObject26 {
+                        /// Unique handler for a team, will be present in the team URL
+                    #[serde(rename = "name")]
+                    pub name: String,
+                        /// Non-unique UI name for the team
+                    #[serde(rename = "display_name")]
+                    pub display_name: String,
+                        /// `'O'` for open, `'I'` for invite only
+                    #[serde(rename = "type")]
+                    pub _type: String,
+                }
 
-impl InlineObject26 {
-    pub fn new(name: String, display_name: String, _type: String) -> InlineObject26 {
-        InlineObject26 {
-            name,
-            display_name,
-            _type,
-        }
-    }
-}
+                impl InlineObject26 {
+                pub fn new(name: String, display_name: String, _type: String) -> InlineObject26 {
+                InlineObject26 {
+                    name,
+                    display_name,
+                    _type,
+                }
+                }
+                }
 
 

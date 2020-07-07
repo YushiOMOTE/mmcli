@@ -11,21 +11,21 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct ChannelModeratedRole {
-    #[serde(rename = "value", skip_serializing_if = "Option::is_none")]
-    pub value: Option<bool>,
-    #[serde(rename = "enabled", skip_serializing_if = "Option::is_none")]
-    pub enabled: Option<bool>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct ChannelModeratedRole {
+                    #[serde(rename = "value", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub value: Option<bool>,
+                    #[serde(rename = "enabled", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub enabled: Option<bool>,
+                }
 
-impl ChannelModeratedRole {
-    pub fn new() -> ChannelModeratedRole {
-        ChannelModeratedRole {
-            value: None,
-            enabled: None,
-        }
-    }
-}
+                impl ChannelModeratedRole {
+                pub fn new() -> ChannelModeratedRole {
+                ChannelModeratedRole {
+                    value: None,
+                    enabled: None,
+                }
+                }
+                }
 
 

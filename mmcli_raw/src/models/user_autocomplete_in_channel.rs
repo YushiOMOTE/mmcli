@@ -11,23 +11,23 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct UserAutocompleteInChannel {
-    /// A list of user objects in the channel
-    #[serde(rename = "in_channel", skip_serializing_if = "Option::is_none")]
-    pub in_channel: Option<Vec<crate::models::User>>,
-    /// A list of user objects not in the channel
-    #[serde(rename = "out_of_channel", skip_serializing_if = "Option::is_none")]
-    pub out_of_channel: Option<Vec<crate::models::User>>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct UserAutocompleteInChannel {
+                        /// A list of user objects in the channel
+                    #[serde(rename = "in_channel", skip_serializing_if = "Option::is_none")]
+                    pub in_channel: Option<Vec<crate::models::User>>,
+                        /// A list of user objects not in the channel
+                    #[serde(rename = "out_of_channel", skip_serializing_if = "Option::is_none")]
+                    pub out_of_channel: Option<Vec<crate::models::User>>,
+                }
 
-impl UserAutocompleteInChannel {
-    pub fn new() -> UserAutocompleteInChannel {
-        UserAutocompleteInChannel {
-            in_channel: None,
-            out_of_channel: None,
-        }
-    }
-}
+                impl UserAutocompleteInChannel {
+                pub fn new() -> UserAutocompleteInChannel {
+                UserAutocompleteInChannel {
+                    in_channel: None,
+                    out_of_channel: None,
+                }
+                }
+                }
 
 

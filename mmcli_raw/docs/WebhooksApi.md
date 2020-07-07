@@ -30,8 +30,8 @@ Get a page of a list of incoming webhooks. Optionally filter for a specific team
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**page** | Option<**i32**> | The page to select. |  |[default to 0]
-**per_page** | Option<**i32**> | The number of hooks per page. |  |[default to 60]
+**page** | Option<**i64**> | The page to select. |  |[default to 0]
+**per_page** | Option<**i64**> | The number of hooks per page. |  |[default to 60]
 **team_id** | Option<**String**> | The ID of the team to get hooks for. |  |
 
 ### Return type
@@ -183,8 +183,8 @@ Get a page of a list of outgoing webhooks. Optionally filter for a specific team
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**page** | Option<**i32**> | The page to select. |  |[default to 0]
-**per_page** | Option<**i32**> | The number of hooks per page. |  |[default to 60]
+**page** | Option<**i64**> | The page to select. |  |[default to 0]
+**per_page** | Option<**i64**> | The number of hooks per page. |  |[default to 60]
 **team_id** | Option<**String**> | The ID of the team to get hooks for. |  |
 **channel_id** | Option<**String**> | The ID of the channel to get hooks for. |  |
 

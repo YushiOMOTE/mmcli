@@ -12,10 +12,10 @@ Name | Type | Description | Notes
 **delete_at** | Option<**i64**> | The time in milliseconds a file was deleted | [optional]
 **name** | Option<**String**> | The name of the file | [optional]
 **extension** | Option<**String**> | The extension at the end of the file name | [optional]
-**size** | Option<**i32**> | The size of the file in bytes | [optional]
+**size** | Option<**i64**> | The size of the file in bytes | [optional]
 **mime_type** | Option<**String**> | The MIME type of the file | [optional]
-**width** | Option<**i32**> | If this file is an image, the width of the file | [optional]
-**height** | Option<**i32**> | If this file is an image, the height of the file | [optional]
+**width** | Option<**i64**> | If this file is an image, the width of the file | [optional]
+**height** | Option<**i64**> | If this file is an image, the height of the file | [optional]
 **has_preview_image** | Option<**bool**> | If this file is an image, whether or not it has a preview-sized version | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

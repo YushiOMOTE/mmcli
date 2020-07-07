@@ -11,24 +11,24 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct EnvironmentConfigClusterSettings {
-    #[serde(rename = "Enable", skip_serializing_if = "Option::is_none")]
-    pub enable: Option<bool>,
-    #[serde(rename = "InterNodeListenAddress", skip_serializing_if = "Option::is_none")]
-    pub inter_node_listen_address: Option<bool>,
-    #[serde(rename = "InterNodeUrls", skip_serializing_if = "Option::is_none")]
-    pub inter_node_urls: Option<bool>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct EnvironmentConfigClusterSettings {
+                    #[serde(rename = "Enable", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub enable: Option<bool>,
+                    #[serde(rename = "InterNodeListenAddress", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub inter_node_listen_address: Option<bool>,
+                    #[serde(rename = "InterNodeUrls", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub inter_node_urls: Option<bool>,
+                }
 
-impl EnvironmentConfigClusterSettings {
-    pub fn new() -> EnvironmentConfigClusterSettings {
-        EnvironmentConfigClusterSettings {
-            enable: None,
-            inter_node_listen_address: None,
-            inter_node_urls: None,
-        }
-    }
-}
+                impl EnvironmentConfigClusterSettings {
+                pub fn new() -> EnvironmentConfigClusterSettings {
+                EnvironmentConfigClusterSettings {
+                    enable: None,
+                    inter_node_listen_address: None,
+                    inter_node_urls: None,
+                }
+                }
+                }
 
 

@@ -11,23 +11,23 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct InlineResponse2001 {
-    /// The MFA secret as a string
-    #[serde(rename = "secret", skip_serializing_if = "Option::is_none")]
-    pub secret: Option<String>,
-    /// A base64 encoded QR code image
-    #[serde(rename = "qr_code", skip_serializing_if = "Option::is_none")]
-    pub qr_code: Option<String>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct InlineResponse2001 {
+                        /// The MFA secret as a string
+                    #[serde(rename = "secret", skip_serializing_if = "Option::is_none")]
+                    pub secret: Option<String>,
+                        /// A base64 encoded QR code image
+                    #[serde(rename = "qr_code", skip_serializing_if = "Option::is_none")]
+                    pub qr_code: Option<String>,
+                }
 
-impl InlineResponse2001 {
-    pub fn new() -> InlineResponse2001 {
-        InlineResponse2001 {
-            secret: None,
-            qr_code: None,
-        }
-    }
-}
+                impl InlineResponse2001 {
+                pub fn new() -> InlineResponse2001 {
+                InlineResponse2001 {
+                    secret: None,
+                    qr_code: None,
+                }
+                }
+                }
 
 

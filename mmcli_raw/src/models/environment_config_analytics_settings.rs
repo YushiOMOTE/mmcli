@@ -11,18 +11,18 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct EnvironmentConfigAnalyticsSettings {
-    #[serde(rename = "MaxUsersForStatistics", skip_serializing_if = "Option::is_none")]
-    pub max_users_for_statistics: Option<bool>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct EnvironmentConfigAnalyticsSettings {
+                    #[serde(rename = "MaxUsersForStatistics", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub max_users_for_statistics: Option<bool>,
+                }
 
-impl EnvironmentConfigAnalyticsSettings {
-    pub fn new() -> EnvironmentConfigAnalyticsSettings {
-        EnvironmentConfigAnalyticsSettings {
-            max_users_for_statistics: None,
-        }
-    }
-}
+                impl EnvironmentConfigAnalyticsSettings {
+                pub fn new() -> EnvironmentConfigAnalyticsSettings {
+                EnvironmentConfigAnalyticsSettings {
+                    max_users_for_statistics: None,
+                }
+                }
+                }
 
 

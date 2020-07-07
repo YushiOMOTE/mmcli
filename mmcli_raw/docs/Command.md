@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | Option<**String**> | The ID of the slash command | [optional]
 **token** | Option<**String**> | The token which is used to verify the source of the payload | [optional]
-**create_at** | Option<**i32**> | The time in milliseconds the command was created | [optional]
+**create_at** | Option<**i64**> | The time in milliseconds the command was created | [optional]
 **update_at** | Option<**i64**> | The time in milliseconds the command was last updated | [optional]
 **deleted_at** | Option<**i64**> | The time in milliseconds the command was deleted, 0 if never deleted | [optional]
 **creator_id** | Option<**String**> | The user id for the commands creator | [optional]

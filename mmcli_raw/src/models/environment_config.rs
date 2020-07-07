@@ -11,78 +11,78 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct EnvironmentConfig {
-    #[serde(rename = "ServiceSettings", skip_serializing_if = "Option::is_none")]
-    pub service_settings: Option<crate::models::EnvironmentConfigServiceSettings>,
-    #[serde(rename = "TeamSettings", skip_serializing_if = "Option::is_none")]
-    pub team_settings: Option<crate::models::EnvironmentConfigTeamSettings>,
-    #[serde(rename = "SqlSettings", skip_serializing_if = "Option::is_none")]
-    pub sql_settings: Option<crate::models::EnvironmentConfigSqlSettings>,
-    #[serde(rename = "LogSettings", skip_serializing_if = "Option::is_none")]
-    pub log_settings: Option<crate::models::EnvironmentConfigLogSettings>,
-    #[serde(rename = "PasswordSettings", skip_serializing_if = "Option::is_none")]
-    pub password_settings: Option<crate::models::EnvironmentConfigPasswordSettings>,
-    #[serde(rename = "FileSettings", skip_serializing_if = "Option::is_none")]
-    pub file_settings: Option<crate::models::EnvironmentConfigFileSettings>,
-    #[serde(rename = "EmailSettings", skip_serializing_if = "Option::is_none")]
-    pub email_settings: Option<crate::models::EnvironmentConfigEmailSettings>,
-    #[serde(rename = "RateLimitSettings", skip_serializing_if = "Option::is_none")]
-    pub rate_limit_settings: Option<crate::models::EnvironmentConfigRateLimitSettings>,
-    #[serde(rename = "PrivacySettings", skip_serializing_if = "Option::is_none")]
-    pub privacy_settings: Option<crate::models::ConfigPrivacySettings>,
-    #[serde(rename = "SupportSettings", skip_serializing_if = "Option::is_none")]
-    pub support_settings: Option<crate::models::EnvironmentConfigSupportSettings>,
-    #[serde(rename = "GitLabSettings", skip_serializing_if = "Option::is_none")]
-    pub git_lab_settings: Option<crate::models::EnvironmentConfigGitLabSettings>,
-    #[serde(rename = "GoogleSettings", skip_serializing_if = "Option::is_none")]
-    pub google_settings: Option<crate::models::EnvironmentConfigGitLabSettings>,
-    #[serde(rename = "Office365Settings", skip_serializing_if = "Option::is_none")]
-    pub office365_settings: Option<crate::models::EnvironmentConfigGitLabSettings>,
-    #[serde(rename = "LdapSettings", skip_serializing_if = "Option::is_none")]
-    pub ldap_settings: Option<crate::models::EnvironmentConfigLdapSettings>,
-    #[serde(rename = "ComplianceSettings", skip_serializing_if = "Option::is_none")]
-    pub compliance_settings: Option<crate::models::EnvironmentConfigComplianceSettings>,
-    #[serde(rename = "LocalizationSettings", skip_serializing_if = "Option::is_none")]
-    pub localization_settings: Option<crate::models::EnvironmentConfigLocalizationSettings>,
-    #[serde(rename = "SamlSettings", skip_serializing_if = "Option::is_none")]
-    pub saml_settings: Option<crate::models::EnvironmentConfigSamlSettings>,
-    #[serde(rename = "NativeAppSettings", skip_serializing_if = "Option::is_none")]
-    pub native_app_settings: Option<crate::models::EnvironmentConfigNativeAppSettings>,
-    #[serde(rename = "ClusterSettings", skip_serializing_if = "Option::is_none")]
-    pub cluster_settings: Option<crate::models::EnvironmentConfigClusterSettings>,
-    #[serde(rename = "MetricsSettings", skip_serializing_if = "Option::is_none")]
-    pub metrics_settings: Option<crate::models::EnvironmentConfigMetricsSettings>,
-    #[serde(rename = "AnalyticsSettings", skip_serializing_if = "Option::is_none")]
-    pub analytics_settings: Option<crate::models::EnvironmentConfigAnalyticsSettings>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct EnvironmentConfig {
+                    #[serde(rename = "ServiceSettings", skip_serializing_if = "Option::is_none")]
+                    pub service_settings: Option<crate::models::EnvironmentConfigServiceSettings>,
+                    #[serde(rename = "TeamSettings", skip_serializing_if = "Option::is_none")]
+                    pub team_settings: Option<crate::models::EnvironmentConfigTeamSettings>,
+                    #[serde(rename = "SqlSettings", skip_serializing_if = "Option::is_none")]
+                    pub sql_settings: Option<crate::models::EnvironmentConfigSqlSettings>,
+                    #[serde(rename = "LogSettings", skip_serializing_if = "Option::is_none")]
+                    pub log_settings: Option<crate::models::EnvironmentConfigLogSettings>,
+                    #[serde(rename = "PasswordSettings", skip_serializing_if = "Option::is_none")]
+                    pub password_settings: Option<crate::models::EnvironmentConfigPasswordSettings>,
+                    #[serde(rename = "FileSettings", skip_serializing_if = "Option::is_none")]
+                    pub file_settings: Option<crate::models::EnvironmentConfigFileSettings>,
+                    #[serde(rename = "EmailSettings", skip_serializing_if = "Option::is_none")]
+                    pub email_settings: Option<crate::models::EnvironmentConfigEmailSettings>,
+                    #[serde(rename = "RateLimitSettings", skip_serializing_if = "Option::is_none")]
+                    pub rate_limit_settings: Option<crate::models::EnvironmentConfigRateLimitSettings>,
+                    #[serde(rename = "PrivacySettings", skip_serializing_if = "Option::is_none")]
+                    pub privacy_settings: Option<crate::models::ConfigPrivacySettings>,
+                    #[serde(rename = "SupportSettings", skip_serializing_if = "Option::is_none")]
+                    pub support_settings: Option<crate::models::EnvironmentConfigSupportSettings>,
+                    #[serde(rename = "GitLabSettings", skip_serializing_if = "Option::is_none")]
+                    pub git_lab_settings: Option<crate::models::EnvironmentConfigGitLabSettings>,
+                    #[serde(rename = "GoogleSettings", skip_serializing_if = "Option::is_none")]
+                    pub google_settings: Option<crate::models::EnvironmentConfigGitLabSettings>,
+                    #[serde(rename = "Office365Settings", skip_serializing_if = "Option::is_none")]
+                    pub office365_settings: Option<crate::models::EnvironmentConfigGitLabSettings>,
+                    #[serde(rename = "LdapSettings", skip_serializing_if = "Option::is_none")]
+                    pub ldap_settings: Option<crate::models::EnvironmentConfigLdapSettings>,
+                    #[serde(rename = "ComplianceSettings", skip_serializing_if = "Option::is_none")]
+                    pub compliance_settings: Option<crate::models::EnvironmentConfigComplianceSettings>,
+                    #[serde(rename = "LocalizationSettings", skip_serializing_if = "Option::is_none")]
+                    pub localization_settings: Option<crate::models::EnvironmentConfigLocalizationSettings>,
+                    #[serde(rename = "SamlSettings", skip_serializing_if = "Option::is_none")]
+                    pub saml_settings: Option<crate::models::EnvironmentConfigSamlSettings>,
+                    #[serde(rename = "NativeAppSettings", skip_serializing_if = "Option::is_none")]
+                    pub native_app_settings: Option<crate::models::EnvironmentConfigNativeAppSettings>,
+                    #[serde(rename = "ClusterSettings", skip_serializing_if = "Option::is_none")]
+                    pub cluster_settings: Option<crate::models::EnvironmentConfigClusterSettings>,
+                    #[serde(rename = "MetricsSettings", skip_serializing_if = "Option::is_none")]
+                    pub metrics_settings: Option<crate::models::EnvironmentConfigMetricsSettings>,
+                    #[serde(rename = "AnalyticsSettings", skip_serializing_if = "Option::is_none")]
+                    pub analytics_settings: Option<crate::models::EnvironmentConfigAnalyticsSettings>,
+                }
 
-impl EnvironmentConfig {
-    pub fn new() -> EnvironmentConfig {
-        EnvironmentConfig {
-            service_settings: None,
-            team_settings: None,
-            sql_settings: None,
-            log_settings: None,
-            password_settings: None,
-            file_settings: None,
-            email_settings: None,
-            rate_limit_settings: None,
-            privacy_settings: None,
-            support_settings: None,
-            git_lab_settings: None,
-            google_settings: None,
-            office365_settings: None,
-            ldap_settings: None,
-            compliance_settings: None,
-            localization_settings: None,
-            saml_settings: None,
-            native_app_settings: None,
-            cluster_settings: None,
-            metrics_settings: None,
-            analytics_settings: None,
-        }
-    }
-}
+                impl EnvironmentConfig {
+                pub fn new() -> EnvironmentConfig {
+                EnvironmentConfig {
+                    service_settings: None,
+                    team_settings: None,
+                    sql_settings: None,
+                    log_settings: None,
+                    password_settings: None,
+                    file_settings: None,
+                    email_settings: None,
+                    rate_limit_settings: None,
+                    privacy_settings: None,
+                    support_settings: None,
+                    git_lab_settings: None,
+                    google_settings: None,
+                    office365_settings: None,
+                    ldap_settings: None,
+                    compliance_settings: None,
+                    localization_settings: None,
+                    saml_settings: None,
+                    native_app_settings: None,
+                    cluster_settings: None,
+                    metrics_settings: None,
+                    analytics_settings: None,
+                }
+                }
+                }
 
 

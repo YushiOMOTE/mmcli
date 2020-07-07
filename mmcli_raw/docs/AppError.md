@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status_code** | Option<**i32**> |  | [optional]
+**status_code** | Option<**i64**> |  | [optional]
 **id** | Option<**String**> |  | [optional]
 **message** | Option<**String**> |  | [optional]
 **request_id** | Option<**String**> |  | [optional]

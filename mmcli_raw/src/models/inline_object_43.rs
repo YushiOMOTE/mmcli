@@ -11,19 +11,19 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct InlineObject43 {
-    /// Channel privacy setting: 'O' for a public channel, 'P' for a private channel
-    #[serde(rename = "privacy")]
-    pub privacy: String,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct InlineObject43 {
+                        /// Channel privacy setting: 'O' for a public channel, 'P' for a private channel
+                    #[serde(rename = "privacy")]
+                    pub privacy: String,
+                }
 
-impl InlineObject43 {
-    pub fn new(privacy: String) -> InlineObject43 {
-        InlineObject43 {
-            privacy,
-        }
-    }
-}
+                impl InlineObject43 {
+                pub fn new(privacy: String) -> InlineObject43 {
+                InlineObject43 {
+                    privacy,
+                }
+                }
+                }
 
 

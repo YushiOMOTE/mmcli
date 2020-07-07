@@ -11,23 +11,23 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct InlineObject63 {
-    /// The term to match against the emoji name.
-    #[serde(rename = "term")]
-    pub term: String,
-    /// Set to only search for names starting with the search term.
-    #[serde(rename = "prefix_only", skip_serializing_if = "Option::is_none")]
-    pub prefix_only: Option<String>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct InlineObject63 {
+                        /// The term to match against the emoji name.
+                    #[serde(rename = "term")]
+                    pub term: String,
+                        /// Set to only search for names starting with the search term.
+                    #[serde(rename = "prefix_only", skip_serializing_if = "Option::is_none")]
+                    pub prefix_only: Option<String>,
+                }
 
-impl InlineObject63 {
-    pub fn new(term: String) -> InlineObject63 {
-        InlineObject63 {
-            term,
-            prefix_only: None,
-        }
-    }
-}
+                impl InlineObject63 {
+                pub fn new(term: String) -> InlineObject63 {
+                InlineObject63 {
+                    term,
+                    prefix_only: None,
+                }
+                }
+                }
 
 

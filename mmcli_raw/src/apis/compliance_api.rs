@@ -61,7 +61,7 @@ pub enum ComplianceReportsReportIdGetError {
 
 
 /// Get a list of compliance reports previously created by page, selected with `page` and `per_page` query parameters. ##### Permissions Must have `manage_system` permission. 
-pub async fn compliance_reports_get(configuration: &configuration::Configuration, page: Option<i32>, per_page: Option<i32>) -> Result<Vec<crate::models::Compliance>, Error<ComplianceReportsGetError>> {
+pub async fn compliance_reports_get(configuration: &configuration::Configuration, page: Option<i64>, per_page: Option<i64>) -> Result<Vec<crate::models::Compliance>, Error<ComplianceReportsGetError>> {
 
     let client = &configuration.client;
 

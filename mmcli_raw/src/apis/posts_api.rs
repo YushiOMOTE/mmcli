@@ -178,7 +178,7 @@ pub enum UsersUserIdPostsPostIdSetUnreadPostError {
 
 
 /// Get a page of posts in a channel. Use the query parameters to modify the behaviour of this endpoint. The parameter `since` must not be used with any of `before`, `after`, `page`, and `per_page` parameters. If `since` is used, it will always return all posts since that time limited till 1000. ##### Permissions Must have `read_channel` permission for the channel. 
-pub async fn channels_channel_id_posts_get(configuration: &configuration::Configuration, channel_id: &str, page: Option<i32>, per_page: Option<i32>, since: Option<i32>, before: Option<&str>, after: Option<&str>) -> Result<crate::models::PostList, Error<ChannelsChannelIdPostsGetError>> {
+pub async fn channels_channel_id_posts_get(configuration: &configuration::Configuration, channel_id: &str, page: Option<i64>, per_page: Option<i64>, since: Option<i64>, before: Option<&str>, after: Option<&str>) -> Result<crate::models::PostList, Error<ChannelsChannelIdPostsGetError>> {
 
     let client = &configuration.client;
 
@@ -591,7 +591,7 @@ pub async fn teams_team_id_posts_search_post(configuration: &configuration::Conf
 }
 
 /// Get the oldest unread post in the channel for the given user as well as the posts around it. ##### Permissions Must be logged in as the user or have `edit_other_users` permission, and must have `read_channel` permission for the channel. __Minimum server version__: 5.14 
-pub async fn users_user_id_channels_channel_id_posts_unread_get(configuration: &configuration::Configuration, user_id: &str, channel_id: &str, limit_before: Option<i32>, limit_after: Option<i32>) -> Result<crate::models::PostList, Error<UsersUserIdChannelsChannelIdPostsUnreadGetError>> {
+pub async fn users_user_id_channels_channel_id_posts_unread_get(configuration: &configuration::Configuration, user_id: &str, channel_id: &str, limit_before: Option<i64>, limit_after: Option<i64>) -> Result<crate::models::PostList, Error<UsersUserIdChannelsChannelIdPostsUnreadGetError>> {
 
     let client = &configuration.client;
 
@@ -627,7 +627,7 @@ pub async fn users_user_id_channels_channel_id_posts_unread_get(configuration: &
 }
 
 /// Get a page of flagged posts of a user provided user id string. Selects from a channel, team or all flagged posts by a user. ##### Permissions Must be user or have `manage_system` permission. 
-pub async fn users_user_id_posts_flagged_get(configuration: &configuration::Configuration, user_id: &str, team_id: Option<&str>, channel_id: Option<&str>, page: Option<i32>, per_page: Option<i32>) -> Result<Vec<crate::models::PostList>, Error<UsersUserIdPostsFlaggedGetError>> {
+pub async fn users_user_id_posts_flagged_get(configuration: &configuration::Configuration, user_id: &str, team_id: Option<&str>, channel_id: Option<&str>, page: Option<i64>, per_page: Option<i64>) -> Result<Vec<crate::models::PostList>, Error<UsersUserIdPostsFlaggedGetError>> {
 
     let client = &configuration.client;
 

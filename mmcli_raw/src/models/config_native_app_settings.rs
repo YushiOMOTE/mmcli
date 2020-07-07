@@ -11,24 +11,24 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct ConfigNativeAppSettings {
-    #[serde(rename = "AppDownloadLink", skip_serializing_if = "Option::is_none")]
-    pub app_download_link: Option<String>,
-    #[serde(rename = "AndroidAppDownloadLink", skip_serializing_if = "Option::is_none")]
-    pub android_app_download_link: Option<String>,
-    #[serde(rename = "IosAppDownloadLink", skip_serializing_if = "Option::is_none")]
-    pub ios_app_download_link: Option<String>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct ConfigNativeAppSettings {
+                    #[serde(rename = "AppDownloadLink", skip_serializing_if = "Option::is_none")]
+                    pub app_download_link: Option<String>,
+                    #[serde(rename = "AndroidAppDownloadLink", skip_serializing_if = "Option::is_none")]
+                    pub android_app_download_link: Option<String>,
+                    #[serde(rename = "IosAppDownloadLink", skip_serializing_if = "Option::is_none")]
+                    pub ios_app_download_link: Option<String>,
+                }
 
-impl ConfigNativeAppSettings {
-    pub fn new() -> ConfigNativeAppSettings {
-        ConfigNativeAppSettings {
-            app_download_link: None,
-            android_app_download_link: None,
-            ios_app_download_link: None,
-        }
-    }
-}
+                impl ConfigNativeAppSettings {
+                pub fn new() -> ConfigNativeAppSettings {
+                ConfigNativeAppSettings {
+                    app_download_link: None,
+                    android_app_download_link: None,
+                    ios_app_download_link: None,
+                }
+                }
+                }
 
 

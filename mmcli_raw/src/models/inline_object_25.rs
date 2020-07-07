@@ -11,23 +11,23 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct InlineObject25 {
-    /// User ID
-    #[serde(rename = "user_id")]
-    pub user_id: String,
-    /// User status, can be `online`, `away`, `offline` and `dnd`
-    #[serde(rename = "status")]
-    pub status: String,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct InlineObject25 {
+                        /// User ID
+                    #[serde(rename = "user_id")]
+                    pub user_id: String,
+                        /// User status, can be `online`, `away`, `offline` and `dnd`
+                    #[serde(rename = "status")]
+                    pub status: String,
+                }
 
-impl InlineObject25 {
-    pub fn new(user_id: String, status: String) -> InlineObject25 {
-        InlineObject25 {
-            user_id,
-            status,
-        }
-    }
-}
+                impl InlineObject25 {
+                pub fn new(user_id: String, status: String) -> InlineObject25 {
+                InlineObject25 {
+                    user_id,
+                    status,
+                }
+                }
+                }
 
 

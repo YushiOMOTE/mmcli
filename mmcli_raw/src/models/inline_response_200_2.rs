@@ -11,19 +11,19 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct InlineResponse2002 {
-    /// Value will `true` if MFA is active, `false` otherwise
-    #[serde(rename = "mfa_required", skip_serializing_if = "Option::is_none")]
-    pub mfa_required: Option<bool>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct InlineResponse2002 {
+                        /// Value will `true` if MFA is active, `false` otherwise
+                    #[serde(rename = "mfa_required", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub mfa_required: Option<bool>,
+                }
 
-impl InlineResponse2002 {
-    pub fn new() -> InlineResponse2002 {
-        InlineResponse2002 {
-            mfa_required: None,
-        }
-    }
-}
+                impl InlineResponse2002 {
+                pub fn new() -> InlineResponse2002 {
+                InlineResponse2002 {
+                    mfa_required: None,
+                }
+                }
+                }
 
 

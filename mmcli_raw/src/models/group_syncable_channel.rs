@@ -11,33 +11,33 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct GroupSyncableChannel {
-    #[serde(rename = "channel_id", skip_serializing_if = "Option::is_none")]
-    pub channel_id: Option<String>,
-    #[serde(rename = "group_id", skip_serializing_if = "Option::is_none")]
-    pub group_id: Option<String>,
-    #[serde(rename = "auto_add", skip_serializing_if = "Option::is_none")]
-    pub auto_add: Option<bool>,
-    #[serde(rename = "create_at", skip_serializing_if = "Option::is_none")]
-    pub create_at: Option<i64>,
-    #[serde(rename = "delete_at", skip_serializing_if = "Option::is_none")]
-    pub delete_at: Option<i64>,
-    #[serde(rename = "update_at", skip_serializing_if = "Option::is_none")]
-    pub update_at: Option<i64>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct GroupSyncableChannel {
+                    #[serde(rename = "channel_id", skip_serializing_if = "Option::is_none")]
+                    pub channel_id: Option<String>,
+                    #[serde(rename = "group_id", skip_serializing_if = "Option::is_none")]
+                    pub group_id: Option<String>,
+                    #[serde(rename = "auto_add", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub auto_add: Option<bool>,
+                    #[serde(rename = "create_at", skip_serializing_if = "Option::is_none")]
+                    pub create_at: Option<i64>,
+                    #[serde(rename = "delete_at", skip_serializing_if = "Option::is_none")]
+                    pub delete_at: Option<i64>,
+                    #[serde(rename = "update_at", skip_serializing_if = "Option::is_none")]
+                    pub update_at: Option<i64>,
+                }
 
-impl GroupSyncableChannel {
-    pub fn new() -> GroupSyncableChannel {
-        GroupSyncableChannel {
-            channel_id: None,
-            group_id: None,
-            auto_add: None,
-            create_at: None,
-            delete_at: None,
-            update_at: None,
-        }
-    }
-}
+                impl GroupSyncableChannel {
+                pub fn new() -> GroupSyncableChannel {
+                GroupSyncableChannel {
+                    channel_id: None,
+                    group_id: None,
+                    auto_add: None,
+                    create_at: None,
+                    delete_at: None,
+                    update_at: None,
+                }
+                }
+                }
 
 

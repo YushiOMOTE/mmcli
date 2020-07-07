@@ -11,18 +11,18 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct InlineObject6 {
-    #[serde(rename = "active")]
-    pub active: bool,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct InlineObject6 {
+                    #[serde(rename = "active", deserialize_with = "crate::de::parse_bool")]
+                    pub active: bool,
+                }
 
-impl InlineObject6 {
-    pub fn new(active: bool) -> InlineObject6 {
-        InlineObject6 {
-            active,
-        }
-    }
-}
+                impl InlineObject6 {
+                pub fn new(active: bool) -> InlineObject6 {
+                InlineObject6 {
+                    active,
+                }
+                }
+                }
 
 

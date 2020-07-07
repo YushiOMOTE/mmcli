@@ -11,22 +11,22 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct InlineObject44 {
-    #[serde(rename = "team_id")]
-    pub team_id: String,
-    /// Remove members those are not member of target team before moving the channel.
-    #[serde(rename = "force", skip_serializing_if = "Option::is_none")]
-    pub force: Option<bool>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct InlineObject44 {
+                    #[serde(rename = "team_id")]
+                    pub team_id: String,
+                        /// Remove members those are not member of target team before moving the channel.
+                    #[serde(rename = "force", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub force: Option<bool>,
+                }
 
-impl InlineObject44 {
-    pub fn new(team_id: String) -> InlineObject44 {
-        InlineObject44 {
-            team_id,
-            force: None,
-        }
-    }
-}
+                impl InlineObject44 {
+                pub fn new(team_id: String) -> InlineObject44 {
+                InlineObject44 {
+                    team_id,
+                    force: None,
+                }
+                }
+                }
 
 

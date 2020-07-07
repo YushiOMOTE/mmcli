@@ -93,7 +93,7 @@ pub enum SchemesSchemeIdTeamsGetError {
 
 
 /// Get a page of schemes. Use the query parameters to modify the behaviour of this endpoint.  ##### Permissions Must have `manage_system` permission.  __Minimum server version__: 5.0 
-pub async fn schemes_get(configuration: &configuration::Configuration, scope: Option<&str>, page: Option<i32>, per_page: Option<i32>) -> Result<Vec<crate::models::Scheme>, Error<SchemesGetError>> {
+pub async fn schemes_get(configuration: &configuration::Configuration, scope: Option<&str>, page: Option<i64>, per_page: Option<i64>) -> Result<Vec<crate::models::Scheme>, Error<SchemesGetError>> {
 
     let client = &configuration.client;
 
@@ -163,7 +163,7 @@ pub async fn schemes_post(configuration: &configuration::Configuration, inline_o
 }
 
 /// Get a page of channels which use this scheme. The provided Scheme ID should be for a Channel-scoped Scheme. Use the query parameters to modify the behaviour of this endpoint.  ##### Permissions `manage_system` permission is required.  __Minimum server version__: 5.0 
-pub async fn schemes_scheme_id_channels_get(configuration: &configuration::Configuration, scheme_id: &str, page: Option<i32>, per_page: Option<i32>) -> Result<Vec<crate::models::Channel>, Error<SchemesSchemeIdChannelsGetError>> {
+pub async fn schemes_scheme_id_channels_get(configuration: &configuration::Configuration, scheme_id: &str, page: Option<i64>, per_page: Option<i64>) -> Result<Vec<crate::models::Channel>, Error<SchemesSchemeIdChannelsGetError>> {
 
     let client = &configuration.client;
 
@@ -290,7 +290,7 @@ pub async fn schemes_scheme_id_patch_put(configuration: &configuration::Configur
 }
 
 /// Get a page of teams which use this scheme. The provided Scheme ID should be for a Team-scoped Scheme. Use the query parameters to modify the behaviour of this endpoint.  ##### Permissions `manage_system` permission is required.  __Minimum server version__: 5.0 
-pub async fn schemes_scheme_id_teams_get(configuration: &configuration::Configuration, scheme_id: &str, page: Option<i32>, per_page: Option<i32>) -> Result<Vec<crate::models::Team>, Error<SchemesSchemeIdTeamsGetError>> {
+pub async fn schemes_scheme_id_teams_get(configuration: &configuration::Configuration, scheme_id: &str, page: Option<i64>, per_page: Option<i64>) -> Result<Vec<crate::models::Team>, Error<SchemesSchemeIdTeamsGetError>> {
 
     let client = &configuration.client;
 

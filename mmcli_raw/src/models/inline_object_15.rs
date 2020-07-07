@@ -11,19 +11,19 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct InlineObject15 {
-    /// The token given to validate the email
-    #[serde(rename = "token")]
-    pub token: String,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct InlineObject15 {
+                        /// The token given to validate the email
+                    #[serde(rename = "token")]
+                    pub token: String,
+                }
 
-impl InlineObject15 {
-    pub fn new(token: String) -> InlineObject15 {
-        InlineObject15 {
-            token,
-        }
-    }
-}
+                impl InlineObject15 {
+                pub fn new(token: String) -> InlineObject15 {
+                InlineObject15 {
+                    token,
+                }
+                }
+                }
 
 

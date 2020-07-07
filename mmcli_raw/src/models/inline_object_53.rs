@@ -11,22 +11,22 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct InlineObject53 {
-    /// The target user id for the ephemeral post
-    #[serde(rename = "user_id")]
-    pub user_id: String,
-    #[serde(rename = "post")]
-    pub post: crate::models::PostsEphemeralPost,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct InlineObject53 {
+                        /// The target user id for the ephemeral post
+                    #[serde(rename = "user_id")]
+                    pub user_id: String,
+                    #[serde(rename = "post")]
+                    pub post: crate::models::PostsEphemeralPost,
+                }
 
-impl InlineObject53 {
-    pub fn new(user_id: String, post: crate::models::PostsEphemeralPost) -> InlineObject53 {
-        InlineObject53 {
-            user_id,
-            post,
-        }
-    }
-}
+                impl InlineObject53 {
+                pub fn new(user_id: String, post: crate::models::PostsEphemeralPost) -> InlineObject53 {
+                InlineObject53 {
+                    user_id,
+                    post,
+                }
+                }
+                }
 
 

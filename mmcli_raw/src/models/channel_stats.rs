@@ -11,21 +11,21 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct ChannelStats {
-    #[serde(rename = "channel_id", skip_serializing_if = "Option::is_none")]
-    pub channel_id: Option<String>,
-    #[serde(rename = "member_count", skip_serializing_if = "Option::is_none")]
-    pub member_count: Option<i32>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct ChannelStats {
+                    #[serde(rename = "channel_id", skip_serializing_if = "Option::is_none")]
+                    pub channel_id: Option<String>,
+                    #[serde(rename = "member_count", skip_serializing_if = "Option::is_none")]
+                    pub member_count: Option<i64>,
+                }
 
-impl ChannelStats {
-    pub fn new() -> ChannelStats {
-        ChannelStats {
-            channel_id: None,
-            member_count: None,
-        }
-    }
-}
+                impl ChannelStats {
+                pub fn new() -> ChannelStats {
+                ChannelStats {
+                    channel_id: None,
+                    member_count: None,
+                }
+                }
+                }
 
 

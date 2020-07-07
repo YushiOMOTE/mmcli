@@ -11,27 +11,27 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct InlineObject78 {
-    /// The name of the scheme
-    #[serde(rename = "name")]
-    pub name: String,
-    /// The description of the scheme
-    #[serde(rename = "description", skip_serializing_if = "Option::is_none")]
-    pub description: Option<String>,
-    /// The scope of the scheme (\"team\" or \"channel\")
-    #[serde(rename = "scope")]
-    pub scope: String,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct InlineObject78 {
+                        /// The name of the scheme
+                    #[serde(rename = "name")]
+                    pub name: String,
+                        /// The description of the scheme
+                    #[serde(rename = "description", skip_serializing_if = "Option::is_none")]
+                    pub description: Option<String>,
+                        /// The scope of the scheme (\"team\" or \"channel\")
+                    #[serde(rename = "scope")]
+                    pub scope: String,
+                }
 
-impl InlineObject78 {
-    pub fn new(name: String, scope: String) -> InlineObject78 {
-        InlineObject78 {
-            name,
-            description: None,
-            scope,
-        }
-    }
-}
+                impl InlineObject78 {
+                pub fn new(name: String, scope: String) -> InlineObject78 {
+                InlineObject78 {
+                    name,
+                    description: None,
+                    scope,
+                }
+                }
+                }
 
 

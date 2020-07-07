@@ -10,3 +10,4 @@ extern crate reqwest;
 
 pub mod apis;
 pub mod models;
+mod de;

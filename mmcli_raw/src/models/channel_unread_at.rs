@@ -11,35 +11,35 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct ChannelUnreadAt {
-    /// The ID of the team the channel belongs to.
-    #[serde(rename = "team_id", skip_serializing_if = "Option::is_none")]
-    pub team_id: Option<String>,
-    /// The ID of the channel the user has access to..
-    #[serde(rename = "channel_id", skip_serializing_if = "Option::is_none")]
-    pub channel_id: Option<String>,
-    /// No. of messages the user has already read.
-    #[serde(rename = "msg_count", skip_serializing_if = "Option::is_none")]
-    pub msg_count: Option<i32>,
-    /// No. of mentions the user has within the unread posts of the channel.
-    #[serde(rename = "mention_count", skip_serializing_if = "Option::is_none")]
-    pub mention_count: Option<i32>,
-    /// time in milliseconds when the user last viewed the channel.
-    #[serde(rename = "last_viewed_at", skip_serializing_if = "Option::is_none")]
-    pub last_viewed_at: Option<i32>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct ChannelUnreadAt {
+                        /// The ID of the team the channel belongs to.
+                    #[serde(rename = "team_id", skip_serializing_if = "Option::is_none")]
+                    pub team_id: Option<String>,
+                        /// The ID of the channel the user has access to..
+                    #[serde(rename = "channel_id", skip_serializing_if = "Option::is_none")]
+                    pub channel_id: Option<String>,
+                        /// No. of messages the user has already read.
+                    #[serde(rename = "msg_count", skip_serializing_if = "Option::is_none")]
+                    pub msg_count: Option<i64>,
+                        /// No. of mentions the user has within the unread posts of the channel.
+                    #[serde(rename = "mention_count", skip_serializing_if = "Option::is_none")]
+                    pub mention_count: Option<i64>,
+                        /// time in milliseconds when the user last viewed the channel.
+                    #[serde(rename = "last_viewed_at", skip_serializing_if = "Option::is_none")]
+                    pub last_viewed_at: Option<i64>,
+                }
 
-impl ChannelUnreadAt {
-    pub fn new() -> ChannelUnreadAt {
-        ChannelUnreadAt {
-            team_id: None,
-            channel_id: None,
-            msg_count: None,
-            mention_count: None,
-            last_viewed_at: None,
-        }
-    }
-}
+                impl ChannelUnreadAt {
+                pub fn new() -> ChannelUnreadAt {
+                ChannelUnreadAt {
+                    team_id: None,
+                    channel_id: None,
+                    msg_count: None,
+                    mention_count: None,
+                    last_viewed_at: None,
+                }
+                }
+                }
 
 

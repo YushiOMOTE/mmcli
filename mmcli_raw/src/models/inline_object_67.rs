@@ -11,31 +11,31 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct InlineObject67 {
-    /// Outgoing webhook GUID
-    #[serde(rename = "hook_id", skip_serializing_if = "Option::is_none")]
-    pub hook_id: Option<String>,
-    /// The ID of a public channel or private group that receives the webhook payloads.
-    #[serde(rename = "channel_id")]
-    pub channel_id: String,
-    /// The display name for this incoming webhook
-    #[serde(rename = "display_name")]
-    pub display_name: String,
-    /// The description for this incoming webhook
-    #[serde(rename = "description")]
-    pub description: String,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct InlineObject67 {
+                        /// Outgoing webhook GUID
+                    #[serde(rename = "hook_id", skip_serializing_if = "Option::is_none")]
+                    pub hook_id: Option<String>,
+                        /// The ID of a public channel or private group that receives the webhook payloads.
+                    #[serde(rename = "channel_id")]
+                    pub channel_id: String,
+                        /// The display name for this incoming webhook
+                    #[serde(rename = "display_name")]
+                    pub display_name: String,
+                        /// The description for this incoming webhook
+                    #[serde(rename = "description")]
+                    pub description: String,
+                }
 
-impl InlineObject67 {
-    pub fn new(channel_id: String, display_name: String, description: String) -> InlineObject67 {
-        InlineObject67 {
-            hook_id: None,
-            channel_id,
-            display_name,
-            description,
-        }
-    }
-}
+                impl InlineObject67 {
+                pub fn new(channel_id: String, display_name: String, description: String) -> InlineObject67 {
+                InlineObject67 {
+                    hook_id: None,
+                    channel_id,
+                    display_name,
+                    description,
+                }
+                }
+                }
 
 

@@ -11,23 +11,23 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct ServerBusy {
-    /// True if the server is marked as busy (under high load)
-    #[serde(rename = "busy", skip_serializing_if = "Option::is_none")]
-    pub busy: Option<bool>,
-    /// timestamp - number of seconds since Jan 1, 1970 UTC.
-    #[serde(rename = "expires", skip_serializing_if = "Option::is_none")]
-    pub expires: Option<i64>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct ServerBusy {
+                        /// True if the server is marked as busy (under high load)
+                    #[serde(rename = "busy", skip_serializing_if = "Option::is_none", default, deserialize_with = "crate::de::parse_bool_opt")]
+                    pub busy: Option<bool>,
+                        /// timestamp - number of seconds since Jan 1, 1970 UTC.
+                    #[serde(rename = "expires", skip_serializing_if = "Option::is_none")]
+                    pub expires: Option<i64>,
+                }
 
-impl ServerBusy {
-    pub fn new() -> ServerBusy {
-        ServerBusy {
-            busy: None,
-            expires: None,
-        }
-    }
-}
+                impl ServerBusy {
+                pub fn new() -> ServerBusy {
+                ServerBusy {
+                    busy: None,
+                    expires: None,
+                }
+                }
+                }
 
 

@@ -11,19 +11,19 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct InlineObject60 {
-    /// Number of users requested (20% extra is going to be added)
-    #[serde(rename = "users")]
-    pub users: i32,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct InlineObject60 {
+                        /// Number of users requested (20% extra is going to be added)
+                    #[serde(rename = "users")]
+                    pub users: i64,
+                }
 
-impl InlineObject60 {
-    pub fn new(users: i32) -> InlineObject60 {
-        InlineObject60 {
-            users,
-        }
-    }
-}
+                impl InlineObject60 {
+                pub fn new(users: i64) -> InlineObject60 {
+                InlineObject60 {
+                    users,
+                }
+                }
+                }
 
 

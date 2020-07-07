@@ -11,27 +11,27 @@
 
 
 
-#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
-pub struct OpenGraphArticleAuthors {
-    #[serde(rename = "first_name", skip_serializing_if = "Option::is_none")]
-    pub first_name: Option<String>,
-    #[serde(rename = "last_name", skip_serializing_if = "Option::is_none")]
-    pub last_name: Option<String>,
-    #[serde(rename = "username", skip_serializing_if = "Option::is_none")]
-    pub username: Option<String>,
-    #[serde(rename = "gender", skip_serializing_if = "Option::is_none")]
-    pub gender: Option<String>,
-}
+                #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+                pub struct OpenGraphArticleAuthors {
+                    #[serde(rename = "first_name", skip_serializing_if = "Option::is_none")]
+                    pub first_name: Option<String>,
+                    #[serde(rename = "last_name", skip_serializing_if = "Option::is_none")]
+                    pub last_name: Option<String>,
+                    #[serde(rename = "username", skip_serializing_if = "Option::is_none")]
+                    pub username: Option<String>,
+                    #[serde(rename = "gender", skip_serializing_if = "Option::is_none")]
+                    pub gender: Option<String>,
+                }
 
-impl OpenGraphArticleAuthors {
-    pub fn new() -> OpenGraphArticleAuthors {
-        OpenGraphArticleAuthors {
-            first_name: None,
-            last_name: None,
-            username: None,
-            gender: None,
-        }
-    }
-}
+                impl OpenGraphArticleAuthors {
+                pub fn new() -> OpenGraphArticleAuthors {
+                OpenGraphArticleAuthors {
+                    first_name: None,
+                    last_name: None,
+                    username: None,
+                    gender: None,
+                }
+                }
+                }
 
 
