@@ -4,6 +4,7 @@ set -uex
 
 pushd "$(dirname "${BASH_SOURCE[0]}")"
 
+gen=openapi-generator-cli.jar
 root=$(pwd)/..
 spec=mattermost-openapi-v4.yaml
 spec_path=$(pwd)/$spec
@@ -45,7 +46,7 @@ popd
 
 # Generate client
 rm -rf out
-docker run --rm -v $(pwd):/local -u $(id -u) openapitools/openapi-generator-cli generate -i /local/$spec -g rust -c /local/config.json -o /local/out
+java -jar $gen generate -i $spec -g rust -c config.json -o out
 
 # Update output crate
 rm -rf ../$name
