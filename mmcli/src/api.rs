@@ -1,3 +1,4 @@
+use crate::hook;
 use anyhow::{anyhow, bail, Context, Result};
 use derive_new::new;
 use futures::{
@@ -18,6 +19,8 @@ macro_rules! t {
         $e.map_err(|e| anyhow!("Request error: {:?}", e))
     };
 }
+
+pub type WebhookPost = hook::Post;
 
 #[derive(Serialize, Deserialize, Debug, new, Clone)]
 pub struct AuthToken {
@@ -138,6 +141,7 @@ type Receiver = mpsc::UnboundedReceiver<WsMessage>;
 pub struct Api {
     down_rx: Receiver,
     up_tx: Sender,
+    hook: Option<hook::Hook>,
     cfg: Config,
     raw: Configuration,
     handle: AbortHandle,
@@ -152,6 +156,11 @@ impl Drop for Api {
 impl Api {
     /// Create a new client instance.
     pub async fn new(cfg: Config) -> Result<Self> {
+        let hook = cfg
+            .webhook_token
+            .as_ref()
+            .map(|token| hook::Hook::new(hook::Config::new(cfg.url.clone(), token.to_string())));
+
         let urlstr = format!(
             "wss://{}{}/websocket",
             cfg.url,
@@ -250,6 +259,7 @@ impl Api {
         Ok(Self {
             down_rx,
             up_tx,
+            hook,
             cfg,
             raw,
             handle,
@@ -307,33 +317,33 @@ impl Api {
         Ok(t!(p).with_context(|| format!("Couldn't post: {}: {}", channel_id, message))?)
     }
 
-    /// Post to incoming webhook.
-    pub async fn post_webhook(
+    /// Post via incoming webhook.
+    pub async fn post_as(
         &mut self,
-        channel_id: &str,
-        display_name: &str,
+        channel_name: &str,
         username: &str,
-        icon_url: &str,
         message: &str,
-    ) -> Result<models::IncomingWebhook> {
-        let p = webhooks_api::hooks_incoming_post(
-            &self.raw,
-            models::InlineObject64 {
-                channel_id: channel_id.into(),
-                display_name: Some(display_name.into()),
-                username: Some(username.into()),
-                icon_url: Some(icon_url.into()),
-                description: Some(message.into()),
-            },
-        )
-        .await;
+        icon_url: Option<&str>,
+    ) -> Result<()> {
+        if let Some(hook) = self.hook.as_mut() {
+            hook.post(hook::Post::new(
+                icon_url.map(|s| s.into()),
+                channel_name.into(),
+                username.into(),
+                message.into(),
+            ))
+            .await
+            .with_context(|| {
+                format!(
+                    "Couldn't post via incoming webhook: {}: {}: {}",
+                    channel_name, username, message,
+                )
+            })?;
 
-        Ok(t!(p).with_context(|| {
-            format!(
-                "Couldn't post via webhook: {}: {}: {}",
-                channel_id, username, message
-            )
-        })?)
+            Ok(())
+        } else {
+            bail!("Webhook is not configured")
+        }
     }
 
     /// Get user info by usernames
