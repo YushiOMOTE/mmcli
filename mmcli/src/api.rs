@@ -133,6 +133,8 @@ pub struct Config {
     pub token: String,
     #[new(default)]
     pub webhook_token: Option<String>,
+    #[new(default)]
+    pub disable_tls: bool,
 }
 
 type Sender = mpsc::UnboundedSender<WsMessage>;
@@ -162,7 +164,8 @@ impl Api {
             .map(|token| hook::Hook::new(hook::Config::new(cfg.url.clone(), token.to_string())));
 
         let urlstr = format!(
-            "wss://{}{}/websocket",
+            "{}//{}{}/websocket",
+            if cfg.disable_tls { "ws:" } else { "wss:" },
             cfg.url,
             cfg.base_path.as_deref().unwrap_or("")
         );
@@ -250,7 +253,8 @@ impl Api {
         let mut raw = Configuration::new();
 
         raw.base_path = format!(
-            "https://{}{}",
+            "{}://{}{}",
+            if cfg.disable_tls { "http" } else { "https" },
             cfg.url,
             cfg.base_path.as_deref().unwrap_or(""),
         );

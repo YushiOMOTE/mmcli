@@ -13,6 +13,8 @@ struct Opt {
     base_path: Option<String>,
     #[structopt(name = "webhook_token")]
     webhook_token: Option<String>,
+    #[structopt(short = "d", long = "disable-tls")]
+    disable_tls: bool,
 }
 
 #[tokio::main]
@@ -23,6 +25,7 @@ async fn main() -> Result<()> {
     let mut cfg = Config::new(opt.url, opt.token);
     cfg.base_path = opt.base_path.clone();
     cfg.webhook_token = opt.webhook_token.clone();
+    cfg.disable_tls = opt.disable_tls;
     let mut api = Api::new(cfg).await?;
 
     api.login().await?;
@@ -46,7 +49,7 @@ async fn main() -> Result<()> {
                         &posted.data.channel_name,
                         "test-bot",
                         "hello from test-bot",
-			None,
+                        None,
                     )
                     .await?;
                 }
