@@ -11,6 +11,7 @@ use mmcli_raw::{
     models,
 };
 use serde::{de::DeserializeOwned, Deserialize, Serialize};
+use std::path::PathBuf;
 use tokio::sync::mpsc;
 use tokio_tungstenite::{connect_async, tungstenite::protocol::Message as WsMessage};
 
@@ -307,6 +308,27 @@ impl Api {
             Some(msg) => bail!("Unexpected message: {:?}", msg),
             None => bail!("Couldn't receive status after login"),
         }
+    }
+
+    /// Create an emoji.
+    pub async fn create_emoji(
+        &mut self,
+        image: PathBuf,
+        emoji: &str,
+        creator_id: &str,
+    ) -> Result<models::Emoji> {
+        #[derive(Serialize, new)]
+        struct Object {
+            name: String,
+            creator_id: String,
+        }
+
+        let obj = serde_json::to_string(&Object::new(emoji.into(), creator_id.into()))
+            .with_context(|| format!("Coudln't pack emoji request: {}: {}", emoji, creator_id))?;
+
+        let p = emoji_api::emoji_post(&self.raw, image.clone(), &obj).await;
+        Ok(t!(p)
+            .with_context(|| format!("Couldn't create emoji: {}: {}", emoji, image.display()))?)
     }
 
     /// Post a message to the channel.
