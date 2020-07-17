@@ -311,7 +311,23 @@ pub async fn emoji_post(configuration: &configuration::Configuration, image: std
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
     let mut form = reqwest::multipart::Form::new();
-    // TODO: support file upload for 'image' parameter
+    // TODO: use async fs
+    let mut f = std::fs::File::open(image.clone()).unwrap();
+    use std::io::Read;
+    let mut b = Vec::<u8>::new();
+    f.read_to_end(&mut b).unwrap();
+    form = form.part(
+        "image",
+        reqwest::multipart::Part::bytes(b)
+            .file_name(
+                image
+                    .file_name()
+                    .map(|p| p.to_string_lossy().to_string())
+                    .unwrap_or_else(|| "".into()),
+            )
+            .mime_str(mime_guess::from_path(image).first_or_octet_stream().as_ref())
+            .unwrap(),
+    );
     form = form.text("emoji", emoji.to_string());
     req_builder = req_builder.multipart(form);
 

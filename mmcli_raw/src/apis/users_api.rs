@@ -1819,7 +1819,23 @@ pub async fn users_user_id_image_post(configuration: &configuration::Configurati
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
     let mut form = reqwest::multipart::Form::new();
-    // TODO: support file upload for 'image' parameter
+    // TODO: use async fs
+    let mut f = std::fs::File::open(image.clone()).unwrap();
+    use std::io::Read;
+    let mut b = Vec::<u8>::new();
+    f.read_to_end(&mut b).unwrap();
+    form = form.part(
+        "image",
+        reqwest::multipart::Part::bytes(b)
+            .file_name(
+                image
+                    .file_name()
+                    .map(|p| p.to_string_lossy().to_string())
+                    .unwrap_or_else(|| "".into()),
+            )
+            .mime_str(mime_guess::from_path(image).first_or_octet_stream().as_ref())
+            .unwrap(),
+    );
     req_builder = req_builder.multipart(form);
 
     let req = req_builder.build()?;

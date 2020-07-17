@@ -787,7 +787,23 @@ pub async fn teams_team_id_image_post(configuration: &configuration::Configurati
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
     let mut form = reqwest::multipart::Form::new();
-    // TODO: support file upload for 'image' parameter
+    // TODO: use async fs
+    let mut f = std::fs::File::open(image.clone()).unwrap();
+    use std::io::Read;
+    let mut b = Vec::<u8>::new();
+    f.read_to_end(&mut b).unwrap();
+    form = form.part(
+        "image",
+        reqwest::multipart::Part::bytes(b)
+            .file_name(
+                image
+                    .file_name()
+                    .map(|p| p.to_string_lossy().to_string())
+                    .unwrap_or_else(|| "".into()),
+            )
+            .mime_str(mime_guess::from_path(image).first_or_octet_stream().as_ref())
+            .unwrap(),
+    );
     req_builder = req_builder.multipart(form);
 
     let req = req_builder.build()?;
@@ -820,7 +836,23 @@ pub async fn teams_team_id_import_post(configuration: &configuration::Configurat
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
     let mut form = reqwest::multipart::Form::new();
-    // TODO: support file upload for 'file' parameter
+    // TODO: use async fs
+    let mut f = std::fs::File::open(file.clone()).unwrap();
+    use std::io::Read;
+    let mut b = Vec::<u8>::new();
+    f.read_to_end(&mut b).unwrap();
+    form = form.part(
+        "file",
+        reqwest::multipart::Part::bytes(b)
+            .file_name(
+                file
+                    .file_name()
+                    .map(|p| p.to_string_lossy().to_string())
+                    .unwrap_or_else(|| "".into()),
+            )
+            .mime_str(mime_guess::from_path(file).first_or_octet_stream().as_ref())
+            .unwrap(),
+    );
     form = form.text("filesize", filesize.to_string());
     form = form.text("importFrom", import_from.to_string());
     req_builder = req_builder.multipart(form);

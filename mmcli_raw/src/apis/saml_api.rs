@@ -149,7 +149,23 @@ pub async fn saml_certificate_idp_post(configuration: &configuration::Configurat
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
     let mut form = reqwest::multipart::Form::new();
-    // TODO: support file upload for 'certificate' parameter
+    // TODO: use async fs
+    let mut f = std::fs::File::open(certificate.clone()).unwrap();
+    use std::io::Read;
+    let mut b = Vec::<u8>::new();
+    f.read_to_end(&mut b).unwrap();
+    form = form.part(
+        "certificate",
+        reqwest::multipart::Part::bytes(b)
+            .file_name(
+                certificate
+                    .file_name()
+                    .map(|p| p.to_string_lossy().to_string())
+                    .unwrap_or_else(|| "".into()),
+            )
+            .mime_str(mime_guess::from_path(certificate).first_or_octet_stream().as_ref())
+            .unwrap(),
+    );
     req_builder = req_builder.multipart(form);
 
     let req = req_builder.build()?;
@@ -212,7 +228,23 @@ pub async fn saml_certificate_private_post(configuration: &configuration::Config
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
     let mut form = reqwest::multipart::Form::new();
-    // TODO: support file upload for 'certificate' parameter
+    // TODO: use async fs
+    let mut f = std::fs::File::open(certificate.clone()).unwrap();
+    use std::io::Read;
+    let mut b = Vec::<u8>::new();
+    f.read_to_end(&mut b).unwrap();
+    form = form.part(
+        "certificate",
+        reqwest::multipart::Part::bytes(b)
+            .file_name(
+                certificate
+                    .file_name()
+                    .map(|p| p.to_string_lossy().to_string())
+                    .unwrap_or_else(|| "".into()),
+            )
+            .mime_str(mime_guess::from_path(certificate).first_or_octet_stream().as_ref())
+            .unwrap(),
+    );
     req_builder = req_builder.multipart(form);
 
     let req = req_builder.build()?;
@@ -275,7 +307,23 @@ pub async fn saml_certificate_public_post(configuration: &configuration::Configu
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
     let mut form = reqwest::multipart::Form::new();
-    // TODO: support file upload for 'certificate' parameter
+    // TODO: use async fs
+    let mut f = std::fs::File::open(certificate.clone()).unwrap();
+    use std::io::Read;
+    let mut b = Vec::<u8>::new();
+    f.read_to_end(&mut b).unwrap();
+    form = form.part(
+        "certificate",
+        reqwest::multipart::Part::bytes(b)
+            .file_name(
+                certificate
+                    .file_name()
+                    .map(|p| p.to_string_lossy().to_string())
+                    .unwrap_or_else(|| "".into()),
+            )
+            .mime_str(mime_guess::from_path(certificate).first_or_octet_stream().as_ref())
+            .unwrap(),
+    );
     req_builder = req_builder.multipart(form);
 
     let req = req_builder.build()?;

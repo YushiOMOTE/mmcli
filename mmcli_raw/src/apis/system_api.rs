@@ -728,7 +728,23 @@ pub async fn license_post(configuration: &configuration::Configuration, license:
         req_builder = req_builder.bearer_auth(token.to_owned());
     };
     let mut form = reqwest::multipart::Form::new();
-    // TODO: support file upload for 'license' parameter
+    // TODO: use async fs
+    let mut f = std::fs::File::open(license.clone()).unwrap();
+    use std::io::Read;
+    let mut b = Vec::<u8>::new();
+    f.read_to_end(&mut b).unwrap();
+    form = form.part(
+        "license",
+        reqwest::multipart::Part::bytes(b)
+            .file_name(
+                license
+                    .file_name()
+                    .map(|p| p.to_string_lossy().to_string())
+                    .unwrap_or_else(|| "".into()),
+            )
+            .mime_str(mime_guess::from_path(license).first_or_octet_stream().as_ref())
+            .unwrap(),
+    );
     req_builder = req_builder.multipart(form);
 
     let req = req_builder.build()?;

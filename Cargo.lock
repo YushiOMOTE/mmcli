@@ -714,7 +714,7 @@ dependencies = [
 name = "mmcli-raw"
 version = "0.1.0"
 dependencies = [
- "log",
+ "mime_guess",
  "reqwest",
  "serde",
  "serde_derive",
