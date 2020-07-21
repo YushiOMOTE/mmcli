@@ -77,6 +77,7 @@ docs/EnvironmentConfigSqlSettings.md
 docs/EnvironmentConfigSupportSettings.md
 docs/EnvironmentConfigTeamSettings.md
 docs/FileInfo.md
+docs/FilesApi.md
 docs/Group.md
 docs/GroupSyncableChannel.md
 docs/GroupSyncableChannels.md
@@ -170,10 +171,12 @@ docs/InlineObject83.md
 docs/InlineObject84.md
 docs/InlineObject85.md
 docs/InlineObject86.md
+docs/InlineObject87.md
 docs/InlineObject9.md
 docs/InlineResponse200.md
 docs/InlineResponse2001.md
 docs/InlineResponse20010.md
+docs/InlineResponse20011.md
 docs/InlineResponse2002.md
 docs/InlineResponse2003.md
 docs/InlineResponse2004.md
@@ -182,6 +185,7 @@ docs/InlineResponse2006.md
 docs/InlineResponse2007.md
 docs/InlineResponse2008.md
 docs/InlineResponse2009.md
+docs/InlineResponse201.md
 docs/IntegrationActionsApi.md
 docs/Job.md
 docs/JobsApi.md
@@ -266,6 +270,7 @@ src/apis/configuration.rs
 src/apis/dataretention_api.rs
 src/apis/elasticsearch_api.rs
 src/apis/emoji_api.rs
+src/apis/files_api.rs
 src/apis/integration_actions_api.rs
 src/apis/jobs_api.rs
 src/apis/mod.rs
@@ -444,10 +449,12 @@ src/models/inline_object_83.rs
 src/models/inline_object_84.rs
 src/models/inline_object_85.rs
 src/models/inline_object_86.rs
+src/models/inline_object_87.rs
 src/models/inline_object_9.rs
 src/models/inline_response_200.rs
 src/models/inline_response_200_1.rs
 src/models/inline_response_200_10.rs
+src/models/inline_response_200_11.rs
 src/models/inline_response_200_2.rs
 src/models/inline_response_200_3.rs
 src/models/inline_response_200_4.rs
@@ -456,6 +463,7 @@ src/models/inline_response_200_6.rs
 src/models/inline_response_200_7.rs
 src/models/inline_response_200_8.rs
 src/models/inline_response_200_9.rs
+src/models/inline_response_201.rs
 src/models/job.rs
 src/models/ldap_group.rs
 src/models/ldap_groups_paged.rs

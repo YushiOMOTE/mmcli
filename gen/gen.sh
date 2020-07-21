@@ -41,6 +41,7 @@ cat $spec_src/opengraph.yaml >> $spec_path
 cat $spec_src/reactions.yaml >> $spec_path
 cat $spec_src/actions.yaml >> $spec_path
 cat $spec_src/bots.yaml >> $spec_path
+cat $root/gen/files.yaml >> $spec_path
 cat $spec_src/definitions.yaml >> $spec_path
 popd
 

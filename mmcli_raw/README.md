@@ -110,6 +110,13 @@ Class | Method | HTTP request | Description
 *EmojiApi* | [**emoji_name_emoji_name_get**](docs/EmojiApi.md#emoji_name_emoji_name_get) | **get** /emoji/name/{emoji_name} | Get a custom emoji by name
 *EmojiApi* | [**emoji_post**](docs/EmojiApi.md#emoji_post) | **post** /emoji | Create a custom emoji
 *EmojiApi* | [**emoji_search_post**](docs/EmojiApi.md#emoji_search_post) | **post** /emoji/search | Search custom emoji
+*FilesApi* | [**files_file_id_get**](docs/FilesApi.md#files_file_id_get) | **get** /files/{file_id} | Get a file
+*FilesApi* | [**files_file_id_info_get**](docs/FilesApi.md#files_file_id_info_get) | **get** /files/{file_id}/info | Get metadata for a file
+*FilesApi* | [**files_file_id_link_get**](docs/FilesApi.md#files_file_id_link_get) | **get** /files/{file_id}/link | Get a public file link
+*FilesApi* | [**files_file_id_preview_get**](docs/FilesApi.md#files_file_id_preview_get) | **get** /files/{file_id}/preview | Get a file's preview
+*FilesApi* | [**files_file_id_public_get**](docs/FilesApi.md#files_file_id_public_get) | **get** /files/{file_id}/public | Get a public file
+*FilesApi* | [**files_file_id_thumbnail_get**](docs/FilesApi.md#files_file_id_thumbnail_get) | **get** /files/{file_id}/thumbnail | Get a file's thumbnail
+*FilesApi* | [**files_post**](docs/FilesApi.md#files_post) | **post** /files | Upload a file
 *IntegrationActionsApi* | [**actions_dialogs_open_post**](docs/IntegrationActionsApi.md#actions_dialogs_open_post) | **post** /actions/dialogs/open | Open a dialog
 *IntegrationActionsApi* | [**actions_dialogs_submit_post**](docs/IntegrationActionsApi.md#actions_dialogs_submit_post) | **post** /actions/dialogs/submit | Submit a dialog
 *JobsApi* | [**jobs_get**](docs/JobsApi.md#jobs_get) | **get** /jobs | Get the jobs.
@@ -469,10 +476,12 @@ Class | Method | HTTP request | Description
  - [InlineObject84](docs/InlineObject84.md)
  - [InlineObject85](docs/InlineObject85.md)
  - [InlineObject86](docs/InlineObject86.md)
+ - [InlineObject87](docs/InlineObject87.md)
  - [InlineObject9](docs/InlineObject9.md)
  - [InlineResponse200](docs/InlineResponse200.md)
  - [InlineResponse2001](docs/InlineResponse2001.md)
  - [InlineResponse20010](docs/InlineResponse20010.md)
+ - [InlineResponse20011](docs/InlineResponse20011.md)
  - [InlineResponse2002](docs/InlineResponse2002.md)
  - [InlineResponse2003](docs/InlineResponse2003.md)
  - [InlineResponse2004](docs/InlineResponse2004.md)
@@ -481,6 +490,7 @@ Class | Method | HTTP request | Description
  - [InlineResponse2007](docs/InlineResponse2007.md)
  - [InlineResponse2008](docs/InlineResponse2008.md)
  - [InlineResponse2009](docs/InlineResponse2009.md)
+ - [InlineResponse201](docs/InlineResponse201.md)
  - [Job](docs/Job.md)
  - [LdapGroup](docs/LdapGroup.md)
  - [LdapGroupsPaged](docs/LdapGroupsPaged.md)

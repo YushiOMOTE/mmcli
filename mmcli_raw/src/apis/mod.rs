@@ -48,6 +48,7 @@ pub mod compliance_api;
 pub mod dataretention_api;
 pub mod elasticsearch_api;
 pub mod emoji_api;
+pub mod files_api;
 pub mod integration_actions_api;
 pub mod jobs_api;
 pub mod o_auth_api;
