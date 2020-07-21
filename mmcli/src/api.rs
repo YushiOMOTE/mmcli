@@ -11,8 +11,11 @@ use mmcli_raw::{
     models,
 };
 use serde::{de::DeserializeOwned, Deserialize, Serialize};
-use std::path::PathBuf;
-use tokio::sync::mpsc;
+use std::{path::PathBuf, time::Duration};
+use tokio::{
+    sync::mpsc,
+    time::{delay_for, interval},
+};
 use tokio_tungstenite::{connect_async, tungstenite::protocol::Message as WsMessage};
 
 macro_rules! t {
@@ -136,6 +139,13 @@ pub struct Config {
     pub webhook_token: Option<String>,
     #[new(default)]
     pub disable_tls: bool,
+    #[new(value = "Duration::from_secs(3)")]
+    pub reconnect_interval: Duration,
+}
+
+enum Req {
+    Msg(WsMessage),
+    Login(String),
 }
 
 type Sender = mpsc::UnboundedSender<WsMessage>;
@@ -156,6 +166,77 @@ impl Drop for Api {
     }
 }
 
+async fn run_session(url: &url::Url, up_rx: &mut Receiver, down_tx: &Sender) -> Result<()> {
+    let (mut sock, _) = connect_async(url)
+        .await
+        .with_context(|| format!("Couldn't connect websocket: {}", url))?;
+
+    let mut hbs = interval(Duration::from_secs(5));
+
+    loop {
+        enum E<A, B, C> {
+            A(A),
+            B(B),
+            C(C),
+        }
+
+        let msg = tokio::select! {
+            up = up_rx.next() => { E::A(up) },
+            down = sock.next() => { E::B(down) },
+            hb = hbs.next() => { E::C(hb) },
+        };
+
+        match msg {
+            E::A(up) => {
+                let m = match up {
+                    None => break,
+                    Some(m) => m,
+                };
+
+                if let Err(e) = sock.send(m).await {
+                    bail!("Couldn't send websocket message: {}", e);
+                }
+            }
+            E::B(down) => {
+                let m = match down {
+                    None => break,
+                    Some(Ok(m)) => m,
+                    Some(Err(e)) => {
+                        bail!("Couldn't receive websocket message: {}", e);
+                    }
+                };
+                match &m {
+                    WsMessage::Ping(p) => {
+                        if let Err(e) = sock.send(WsMessage::Pong(p.to_vec())).await {
+                            bail!("Couldn't send websocket pong: {}", e);
+                        }
+                    }
+                    WsMessage::Pong(_) => {
+                        continue;
+                    }
+                    WsMessage::Close(_) => {
+                        let _ = down_tx.send(m);
+                        info!("Connection closed by peer");
+                        break;
+                    }
+                    _ => {}
+                }
+
+                if let Err(_) = down_tx.send(m) {
+                    break;
+                }
+            }
+            E::C(_) => {
+                if let Err(e) = sock.send(WsMessage::Ping(vec![])).await {
+                    bail!("Couldn't send websocket ping: {}", e);
+                }
+            }
+        }
+    }
+
+    Ok(())
+}
+
 impl Api {
     /// Create a new client instance.
     pub async fn new(cfg: Config) -> Result<Self> {
@@ -173,79 +254,14 @@ impl Api {
         let url =
             url::Url::parse(&urlstr).with_context(|| format!("Couldn't parse url: {}", urlstr))?;
 
-        let (mut sock, _) = connect_async(url)
-            .await
-            .with_context(|| format!("Couldn't connect websocket: {}", urlstr))?;
-
         let (up_tx, mut up_rx) = mpsc::unbounded_channel();
         let (down_tx, down_rx) = mpsc::unbounded_channel();
+        let reconn_interval = cfg.reconnect_interval.clone();
 
         let (task, handle) = abortable(async move {
-            let mut hbs = tokio::time::interval(std::time::Duration::from_secs(5));
-
-            loop {
-                enum E<A, B, C> {
-                    A(A),
-                    B(B),
-                    C(C),
-                }
-
-                let msg = tokio::select! {
-                    up = up_rx.next() => { E::A(up) },
-                    down = sock.next() => { E::B(down) },
-                    hb = hbs.next() => { E::C(hb) },
-                };
-
-                match msg {
-                    E::A(up) => {
-                        let m = match up {
-                            None => break,
-                            Some(m) => m,
-                        };
-
-                        if let Err(e) = sock.send(m).await {
-                            error!("Couldn't send websocket message: {}", e);
-                            break;
-                        }
-                    }
-                    E::B(down) => {
-                        let m = match down {
-                            None => break,
-                            Some(Ok(m)) => m,
-                            Some(Err(e)) => {
-                                error!("Couldn't receive websocket message: {}", e);
-                                break;
-                            }
-                        };
-                        match &m {
-                            WsMessage::Ping(p) => {
-                                if let Err(e) = sock.send(WsMessage::Pong(p.to_vec())).await {
-                                    error!("Couldn't send websocket pong: {}", e);
-                                    break;
-                                }
-                            }
-                            WsMessage::Pong(_) => {
-                                continue;
-                            }
-                            WsMessage::Close(_) => {
-                                let _ = down_tx.send(m);
-                                info!("Connection closed by peer");
-                                break;
-                            }
-                            _ => {}
-                        }
-
-                        if let Err(_) = down_tx.send(m) {
-                            break;
-                        }
-                    }
-                    E::C(_) => {
-                        if let Err(e) = sock.send(WsMessage::Ping(vec![])).await {
-                            error!("Couldn't send websocket ping: {}", e);
-                            break;
-                        }
-                    }
-                }
+            while let Err(e) = run_session(&url, &mut up_rx, &down_tx).await {
+                error!("Web socket session closed, reconnecting: {}", e);
+                delay_for(reconn_interval).await;
             }
         });
 
@@ -370,6 +386,20 @@ impl Api {
         } else {
             bail!("Webhook is not configured")
         }
+    }
+
+    /// Upload a file
+    pub async fn upload_file(
+        &mut self,
+        file: &std::path::Path,
+        channel_id: &str,
+    ) -> Result<Vec<models::FileInfo>> {
+        let p = files_api::files_post(&self.raw, Some(file.to_path_buf()), Some(channel_id), None)
+            .await;
+        let infos = t!(p)
+            .with_context(|| format!("Couldn't upload file: {}: {}", file.display(), channel_id))?;
+
+        Ok(infos.file_infos.unwrap_or_else(|| vec![]))
     }
 
     /// Get user info by usernames
